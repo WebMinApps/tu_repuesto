@@ -78,4 +78,8 @@
     "markdown.preview.breaks": true,
     "rest-client.decodeEscapedUnicodeCharacters": true,
     "files.autoGuessEncoding": true,
+    "search.exclude": {
+        "**/bower_components": false,
+        "**/node_modules": false
+    },
 }
