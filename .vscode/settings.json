@@ -1,6 +1,8 @@
 {
+    "workbench.colorTheme": "Abyss",
+    "rest-client.fontFamily": "Fira Code Light",
+    "editor.colorDecorators": true,
     "git.ignoreMissingGitWarning": true,
-    "update.mode": "manual",
     "editor.fontSize": 10,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
@@ -15,8 +17,7 @@
     "editor.find.autoFindInSelection": true,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.formatOnType": false,
-    "rest-client.decodeEscapedUnicodeCharacters": true,
+    "editor.formatOnType": true,
     "rest-client.fontSize": 9,
     "rest-client.fontWeight": "normal",
     "php.validate.executablePath": "z:\\xampp\\php\\php.exe",
@@ -27,10 +28,9 @@
     "breadcrumbs.enabled": true,
     "workbench.iconTheme": "material-icon-theme",
     "rest-client.followredirect": false,
-    "rest-client.fontFamily": "Fira Code Light",
     "rest-client.previewResponsePanelTakeFocus": false,
     "rest-client.previewResponseInUntitledDocument": true,
-    "workbench.colorTheme": "Abyss",
+
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
     "editor.suggestSelection": "first",
@@ -71,5 +71,11 @@
             "language": "javascript",
             "autoFix": true
         }
-    ]
+    ],
+    "jshint.options": {
+        "esversion": 6
+    },
+    "markdown.preview.breaks": true,
+    "rest-client.decodeEscapedUnicodeCharacters": true,
+    "files.autoGuessEncoding": true,
 }

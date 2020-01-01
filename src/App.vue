@@ -11,18 +11,18 @@
 </template>
 
 <script>
-import AppBar from '@/components/shared/static/appbar.vue'
+import AppBar from '@/components/shared/static/appbar.vue';
 
 export default {
-  name: 'App',
-  components: {
-    'app-bar': AppBar
-  },
-  data: () => ({
+    name: 'App',
+    components: {
+        'app-bar': AppBar
+    },
+    data: () => ({
     //
-  }),
-  computed () {
+    }),
+    computed () {
 
-  }
-}
+    }
+};
 </script>

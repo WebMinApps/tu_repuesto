@@ -34,15 +34,25 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-menu bottom left>
+      <v-menu
+        bottom
+        left
+      >
         <template v-slot:activator="{ on }">
-          <v-btn icon color="yellow" v-on="on">
+          <v-btn
+            icon
+            color="yellow"
+            v-on="on"
+          >
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
@@ -53,9 +63,9 @@
 
 <script>
 export default {
-  data: () => ({
-    collapseOnScroll: false
-  })
+    data: () => ({
+        collapseOnScroll: false
+    })
 };
 </script>
 
