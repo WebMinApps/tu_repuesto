@@ -1,7 +1,3 @@
-.castf {
-    color: #bb4040;
-}
-
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -33,4 +29,8 @@
 ::-moz-scrollbar-thumb {
     background: #ad012c;
     border: thin solid #525252;
+}
+
+.text--capital {
+    text-transform: capitalize;
 }

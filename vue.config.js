@@ -2,13 +2,13 @@
 module.exports = {
     lintOnSave: true,
     pwa: {
-        name: 'Tu Repuesto',
-        workboxPluginMode: 'InjectManifest'
+        name: 'Tu Repuesto'
+
     },
-    assetsDir: 'assets',
-    runtimeCompiler: false,
+    assetsDir: '',
+    runtimeCompiler: true,
     css: {
-        requireModuleExtension: false
+        requireModuleExtension: true
     },
-    productionSourceMap: false
+    productionSourceMap: true
 };
