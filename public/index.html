@@ -3,20 +3,148 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+    <meta name="description" content="rapido, repuestos, autos, busca tus repuestos consultando en un solo luar sin moverte de donde  estas...">
+    <meta property="application-name" content="Tu Repuesto">
+    <meta property="og:title" content="Tu Repuesto">
+    <meta property="og:description" content="rapido, repuestos, autos, busca tus repuestos consultando en un solo luar sin moverte de donde  estas...">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= BASE_URL %>">
+    <meta property="og:image" content="<%= BASE_URL %>img/icons/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Tu Repuesto">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#eee">
+    <meta name="robots" content="noodp">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <style>
-      htnl{
-        color:black;
-      }
-    </style>
-    <title>tu_repuesto</title>
+    <title>Tu Repuesto</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but tu_repuesto doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+              <strong>
+          Lo sentimos pero este sitio web no funciona adecuadamente si JavaScript esta deshabilitado. Por
+          favor habilitelo para continuar.
+        </strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+    <div class="showbox">
+        <div class="mainloader">
+          <div class="image_holder"></div>
+          <br>
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <style>
+        body{
+          background-color: #303030;
+        }
+
+        html {
+          font-family: Arial, Helvetica, sans-serif;
+          overflow:hidden;
+        }
+
+        .image_holder {
+          max-width:100%%;
+          max-height:100%;
+          width: 410px;
+          height: 45px;
+          background: url('./img/logominidark.png');
+          background-repeat: no-repeat;
+          background-size:contain;
+          background-position: center center;
+        }
+
+        .mainloader {
+          text-align: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        /*border: 1px solid #ff0000;*/
+          width: 410px;
+          height: 200px;
+        }
+
+        .loader {
+          position: relative;
+          margin: 0 auto;
+          width: 100px;
+        }
+
+        .loader:before{
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .circular {
+          animation: rotate 2s linear infinite;
+          height: 100%;
+          transform-origin: center center;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+
+        .path {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+          animation: dash 2.0s ease-in-out infinite, color 3s ease-in-out infinite;
+          stroke-linecap: round;
+        }
+
+        @keyframes rotate {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes dash {
+          0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+          }
+          50% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -35px;
+          }
+          100% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -124px;
+          }
+        }
+
+        @keyframes color {
+          100%,
+          0% {
+            //stroke: #d62d20;
+            stroke: #d62d20;
+          }
+          40% {
+            //stroke: #0057e7;
+            stroke: #d62d20;
+          }
+          66% {
+            //stroke: #008744;
+            stroke: #d62d20;
+          }
+          80%,
+          90% {
+            stroke: #d62d20;
+          }
+        }
+      </style>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

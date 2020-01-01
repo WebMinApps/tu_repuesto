@@ -4,14 +4,14 @@ module.exports = {
     node: true
   },
   'extends': [
-    'plugin:vue/strongly-recommended',
+    'plugin:vue/essential',
     '@vue/standard'
   ],
   rules: {
     'no-console': 'off',
-    'no-debugger': 'off'
+    'no-debugger': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint'
   }
-}
+};
