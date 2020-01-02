@@ -1,6 +1,6 @@
 <template>
   <span>
-    publicidad
+    publicidad2
   </span>
 </template>
 

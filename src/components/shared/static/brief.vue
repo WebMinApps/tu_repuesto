@@ -7,16 +7,21 @@
         class="my-5"
         align-center
       >
-        <v-flex
-          xs12
-          sm4
-          class="my-3"
+        <v-row
+          align="center"
+          justify="center"
         >
-          <div class="text-xs-center">
-            <h2 class="headline">La mejor forma de encontrar el repuesto que buscas</h2>
-            <span class="subheading">Consulta desde aqui</span>
-          </div>
-        </v-flex>
+          <v-col
+            class="text-center"
+            cols="12"
+          >
+            <div class="text-xs-center">
+              <h2 class="headline">La mejor forma de encontrar el repuesto que buscas</h2>
+              <span class="subheading">Consulta desde aqui</span>
+            </div>
+          </v-col>
+        </v-row>
+
         <v-flex xs12>
           <v-container grid-list-xl>
             <v-layout
