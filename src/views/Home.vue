@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import askform from '@/components/shared/static/askform.vue';
-import brief from '@/components/shared/static/brief.vue';
+import askform from '@/components/static/askform.vue';
+import brief from '@/components/static/brief.vue';
 
 export default {
     components: {

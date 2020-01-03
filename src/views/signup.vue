@@ -1,7 +1,5 @@
 <template>
-  <span>
-    publicidad
-  </span>
+  <span>Signup</span>
 </template>
 
 <script>

@@ -7,7 +7,4 @@ export default {};
 </script>
 
 <style>
-.efx {
-  color: red;
-}
 </style>
