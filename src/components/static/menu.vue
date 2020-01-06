@@ -7,7 +7,7 @@
         left
         :dark="dark"
       >
-        <template v-slot:activator="{ on }">
+        <template v-slot:activator="{on}">
           <v-btn
             text
             :dark="dark"
@@ -72,7 +72,7 @@
           left
           :dark="dark"
         >
-          <template v-slot:activator="{ on }">
+          <template v-slot:activator="{on}">
             <v-btn
               text
               :dark="dark"
@@ -129,12 +129,10 @@ export default {
     dark: {
       type: Boolean,
       required: false,
-      default: false
     },
     login: {
       type: Boolean,
       required: false,
-      default: false
     }
   }
 

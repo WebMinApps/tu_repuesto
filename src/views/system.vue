@@ -7,10 +7,10 @@
     >
       <v-layout>
         <v-flex>
-          <app-sysmenu></app-sysmenu>
+          <app-sysmenu />
         </v-flex>
         <v-flex xs12>
-          <router-view></router-view>
+          <router-view />
         </v-flex>
       </v-layout>
     </v-container>
@@ -20,14 +20,14 @@
 import sysmenu from '@/components/static/sysmenu.vue';
 
 export default {
+  components: {
+    'app-sysmenu': sysmenu
+  },
   data: () => ({
 
   }),
   computed: {
 
-  },
-  components: {
-    'app-sysmenu': sysmenu
   }
 };
 </script>

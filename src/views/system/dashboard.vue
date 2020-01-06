@@ -2,14 +2,15 @@
   <v-container>
     <v-layout>
       <app-panel>
-        <template slot="title">Resumen</template>
+        <template slot="title">
+          Resumen
+        </template>
         <template slot="buttons">
           <v-btn icon>
             <v-icon>mdi-refresh</v-icon>
           </v-btn>
         </template>
         <v-card-text>
-
           <app-tooltip
             bottom
             tooltip="Abrir ventana"
@@ -26,7 +27,8 @@
               <template slot="activator">
                 <v-icon>mdi-home</v-icon>
               </template>
-              <p align="justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci enim dolores, a rerum quo fugit, exercitationem distinctio, magni rem quidem deserunt! Enim obcaecati soluta dicta ab in expedita veniam nam!
+              <p align="justify">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci enim dolores, a rerum quo fugit, exercitationem distinctio, magni rem quidem deserunt! Enim obcaecati soluta dicta ab in expedita veniam nam!
               </p>
               <template slot="footer">
                 ads

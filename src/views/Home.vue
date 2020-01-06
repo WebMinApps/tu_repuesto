@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <app-askform></app-askform>
-    <app-brief></app-brief>
+    <app-askform />
+    <app-brief />
   </div>
 </template>
 

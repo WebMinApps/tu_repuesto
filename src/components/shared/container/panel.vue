@@ -11,13 +11,13 @@
           class="primary"
           :style="stylecss"
         >
-          <slot name="title"></slot>
-          <v-spacer></v-spacer>
-          <slot name="buttons"></slot>
+          <slot name="title" />
+          <v-spacer />
+          <slot name="buttons" />
         </v-card-title>
-        <slot></slot>
-        <v-divider v-if="divide"></v-divider>
-        <slot name="footer"></slot>
+        <slot />
+        <v-divider v-if="divide" />
+        <slot name="footer" />
       </v-card>
     </v-flex>
   </v-layout>
@@ -29,7 +29,6 @@ export default {
     notitle: {
       required: false,
       type: Boolean,
-      default: false
     },
     width: {
       required: false,

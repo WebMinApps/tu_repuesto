@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
-    :dark="darkness"
     v-model="drawer"
+    :dark="darkness"
     :permanent="permanent"
     :mini-variant="mini"
     :clipped="clip"
@@ -10,8 +10,8 @@
     class="height-all"
   >
     <v-toolbar
-      dense
       v-if="!mini"
+      dense
     >
       <v-toolbar-title>
         <span v-if="!mini">Username</span>
@@ -29,17 +29,16 @@
             right
             :tooltip="m.name"
           >
-            <v-icon v-text="m.icon"></v-icon>
+            <v-icon v-text="m.icon" />
           </app-tooltip>
         </v-list-item-avatar>
-        <v-list-item-title v-text="m.name">
-        </v-list-item-title>
+        <v-list-item-title v-text="m.name" />
       </v-list-item>
 
       <v-list-item @click="mini = !mini">
         <v-list-item-title>
           <center>
-            <v-icon>mdi-chevron-{{mini?'right':'left'}}</v-icon>
+            <v-icon>mdi-chevron-{{ mini ? 'right' : 'left' }}</v-icon>
           </center>
         </v-list-item-title>
       </v-list-item>
@@ -68,23 +67,23 @@ export default {
       }
     ]
   }),
-  watch: {
-    '$vuetify.breakpoint.smAndDown' () {
-      this.mini = this.$vuetify.breakpoint.smAndDown;
-    }
-  },
   computed: {
     darkness () {
       return this.$store.getters.ui_g_dark;
     }
   },
-  methods: {
-    changetheme () {
-
+  watch: {
+    '$vuetify.breakpoint.smAndDown' () {
+      this.mini = this.$vuetify.breakpoint.smAndDown;
     }
   },
   created () {
     this.mini = this.$vuetify.breakpoint.smAndDown;
+  },
+  methods: {
+    changetheme () {
+
+    }
   }
 
 };

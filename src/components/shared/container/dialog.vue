@@ -5,45 +5,45 @@
       :icon="icon"
       @click="openWindow"
     >
-      <slot name="activator"></slot>
+      <slot name="activator" />
     </v-btn>
     <v-dialog
+      v-model="dialog"
       :fullscreen="fullscreen"
       :width="width"
-      v-model="dialog"
       :dark="darkness"
       :persistent="persistent"
     >
       <app-panel :notitle="notitle">
         <v-btn
+          v-if="notitle"
           :height="height"
           :width="width"
-          v-if="notitle"
           text
-          @click="closeWindow"
           fab
           x-small
           absolute
           style="position:absolute;top:0px;right:0px"
+          @click="closeWindow"
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <template slot="title">
-          <slot name="title"></slot>
+          <slot name="title" />
         </template>
         <template slot="buttons">
-          <slot name="buttons"></slot>
+          <slot name="buttons" />
           <template v-if="togglefull">
             <app-tooltip
               bottom
-              :tooltip="fullscreen?'Cerrar Pantalla Completa':'Pantalla Completa'"
+              :tooltip="fullscreen ? 'Cerrar Pantalla Completa' : 'Pantalla Completa'"
             >
               <v-btn
                 icon
                 @click="toogleFullScreen"
               >
                 <v-icon>
-                  mdi-fullscreen{{fullscreen?'-exit':''}}
+                  mdi-fullscreen{{ fullscreen ? '-exit' : '' }}
                 </v-icon>
               </v-btn>
             </app-tooltip>
@@ -61,7 +61,7 @@
           </app-tooltip>
         </template>
         <v-card-text>
-          <slot></slot>
+          <slot />
         </v-card-text>
       </app-panel>
     </v-dialog>
@@ -74,27 +74,22 @@ export default {
     icon: {
       type: Boolean,
       required: false,
-      default: false
     },
     fullscreen: {
       required: false,
       type: Boolean,
-      default: false
     },
     persistent: {
       required: false,
       type: Boolean,
-      default: false
     },
     notitle: {
       required: false,
       type: Boolean,
-      default: false
     },
     togglefull: {
       required: false,
       type: Boolean,
-      default: false
     },
     height: {
       required: false,
@@ -109,7 +104,6 @@ export default {
     divide: {
       required: false,
       type: Boolean,
-      default: false
     }
   },
   data: () => ({

@@ -7,17 +7,17 @@
     :top="top"
     :bottom="bottom"
   >
-    <template v-slot:activator="{ on }">
+    <template v-slot:activator="{on}">
       <span v-on="on">
-        <slot></slot>
+        <slot />
       </span>
     </template>
     <span v-if="value">
       <span
-        v-html="html"
         v-if="html"
-      ></span>
-      <span v-else>{{tooltip}}</span>
+        v-html="html"
+      />
+      <span v-else>{{ tooltip }}</span>
     </span>
   </v-tooltip>
 </template>
@@ -43,25 +43,22 @@ export default {
     left: {
       required: false,
       type: Boolean,
-      default: false
     },
     right: {
       required: false,
       type: Boolean,
-      default: false
     },
     top: {
       required: false,
       type: Boolean,
-      default: false
     },
     bottom: {
       required: false,
       type: Boolean,
-      default: false
     },
     value: {
       required: false,
+      type: String,
       default: ''
     }
   },

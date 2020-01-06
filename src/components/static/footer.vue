@@ -7,7 +7,7 @@
       <v-flex
         xs12
         sm4
-      ></v-flex>
+      />
       <v-flex
         xs12
         sm4
@@ -17,39 +17,39 @@
             src="@/assets/img/logominidark.png"
             height="15px"
             contain
-          ></v-img>
+          />
         </v-container>
       </v-flex>
       <v-flex
         xs12
         sm4
       >
-
         <v-layout>
-          <v-spacer></v-spacer>
+          <v-spacer />
           <template v-for="s in social">
             <app-tooltip
+              :key="'ttp-' + s.name"
               top
               :tooltip="s.name"
               :color="s.color"
-              :key="'ttp-'+s.name"
             >
               <a
-                class="anone"
-                :href="'link'+s.link"
                 :key="s.name"
+                class="anone"
+                :href="'link' + s.link"
               >
                 <v-btn
-                  icon
                   :key="s.name"
+                  icon
                 >
-                  <v-icon :color="s.color">{{s.icon}}</v-icon>
+                  <v-icon :color="s.color">{{ s.icon }}</v-icon>
                 </v-btn>
-              </a></app-tooltip>
+              </a>
+            </app-tooltip>
             <v-spacer
+              :key="'spacer' + s.name"
               class="d-sm-none"
-              :key="'spacer'+s.name"
-            ></v-spacer>
+            />
           </template>
         </v-layout>
       </v-flex>

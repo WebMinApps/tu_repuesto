@@ -1,6 +1,6 @@
 <template>
   <span>
-    <script-alerts-transition></script-alerts-transition>
+    <script-alerts-transition />
   </span>
 </template>
 
