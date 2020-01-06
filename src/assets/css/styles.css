@@ -65,7 +65,6 @@
   /* IE6-9 */
 }
 
-
 .text--capital {
   text-transform: capitalize;
 }
@@ -78,4 +77,12 @@
   .titlemargin {
     height: 56px !important;
   }
+}
+
+.anone {
+  text-decoration: none;
+}
+
+.primary--color {
+  color: #970202
 }

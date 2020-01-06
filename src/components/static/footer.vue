@@ -29,6 +29,7 @@
           <v-spacer></v-spacer>
           <template v-for="s in social">
             <a
+              class="anone"
               :href="'link'+s.link"
               :key="s.name"
             >
@@ -36,7 +37,7 @@
                 icon
                 :key="s.name"
               >
-                <v-icon>{{s.icon}}</v-icon>
+                <v-icon :color="s.color">{{s.icon}}</v-icon>
               </v-btn>
             </a>
             <v-spacer
@@ -57,15 +58,15 @@ export default {
             {
                 name: 'Facebook',
                 icon: 'mdi-facebook-box',
-                link: 'https://facebook.com'
+                link: 'https://facebook.com', color: '#048'
             }, {
                 name: 'Instagram',
                 icon: 'mdi-instagram',
-                link: 'https://facebook.com'
+                link: 'https://instagram.com', color: '#b3a'
             }, {
                 name: 'Twitter',
                 icon: 'mdi-twitter',
-                link: 'https://facebook.com'
+                link: 'https://twitter.com', color: '#09d'
             },
         ]
     })

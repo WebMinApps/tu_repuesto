@@ -62,10 +62,18 @@ export default {
             }
         ]
     }),
+    watch: {
+        '$vuetify.breakpoint.smAndDown' () {
+            this.mini = this.$vuetify.breakpoint.smAndDown;
+        }
+    },
     computed: {
         darkness () {
             return this.$store.getters.ui_g_dark;
-        },
+        }
+    },
+    created () {
+        this.mini = this.$vuetify.breakpoint.smAndDown;
     }
 
 };

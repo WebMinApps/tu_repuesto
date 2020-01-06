@@ -1,3 +1,4 @@
+/* eslint-ignore */
 function isNew(icon) {
   return icon.version === "4.7.95";
 }
@@ -15,8 +16,8 @@ function copyText(text) {
   copyFrom.select();
   document.execCommand("copy");
   var copied = document.createElement("div");
-  copied.setAttribute("class", "copied");
-  copied.appendChild(document.createTextNode("Copied to Clipboard"));
+  copied.setAttribute("class", 'copied');
+  copied.appendChild(document.createTextNode('Copied to Clipboard'));
   document.body.appendChild(copied);
   setTimeout(function() {
     document.body.removeChild(copyFrom);
