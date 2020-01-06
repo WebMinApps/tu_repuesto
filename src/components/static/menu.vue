@@ -26,7 +26,6 @@
         </v-list>
       </v-menu>
       <template v-if="$vuetify.breakpoint.smAndUp">
-
         <v-btn
           to="/"
           text
@@ -126,18 +125,18 @@
 
 <script>
 export default {
-    props: {
-        dark: {
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        login: {
-            type: Boolean,
-            required: false,
-            default: false
-        }
+  props: {
+    dark: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    login: {
+      type: Boolean,
+      required: false,
+      default: false
     }
+  }
 
 };
 </script>

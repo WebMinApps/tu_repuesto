@@ -70,63 +70,68 @@
 
 <script>
 export default {
-    props: {
-        icon: {
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        fullscreen: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
-        persistent: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
-        notitle: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
-        togglefull: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
-        height: {
-            required: false,
-            type: String,
-            default: '300'
-        },
-        width: {
-            required: false,
-            type: String,
-            default: '300'
-        },
+  props: {
+    icon: {
+      type: Boolean,
+      required: false,
+      default: false
     },
-    data: () => ({
-        dialog: false
-    }),
-    computed: {
-        darkness () {
-            return this.$store.getters.ui_g_dark;
-        }
+    fullscreen: {
+      required: false,
+      type: Boolean,
+      default: false
     },
-    methods: {
-        openWindow () {
-            this.dialog = true;
-        },
-        closeWindow () {
-            this.dialog = false;
-        },
-        toogleFullScreen () {
-            this.fullscreen = !this.fullscreen;
-        }
-
+    persistent: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    notitle: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    togglefull: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    height: {
+      required: false,
+      type: String,
+      default: '300'
+    },
+    width: {
+      required: false,
+      type: String,
+      default: '300'
+    },
+    divide: {
+      required: false,
+      type: Boolean,
+      default: false
     }
+  },
+  data: () => ({
+    dialog: false
+  }),
+  computed: {
+    darkness () {
+      return this.$store.getters.ui_g_dark;
+    }
+  },
+  methods: {
+    openWindow () {
+      this.dialog = true;
+    },
+    closeWindow () {
+      this.dialog = false;
+    },
+    toogleFullScreen () {
+      this.fullscreen = !this.fullscreen;
+    }
+
+  }
 };
 </script>
 

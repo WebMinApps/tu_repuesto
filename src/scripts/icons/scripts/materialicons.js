@@ -1,7 +1,8 @@
-/* eslint-ignore */
+/* eslint-disable */
 function isNew(icon) {
   return icon.version === "4.7.95";
 }
+
 function isDeprecated(icon) {
   return typeof icon.deprecated == "undefined" ? false : icon.deprecated;
 }

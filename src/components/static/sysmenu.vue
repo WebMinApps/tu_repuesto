@@ -24,7 +24,13 @@
         :to="m.url"
       >
         <v-list-item-avatar>
-          <v-icon v-text="m.icon"></v-icon>
+          <app-tooltip
+            :value="mini"
+            right
+            :tooltip="m.name"
+          >
+            <v-icon v-text="m.icon"></v-icon>
+          </app-tooltip>
         </v-list-item-avatar>
         <v-list-item-title v-text="m.name">
         </v-list-item-title>
@@ -43,38 +49,43 @@
 
 <script>
 export default {
-    data: () => ({
-        drawer: true,
-        permanent: true,
-        mini: false,
-        clip: true,
-        fixed: false,
-        menu: [
-            {
-                name: 'Resumen',
-                icon: 'mdi-view-dashboard',
-                url: '/system/dashboard'
-            },
-            {
-                name: 'Usuarios',
-                icon: 'mdi-account-group',
-                url: '/system/users'
-            }
-        ]
-    }),
-    watch: {
-        '$vuetify.breakpoint.smAndDown' () {
-            this.mini = this.$vuetify.breakpoint.smAndDown;
-        }
-    },
-    computed: {
-        darkness () {
-            return this.$store.getters.ui_g_dark;
-        }
-    },
-    created () {
-        this.mini = this.$vuetify.breakpoint.smAndDown;
+  data: () => ({
+    drawer: true,
+    permanent: true,
+    mini: false,
+    clip: true,
+    fixed: false,
+    menu: [
+      {
+        name: 'Resumen',
+        icon: 'mdi-view-dashboard',
+        url: '/system/dashboard'
+      },
+      {
+        name: 'Usuarios',
+        icon: 'mdi-account-group',
+        url: '/system/users'
+      }
+    ]
+  }),
+  watch: {
+    '$vuetify.breakpoint.smAndDown' () {
+      this.mini = this.$vuetify.breakpoint.smAndDown;
     }
+  },
+  computed: {
+    darkness () {
+      return this.$store.getters.ui_g_dark;
+    }
+  },
+  methods: {
+    changetheme () {
+
+    }
+  },
+  created () {
+    this.mini = this.$vuetify.breakpoint.smAndDown;
+  }
 
 };
 </script>

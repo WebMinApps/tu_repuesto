@@ -15,41 +15,41 @@ const routes = [{
     path: '/',
     name: 'home',
     component: Home
-},
-{
+  },
+  {
     path: '/signin',
     name: 'sign_user_in',
     component: SignIn
-},
-{
+  },
+  {
     path: '/signun',
     name: 'sign_user_up',
     component: SignUp
-},
-{
+  },
+  {
     path: '/system',
     redirect: {
-        name: 'dashboard'
+      name: 'dashboard'
     },
     component: System,
     children: [{
         path: 'dashboard',
         name: 'dashboard',
         component: Dashboard,
-    },
-    {
+      },
+      {
         path: 'users',
         name: 'users',
         component: Users,
-    }
+      }
     ]
-}
+  }
 ];
 
 const router = new VueRouter({
-    /* mode: 'history',*/
-    base: process.env.BASE_URL,
-    routes
+  /* mode: 'history',*/
+  base: process.env.BASE_URL,
+  routes
 });
 
 export default router;

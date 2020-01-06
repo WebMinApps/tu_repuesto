@@ -20,15 +20,15 @@
 import sysmenu from '@/components/static/sysmenu.vue';
 
 export default {
-    data: () => ({
+  data: () => ({
 
-    }),
-    computed: {
+  }),
+  computed: {
 
-    },
-    components: {
-        'app-sysmenu': sysmenu
-    }
+  },
+  components: {
+    'app-sysmenu': sysmenu
+  }
 };
 </script>
 

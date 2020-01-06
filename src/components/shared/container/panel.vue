@@ -16,6 +16,8 @@
           <slot name="buttons"></slot>
         </v-card-title>
         <slot></slot>
+        <v-divider v-if="divide"></v-divider>
+        <slot name="footer"></slot>
       </v-card>
     </v-flex>
   </v-layout>
@@ -23,40 +25,45 @@
 
 <script>
 export default {
-    props: {
-        notitle: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
-        width: {
-            required: false,
-            type: String,
-            default: ''
-        },
-        height: {
-            required: false,
-            type: String,
-            default: ''
-        },
+  props: {
+    notitle: {
+      required: false,
+      type: Boolean,
+      default: false
     },
-    data: () => ({
-        stylecss: {
-            'margin-top': '0px',
-            'margin-bottom': '10px',
-            'margin-left': '0px',
-            'margin-right': '0px',
-            'padding-top': '5px',
-            'padding-bottom': '5px',
-            'padding-left': '14px',
-            'padding-right': '14px',
-        }
-    }),
-    computed: {
-        darkness () {
-            return this.$store.getters.ui_g_dark;
-        }
+    width: {
+      required: false,
+      type: String,
+      default: ''
+    },
+    height: {
+      required: false,
+      type: String,
+      default: ''
+    },
+    divide: {
+      required: false,
+      type: Boolean,
+      defualt: false
     }
+  },
+  data: () => ({
+    stylecss: {
+      'margin-top': '0px',
+      'margin-bottom': '10px',
+      'margin-left': '0px',
+      'margin-right': '0px',
+      'padding-top': '5px',
+      'padding-bottom': '5px',
+      'padding-left': '14px',
+      'padding-right': '14px',
+    }
+  }),
+  computed: {
+    darkness () {
+      return this.$store.getters.ui_g_dark;
+    }
+  }
 };
 </script>
 

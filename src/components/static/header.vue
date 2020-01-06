@@ -63,29 +63,29 @@
 <script>
 import menu from '@/components/static/menu';
 export default {
-    props: {
-        login: {
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        notifications: {
-            type: Array,
-            required: false,
-            default: () => {
-                return [];
-            }
-        },
-        dark: {
-            type: Boolean,
-            required: false,
-            default: false
-        }
+  props: {
+    login: {
+      type: Boolean,
+      required: false,
+      default: false
     },
-    data: () => ({}),
-    components: {
-        'app-menu': menu
+    notifications: {
+      type: Array,
+      required: false,
+      default: () => {
+        return [];
+      }
+    },
+    dark: {
+      type: Boolean,
+      required: false,
+      default: false
     }
+  },
+  data: () => ({}),
+  components: {
+    'app-menu': menu
+  }
 
 };
 </script>

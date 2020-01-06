@@ -3,9 +3,9 @@ import mutations from './mutations.js';
 import actions from './actions.js';
 
 export default {
-    modules: {
-        getters,
-        mutations,
-        actions
-    }
+  modules: {
+    getters,
+    mutations,
+    actions
+  }
 };

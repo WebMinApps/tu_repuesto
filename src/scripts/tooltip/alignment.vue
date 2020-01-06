@@ -36,8 +36,8 @@
     <v-tooltip right>
       <template v-slot:activator="{ on }">
         <v-btn
-          color="primary"
           dark
+          color="primary"
           v-on="on"
         >Right</v-btn>
       </template>

@@ -28,18 +28,24 @@
         <v-layout>
           <v-spacer></v-spacer>
           <template v-for="s in social">
-            <a
-              class="anone"
-              :href="'link'+s.link"
-              :key="s.name"
+            <app-tooltip
+              top
+              :tooltip="s.name"
+              :color="s.color"
+              :key="'ttp-'+s.name"
             >
-              <v-btn
-                icon
+              <a
+                class="anone"
+                :href="'link'+s.link"
                 :key="s.name"
               >
-                <v-icon :color="s.color">{{s.icon}}</v-icon>
-              </v-btn>
-            </a>
+                <v-btn
+                  icon
+                  :key="s.name"
+                >
+                  <v-icon :color="s.color">{{s.icon}}</v-icon>
+                </v-btn>
+              </a></app-tooltip>
             <v-spacer
               class="d-sm-none"
               :key="'spacer'+s.name"
@@ -53,23 +59,23 @@
 
 <script>
 export default {
-    data: () => ({
-        social: [
-            {
-                name: 'Facebook',
-                icon: 'mdi-facebook-box',
-                link: 'https://facebook.com', color: '#048'
-            }, {
-                name: 'Instagram',
-                icon: 'mdi-instagram',
-                link: 'https://instagram.com', color: '#b3a'
-            }, {
-                name: 'Twitter',
-                icon: 'mdi-twitter',
-                link: 'https://twitter.com', color: '#09d'
-            },
-        ]
-    })
+  data: () => ({
+    social: [
+      {
+        name: 'Facebook',
+        icon: 'mdi-facebook-box',
+        link: 'https://facebook.com', color: '#048'
+      }, {
+        name: 'Instagram',
+        icon: 'mdi-instagram',
+        link: 'https://instagram.com', color: '#b3a'
+      }, {
+        name: 'Twitter',
+        icon: 'mdi-twitter',
+        link: 'https://twitter.com', color: '#09d'
+      },
+    ]
+  })
 };
 </script>
 

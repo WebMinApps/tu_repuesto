@@ -19,29 +19,27 @@ import footer from '@/components/static/footer';
 
 
 export default {
-    data: () => ({
-
-    }),
-    computed: {
-        darkness () {
-            return this.$store.getters.ui_g_dark;
-        },
-        login () {
-            return true;
-        },
-        notifications () {
-            let notifications = [
-                {
-                    type: 1,
-                    stype: 2,
-                }
-            ];
-            return notifications;
+  data: () => ({}),
+  computed: {
+    darkness () {
+      return this.$store.getters.ui_g_dark;
+    },
+    login () {
+      return true;
+    },
+    notifications () {
+      let notifications = [
+        {
+          type: 1,
+          stype: 2,
         }
-    }, components: {
-        'app-header': header,
-        'app-footer': footer,
+      ];
+      return notifications;
     }
+  }, components: {
+    'app-header': header,
+    'app-footer': footer,
+  }
 };
 
 

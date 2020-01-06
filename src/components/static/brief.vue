@@ -134,11 +134,11 @@
 
 <script>
 export default {
-    computed: {
-        darkness () {
-            return this.$store.getters.ui_g_dark;
-        }
+  computed: {
+    darkness () {
+      return this.$store.getters.ui_g_dark;
     }
+  }
 };
 </script>
 
