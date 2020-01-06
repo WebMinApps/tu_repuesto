@@ -1,10 +1,21 @@
 <template>
   <div class="text-center">
-    <v-btn dark color="indigo" @click="snackbar = true">Open Snackbar</v-btn>
+    <v-btn
+      dark
+      color="indigo"
+      @click="snackbar = true"
+    >Open Snackbar</v-btn>
 
-    <v-snackbar v-model="snackbar" :vertical="vertical">
+    <v-snackbar
+      v-model="snackbar"
+      :vertical="vertical"
+    >
       {{ text }}
-      <v-btn color="indigo" text @click="snackbar = false">Close</v-btn>
+      <v-btn
+        color="indigo"
+        text
+        @click="snackbar = false"
+      >Close</v-btn>
     </v-snackbar>
   </div>
 </template>
@@ -16,10 +27,10 @@ The vertical property allows you to stack the content of your v-snackbar.
 */
 
 export default {
-  data: () => ({
-    snackbar: false,
-    text: "Lorem ipsum dolor sit amet",
-    vertical: true
-  })
+    data: () => ({
+        snackbar: false,
+        text: 'Lorem ipsum dolor sit amet',
+        vertical: true
+    })
 };
 </script>

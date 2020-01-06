@@ -6,9 +6,18 @@
       <v-icon @click="model++">mdi-plus</v-icon>
     </v-row>
     <v-row justify="space-around">
-      <v-switch v-model="showArrows" label="Show arrows"></v-switch>
-      <v-switch v-model="hideDelimiters" label="Hide delimiters"></v-switch>
-      <v-switch v-model="cycle" label="Cycle"></v-switch>
+      <v-switch
+        v-model="showArrows"
+        label="Show arrows"
+      ></v-switch>
+      <v-switch
+        v-model="hideDelimiters"
+        label="Hide delimiters"
+      ></v-switch>
+      <v-switch
+        v-model="cycle"
+        label="Cycle"
+      ></v-switch>
     </v-row>
     <v-carousel
       v-model="model"
@@ -16,9 +25,20 @@
       :hide-delimiters="hideDelimiters"
       :cycle="cycle"
     >
-      <v-carousel-item v-for="(color, i) in colors" :key="color">
-        <v-sheet :color="color" height="100%" tile>
-          <v-row class="fill-height" align="center" justify="center">
+      <v-carousel-item
+        v-for="(color, i) in colors"
+        :key="color"
+      >
+        <v-sheet
+          :color="color"
+          height="100%"
+          tile
+        >
+          <v-row
+            class="fill-height"
+            align="center"
+            justify="center"
+          >
             <div class="display-3">Slide {{ i + 1 }}</div>
           </v-row>
         </v-sheet>
@@ -29,14 +49,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      colors: ["primary", "secondary", "yellow darken-2", "red", "orange"],
-      model: 0,
-      showArrows: true,
-      hideDelimiters: false,
-      cycle: false
-    };
-  }
+    data () {
+        return {
+            colors: ['primary', 'secondary', 'yellow darken-2', 'red', 'orange'],
+            model: 0,
+            showArrows: true,
+            hideDelimiters: false,
+            cycle: false
+        };
+    }
 };
 </script>

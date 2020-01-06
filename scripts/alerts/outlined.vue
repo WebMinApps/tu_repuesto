@@ -1,6 +1,9 @@
 <template>
   <div>
-    <v-alert outlined color="purple">
+    <v-alert
+      outlined
+      color="purple"
+    >
       <div class="title">Lorem Ipsum</div>
       <div>Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Duis vel nibh at velit scelerisque suscipit. Praesent blandit laoreet nibh. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros.</div>
     </v-alert>

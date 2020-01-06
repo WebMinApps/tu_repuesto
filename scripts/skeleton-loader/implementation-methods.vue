@@ -1,7 +1,10 @@
 <template>
   <v-container class="grey lighten-4">
     <div class="text-center d-flex justify-center align-center mb-12 flex-wrap">
-      <v-btn class="mx-12 my-4" @click="loading = !loading">Toggle</v-btn>
+      <v-btn
+        class="mx-12 my-4"
+        @click="loading = !loading"
+      >Toggle</v-btn>
 
       <v-select
         v-model="transition"
@@ -14,11 +17,18 @@
     </div>
 
     <v-row justify="center">
-      <v-col class="text-center" cols="12">
+      <v-col
+        class="text-center"
+        cols="12"
+      >
         <div class="headline">Default Slot</div>
       </v-col>
 
-      <v-col class="mb-12" cols="12" md="4">
+      <v-col
+        class="mb-12"
+        cols="12"
+        md="4"
+      >
         <v-skeleton-loader
           :loading="loading"
           :transition="transition"
@@ -32,16 +42,29 @@
         </v-skeleton-loader>
       </v-col>
 
-      <v-col class="text-center" cols="12">
+      <v-col
+        class="text-center"
+        cols="12"
+      >
         <div class="headline">
           If conditional
           <br />w/Transition Element
         </div>
       </v-col>
 
-      <v-col cols="12" md="4">
-        <component :is="transition !== 'None' ? `v-${transition}` : 'div'" hide-on-leave>
-          <v-skeleton-loader v-if="loading" height="94" type="list-item-two-line"></v-skeleton-loader>
+      <v-col
+        cols="12"
+        md="4"
+      >
+        <component
+          :is="transition !== 'None' ? `v-${transition}` : 'div'"
+          hide-on-leave
+        >
+          <v-skeleton-loader
+            v-if="loading"
+            height="94"
+            type="list-item-two-line"
+          ></v-skeleton-loader>
 
           <v-card v-else>
             <v-card-title>Title</v-card-title>
@@ -62,23 +85,23 @@ There are 2 ways that you can utilize the v-skeleton-component. The default slot
 */
 
 export default {
-  data: () => ({
-    loading: true,
-    transition: "scale-transition",
-    transitions: [
-      {
-        text: "None",
-        value: undefined
-      },
-      {
-        text: "Fade Transition",
-        value: "fade-transition"
-      },
-      {
-        text: "Scale Transition",
-        value: "scale-transition"
-      }
-    ]
-  })
+    data: () => ({
+        loading: true,
+        transition: 'scale-transition',
+        transitions: [
+            {
+                text: 'None',
+                value: undefined
+            },
+            {
+                text: 'Fade Transition',
+                value: 'fade-transition'
+            },
+            {
+                text: 'Scale Transition',
+                value: 'scale-transition'
+            }
+        ]
+    })
 };
 </script>

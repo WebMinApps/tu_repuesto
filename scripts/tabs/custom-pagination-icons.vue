@@ -8,7 +8,11 @@
       show-arrows
     >
       <v-tabs-slider color="yellow"></v-tabs-slider>
-      <v-tab v-for="i in 30" :key="i" :href="'#tab-' + i">Item {{ i }}</v-tab>
+      <v-tab
+        v-for="i in 30"
+        :key="i"
+        :href="'#tab-' + i"
+      >Item {{ i }}</v-tab>
     </v-tabs>
   </v-sheet>
 </template>

@@ -1,10 +1,21 @@
 <template>
   <div class="text-center">
-    <v-btn dark color="red darken-2" @click="snackbar = true">Open Snackbar</v-btn>
+    <v-btn
+      dark
+      color="red darken-2"
+      @click="snackbar = true"
+    >Open Snackbar</v-btn>
 
-    <v-snackbar v-model="snackbar" :multi-line="multiLine">
+    <v-snackbar
+      v-model="snackbar"
+      :multi-line="multiLine"
+    >
       {{ text }}
-      <v-btn color="red" text @click="snackbar = false">Close</v-btn>
+      <v-btn
+        color="red"
+        text
+        @click="snackbar = false"
+      >Close</v-btn>
     </v-snackbar>
   </div>
 </template>
@@ -16,10 +27,10 @@ The multi-line property extends the height of the v-snackbar to give you a littl
 */
 
 export default {
-  data: () => ({
-    multiLine: true,
-    snackbar: false,
-    text: "I'm a multi-line snackbar."
-  })
+    data: () => ({
+        multiLine: true,
+        snackbar: false,
+        text: 'I\'m a multi-line snackbar.'
+    })
 };
 </script>

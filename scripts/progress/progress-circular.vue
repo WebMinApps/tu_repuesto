@@ -4,7 +4,11 @@
 
     <v-progress-circular :value="40"></v-progress-circular>
 
-    <v-progress-circular :size="50" :rotate="1" :value="60"></v-progress-circular>
+    <v-progress-circular
+      :size="50"
+      :rotate="1"
+      :value="60"
+    ></v-progress-circular>
 
     <v-progress-circular :value="80"></v-progress-circular>
 

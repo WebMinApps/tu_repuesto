@@ -1,5 +1,5 @@
 <template>
-  <div class="home">asdasdads
+  <div class="home">
     <app-askform></app-askform>
     <app-brief></app-brief>
   </div>

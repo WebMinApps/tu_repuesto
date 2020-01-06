@@ -1,6 +1,12 @@
 <template>
   <v-card>
-    <v-tabs v-model="tab" background-color="deep-purple accent-4" centered dark icons-and-text>
+    <v-tabs
+      v-model="tab"
+      background-color="deep-purple accent-4"
+      centered
+      dark
+      icons-and-text
+    >
       <v-tabs-slider></v-tabs-slider>
 
       <v-tab href="#tab-1">
@@ -20,7 +26,11 @@
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item v-for="i in 3" :key="i" :value="'tab-' + i">
+      <v-tab-item
+        v-for="i in 3"
+        :key="i"
+        :value="'tab-' + i"
+      >
         <v-card flat>
           <v-card-text>{{ text }}</v-card-text>
         </v-card>
@@ -36,12 +46,12 @@ Al utilizar la prop icons-and-text puedes agregar íconos a cada elemento tab.
 */
 
 export default {
-  data() {
-    return {
-      tab: null,
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    };
-  }
+    data () {
+        return {
+            tab: null,
+            text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        };
+    }
 };
 </script>

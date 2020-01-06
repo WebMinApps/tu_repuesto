@@ -26,7 +26,11 @@
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-sheet id="scrolling-techniques" class="overflow-y-auto" max-height="600">
+    <v-sheet
+      id="scrolling-techniques"
+      class="overflow-y-auto"
+      max-height="600"
+    >
       <v-container style="height: 1000px;"></v-container>
     </v-sheet>
   </v-card>

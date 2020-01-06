@@ -1,9 +1,6 @@
 <template>
   <div>
-    <v-row
-
-      justify="center"
-    >
+    <v-row justify="center">
       <v-col
         cols="6"
         md="4"
@@ -138,19 +135,19 @@
 </template>
 
 <script>
-  export default {
+export default {
     data: () => ({
-      elevateOnScroll: false,
-      hideOnScroll: false,
-      fadeOnScroll: false,
-      fadeImgOnScroll: false,
-      invertedScroll: false,
-      collapse: false,
-      collapseOnScroll: false,
-      shrinkOnScroll: false,
-      extended: false,
-      color: 'accent',
-      colors: ['primary', 'accent', 'warning lighten-2', 'teal', 'orange'],
+        elevateOnScroll: false,
+        hideOnScroll: false,
+        fadeOnScroll: false,
+        fadeImgOnScroll: false,
+        invertedScroll: false,
+        collapse: false,
+        collapseOnScroll: false,
+        shrinkOnScroll: false,
+        extended: false,
+        color: 'accent',
+        colors: ['primary', 'accent', 'warning lighten-2', 'teal', 'orange'],
     }),
-  }
+};
 </script>

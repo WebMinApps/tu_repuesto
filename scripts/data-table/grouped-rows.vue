@@ -16,59 +16,59 @@ Using the group-by and group-desc props you can group rows on an item property. 
 */
 
 export default {
-  data() {
-    return {
-      headers: [
-        {
-          text: "Dessert (100g serving)",
-          align: "left",
-          value: "name"
-        },
-        { text: "Category", value: "category" }
-      ],
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          category: "Ice cream"
-        },
-        {
-          name: "Ice cream sandwich",
-          category: "Ice cream"
-        },
-        {
-          name: "Eclair",
-          category: "Cookie"
-        },
-        {
-          name: "Cupcake",
-          category: "Pastry"
-        },
-        {
-          name: "Gingerbread",
-          category: "Cookie"
-        },
-        {
-          name: "Jelly bean",
-          category: "Candy"
-        },
-        {
-          name: "Lollipop",
-          category: "Candy"
-        },
-        {
-          name: "Honeycomb",
-          category: "Toffee"
-        },
-        {
-          name: "Donut",
-          category: "Pastry"
-        },
-        {
-          name: "KitKat",
-          category: "Candy"
-        }
-      ]
-    };
-  }
+    data () {
+        return {
+            headers: [
+                {
+                    text: 'Dessert (100g serving)',
+                    align: 'left',
+                    value: 'name'
+                },
+                { text: 'Category', value: 'category' }
+            ],
+            desserts: [
+                {
+                    name: 'Frozen Yogurt',
+                    category: 'Ice cream'
+                },
+                {
+                    name: 'Ice cream sandwich',
+                    category: 'Ice cream'
+                },
+                {
+                    name: 'Eclair',
+                    category: 'Cookie'
+                },
+                {
+                    name: 'Cupcake',
+                    category: 'Pastry'
+                },
+                {
+                    name: 'Gingerbread',
+                    category: 'Cookie'
+                },
+                {
+                    name: 'Jelly bean',
+                    category: 'Candy'
+                },
+                {
+                    name: 'Lollipop',
+                    category: 'Candy'
+                },
+                {
+                    name: 'Honeycomb',
+                    category: 'Toffee'
+                },
+                {
+                    name: 'Donut',
+                    category: 'Pastry'
+                },
+                {
+                    name: 'KitKat',
+                    category: 'Candy'
+                }
+            ]
+        };
+    }
 };
 </script>

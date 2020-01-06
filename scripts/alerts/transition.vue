@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="text-center mb-4">
-      <v-btn color="primary" @click="alert = !alert">Toggle</v-btn>
+      <v-btn
+        color="primary"
+        @click="alert = !alert"
+      >Toggle</v-btn>
     </div>
     <v-alert
       :value="alert"
@@ -23,10 +26,10 @@ The transition prop allows you to apply a transition to the alert which is viewa
 */
 
 export default {
-  data() {
-    return {
-      alert: true
-    };
-  }
+    data () {
+        return {
+            alert: true
+        };
+    }
 };
 </script>

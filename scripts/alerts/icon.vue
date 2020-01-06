@@ -24,7 +24,6 @@
 
 <script>
 /*
-Ícono
 The icon prop allows you to add an icon to the beginning of the alert component. If a type is provided, this will override the default type icon. Additionally setting the icon prop to false will remove the icon altogether.
 */
 

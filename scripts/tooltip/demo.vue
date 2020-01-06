@@ -2,14 +2,22 @@
   <div class="text-center d-flex align-center">
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">Button</v-btn>
+        <v-btn
+          color="primary"
+          dark
+          v-on="on"
+        >Button</v-btn>
       </template>
       <span>Tooltip</span>
     </v-tooltip>
 
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-icon color="primary" dark v-on="on">mdi-home</v-icon>
+        <v-icon
+          color="primary"
+          dark
+          v-on="on"
+        >mdi-home</v-icon>
       </template>
       <span>Tooltip</span>
     </v-tooltip>

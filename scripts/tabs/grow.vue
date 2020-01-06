@@ -4,13 +4,27 @@
       <h1 class="font-weight-bold display-3 basil--text">BASiL</h1>
     </v-card-title>
 
-    <v-tabs v-model="tab" background-color="transparent" color="basil" grow>
-      <v-tab v-for="item in items" :key="item">{{ item }}</v-tab>
+    <v-tabs
+      v-model="tab"
+      background-color="transparent"
+      color="basil"
+      grow
+    >
+      <v-tab
+        v-for="item in items"
+        :key="item"
+      >{{ item }}</v-tab>
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item v-for="item in items" :key="item">
-        <v-card flat color="basil">
+      <v-tab-item
+        v-for="item in items"
+        :key="item"
+      >
+        <v-card
+          flat
+          color="basil"
+        >
           <v-card-text>{{ text }}</v-card-text>
         </v-card>
       </v-tab-item>
@@ -25,14 +39,14 @@ La prop grow hará que todos los elementos tab abarquen el alto disponible.
 */
 
 export default {
-  data() {
-    return {
-      tab: null,
-      items: ["Appetizers", "Entrees", "Deserts", "Cocktails"],
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    };
-  }
+    data () {
+        return {
+            tab: null,
+            items: ['Appetizers', 'Entrees', 'Deserts', 'Cocktails'],
+            text:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        };
+    }
 };
 </script>
 

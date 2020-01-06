@@ -17,6 +17,6 @@ In its simplest form, v-progress-linear displays a horizontal progress bar. Use 
 */
 
 export default {
-    
-}
+
+};
 </script>

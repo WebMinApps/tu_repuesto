@@ -11,7 +11,10 @@
       scroll-target="#scrolling-techniques-3"
     >
       <template v-slot:img="{ props }">
-        <v-img v-bind="props" gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"></v-img>
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+        ></v-img>
       </template>
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -33,14 +36,21 @@
       </v-btn>
 
       <template v-slot:extension>
-        <v-tabs align-with-title background-color="transparent">
+        <v-tabs
+          align-with-title
+          background-color="transparent"
+        >
           <v-tab>Tab 1</v-tab>
           <v-tab>Tab 2</v-tab>
           <v-tab>Tab 3</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
-    <v-sheet id="scrolling-techniques-3" class="overflow-y-auto" max-height="600">
+    <v-sheet
+      id="scrolling-techniques-3"
+      class="overflow-y-auto"
+      max-height="600"
+    >
       <v-container style="height: 1000px;"></v-container>
     </v-sheet>
   </v-card>

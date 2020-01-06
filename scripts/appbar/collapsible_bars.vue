@@ -14,9 +14,17 @@
 
       <v-spacer></v-spacer>
 
-      <v-checkbox v-model="collapseOnScroll" color="white" hide-details></v-checkbox>
+      <v-checkbox
+        v-model="collapseOnScroll"
+        color="white"
+        hide-details
+      ></v-checkbox>
     </v-app-bar>
-    <v-sheet id="scrolling-techniques-6" class="overflow-y-auto" max-height="600">
+    <v-sheet
+      id="scrolling-techniques-6"
+      class="overflow-y-auto"
+      max-height="600"
+    >
       <v-container style="height: 1000px;"></v-container>
     </v-sheet>
   </v-card>
@@ -29,8 +37,8 @@ With the collapse and collapse-on-scroll props you can easily control the state 
 */
 
 export default {
-  data: () => ({
-    collapseOnScroll: true
-  })
+    data: () => ({
+        collapseOnScroll: true
+    })
 };
 </script>

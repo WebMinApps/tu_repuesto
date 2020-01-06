@@ -8,12 +8,9 @@ import admin from './db/admin/index.js';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {},
-    mutations: {},
-    actions: {},
     modules: {
-        ui,
-        user,
-        admin
+        ui: ui,
+        user: user,
+        admin: admin
     }
 });

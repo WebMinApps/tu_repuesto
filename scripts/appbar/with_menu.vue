@@ -11,7 +11,10 @@
       scroll-target="#scrolling-techniques-4"
     >
       <template v-slot:img="{ props }">
-        <v-img v-bind="props" gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"></v-img>
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+        ></v-img>
       </template>
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -28,29 +31,46 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-menu bottom left>
+      <v-menu
+        bottom
+        left
+      >
         <template v-slot:activator="{ on }">
-          <v-btn icon color="yellow" v-on="on">
+          <v-btn
+            icon
+            color="yellow"
+            v-on="on"
+          >
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
       <template v-slot:extension>
-        <v-tabs align-with-title background-color="transparent">
+        <v-tabs
+          align-with-title
+          background-color="transparent"
+        >
           <v-tab>Tab 1</v-tab>
           <v-tab>Tab 2</v-tab>
           <v-tab>Tab 3</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
-    <v-sheet id="scrolling-techniques-4" class="overflow-y-auto" max-height="600">
+    <v-sheet
+      id="scrolling-techniques-4"
+      class="overflow-y-auto"
+      max-height="600"
+    >
       <v-container style="height: 1000px;"></v-container>
     </v-sheet>
   </v-card>
@@ -64,13 +84,13 @@ You can easily extend the functionality of app bar by adding VMenu there. Click 
 */
 
 export default {
-  data: () => ({
-    items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" }
-    ]
-  })
+    data: () => ({
+        items: [
+            { title: 'Click Me' },
+            { title: 'Click Me' },
+            { title: 'Click Me' },
+            { title: 'Click Me 2' }
+        ]
+    })
 };
 </script>
