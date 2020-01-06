@@ -3,10 +3,11 @@ module.exports = {
   pwa: {
     name: 'Tu Repuesto'
   },
-  assetsDir: '',
+
+  assetsDir: 'assets',
   runtimeCompiler: true,
+
   css: {
     requireModuleExtension: true
-  },
-  productionSourceMap: true
+  }
 };
