@@ -41,7 +41,18 @@ module.exports = {
     'vue/block-spacing': 'warning',
     'vue/brace-style': 'warning',
     'vue/camelcase': 'error',
-    'vue/comma-dangle': 'error'
+    'vue/comma-dangle': 'error',
+    'vue/component-name-in-template-casing': 'error',
+    'vue/key-spacing': 'error',
+    'vue/match-component-file-name': 'error',
+    'vue/no-boolean-default': 'error',
+    'vue/no-restricted-syntax': 'error',
+    'vue/object-curly-spacing': 'error',
+    'vue/require-direct-export': 'error',
+    'vue/script-indent': 'error',
+    'vue/space-infix-ops': 'error',
+    'vue/space-unary-ops': 'error',
+    'vue/v-on-function-call': 'error'
   },
 
   'extends': [
