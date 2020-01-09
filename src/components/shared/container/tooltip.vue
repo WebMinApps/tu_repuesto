@@ -12,7 +12,7 @@
         <slot />
       </span>
     </template>
-    <span v-if="value">
+    <span>
       <span
         v-if="html"
         v-html="html"
@@ -24,49 +24,44 @@
 
 <script>
 export default {
-  props: {
-    html: {
-      required: false,
-      type: String,
-      default: ''
+    props: {
+        html: {
+            required: false,
+            type: String,
+            default: ''
+        },
+        tooltip: {
+            required: false,
+            type: String,
+            default: 'Tooltip misssing!!'
+        },
+        color: {
+            required: false,
+            type: String,
+            default: ''
+        },
+        left: {
+            required: false,
+            type: Boolean,
+        },
+        right: {
+            required: false,
+            type: Boolean,
+        },
+        top: {
+            required: false,
+            type: Boolean,
+        },
+        bottom: {
+            required: false,
+            type: Boolean,
+        }
     },
-    tooltip: {
-      required: false,
-      type: String,
-      default: 'Tooltip misssing!!'
-    },
-    color: {
-      required: false,
-      type: String,
-      default: ''
-    },
-    left: {
-      required: false,
-      type: Boolean,
-    },
-    right: {
-      required: false,
-      type: Boolean,
-    },
-    top: {
-      required: false,
-      type: Boolean,
-    },
-    bottom: {
-      required: false,
-      type: Boolean,
-    },
-    value: {
-      required: false,
-      type: String,
-      default: ''
+    computed: {
+        darkness () {
+            return this.$store.getters.ui_g_dark;
+        }
     }
-  },
-  computed: {
-    darkness () {
-      return this.$store.getters.ui_g_dark;
-    }
-  }
 };
 </script>
 

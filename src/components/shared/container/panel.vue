@@ -25,44 +25,44 @@
 
 <script>
 export default {
-  props: {
-    notitle: {
-      required: false,
-      type: Boolean,
+    props: {
+        notitle: {
+            required: false,
+            type: Boolean,
+        },
+        width: {
+            required: false,
+            type: String,
+            default: ''
+        },
+        height: {
+            required: false,
+            type: String,
+            default: ''
+        },
+        divide: {
+            required: false,
+            type: Boolean,
+            defualt: false
+        }
     },
-    width: {
-      required: false,
-      type: String,
-      default: ''
-    },
-    height: {
-      required: false,
-      type: String,
-      default: ''
-    },
-    divide: {
-      required: false,
-      type: Boolean,
-      defualt: false
+    data: () => ({
+        stylecss: {
+            'margin-top': '0px',
+            'margin-bottom': '10px',
+            'margin-left': '0px',
+            'margin-right': '0px',
+            'padding-top': '5px',
+            'padding-bottom': '5px',
+            'padding-left': '14px',
+            'padding-right': '14px',
+        }
+    }),
+    computed: {
+        darkness () {
+            return this.$store.getters.ui_g_dark;
+        }
     }
-  },
-  data: () => ({
-    stylecss: {
-      'margin-top': '0px',
-      'margin-bottom': '10px',
-      'margin-left': '0px',
-      'margin-right': '0px',
-      'padding-top': '5px',
-      'padding-bottom': '5px',
-      'padding-left': '14px',
-      'padding-right': '14px',
-    }
-  }),
-  computed: {
-    darkness () {
-      return this.$store.getters.ui_g_dark;
-    }
-  }
 };
 </script>
 

@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     indent: [
       'error',
-      2
+      4
     ],
     'linebreak-style': 0,
     quotes: [
@@ -49,7 +49,7 @@ module.exports = {
     'vue/no-restricted-syntax': 2,
     'vue/object-curly-spacing': 2,
     'vue/require-direct-export': 2,
-    'vue/script-indent': 2,
+    'vue/script-indent': 0,
     'vue/space-infix-ops': 2,
     'vue/space-unary-ops': 2,
     'vue/v-on-function-call': 'error'

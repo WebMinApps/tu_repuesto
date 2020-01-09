@@ -18,7 +18,6 @@
             <app-dialog
               icon
               persistent
-              togglefull
               divide
             >
               <template slot="title">
@@ -31,7 +30,17 @@
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci enim dolores, a rerum quo fugit, exercitationem distinctio, magni rem quidem deserunt! Enim obcaecati soluta dicta ab in expedita veniam nam!
               </p>
               <template slot="footer">
-                ads
+                <v-flex>
+                  <v-btn
+                    color="primary"
+                    @click="emitClose"
+                  >
+                    Close
+                  </v-btn>
+                  <v-btn color="success">
+                    OK
+                  </v-btn>
+                </v-flex>
               </template>
             </app-dialog>
           </app-tooltip>
@@ -43,6 +52,11 @@
 
 <script>
 export default {
+    methods: {
+        emitClose () {
+            this.$emit('close', event);
+        }
+    }
 
 };
 </script>

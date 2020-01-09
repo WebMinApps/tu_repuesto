@@ -59,23 +59,23 @@
 
 <script>
 export default {
-  data: () => ({
-    social: [
-      {
-        name: 'Facebook',
-        icon: 'mdi-facebook-box',
-        link: 'https://facebook.com', color: '#048'
-      }, {
-        name: 'Instagram',
-        icon: 'mdi-instagram',
-        link: 'https://instagram.com', color: '#b3a'
-      }, {
-        name: 'Twitter',
-        icon: 'mdi-twitter',
-        link: 'https://twitter.com', color: '#09d'
-      },
-    ]
-  })
+    data: () => ({
+        social: [
+            {
+                name: 'Facebook',
+                icon: 'mdi-facebook-box',
+                link: 'https://facebook.com', color: '#048'
+            }, {
+                name: 'Instagram',
+                icon: 'mdi-instagram',
+                link: 'https://instagram.com', color: '#b3a'
+            }, {
+                name: 'Twitter',
+                icon: 'mdi-twitter',
+                link: 'https://twitter.com', color: '#09d'
+            },
+        ]
+    })
 };
 </script>
 

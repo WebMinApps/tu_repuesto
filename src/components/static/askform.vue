@@ -54,19 +54,19 @@
 
 <script>
 import publicontainer from '@/components/shared/container/publicontainer.vue';
-import ask_form from '@/components/shared/forms/ask.vue';
+import ask_form from '@/components/shared/input/ask.vue';
 
 export default {
-  components: {
-    'app-pubmainask': publicontainer,
-    'app-ask-form': ask_form
-  },
-  data: () => ({
-  }),
-  computed: {
-  },
-  watch: {},
-  methods: {
-  }
+    components: {
+        'app-pubmainask': publicontainer,
+        'app-ask-form': ask_form
+    },
+    data: () => ({
+    }),
+    computed: {
+    },
+    watch: {},
+    methods: {
+    }
 };
 </script>

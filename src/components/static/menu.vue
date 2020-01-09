@@ -125,16 +125,16 @@
 
 <script>
 export default {
-  props: {
-    dark: {
-      type: Boolean,
-      required: false,
-    },
-    login: {
-      type: Boolean,
-      required: false,
+    props: {
+        dark: {
+            type: Boolean,
+            required: false,
+        },
+        login: {
+            type: Boolean,
+            required: false,
+        }
     }
-  }
 
 };
 </script>

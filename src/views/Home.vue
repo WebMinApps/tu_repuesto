@@ -10,9 +10,9 @@ import askform from '@/components/static/askform.vue';
 import brief from '@/components/static/brief.vue';
 
 export default {
-  components: {
-    'app-askform': askform,
-    'app-brief': brief
-  }
+    components: {
+        'app-askform': askform,
+        'app-brief': brief
+    }
 };
 </script>

@@ -13,6 +13,7 @@
       :width="width"
       :dark="darkness"
       :persistent="persistent"
+      @close="closeWindow"
     >
       <app-panel :notitle="notitle">
         <v-btn
@@ -63,6 +64,10 @@
         <v-card-text>
           <slot />
         </v-card-text>
+        <v-divider />
+        <v-card-actions>
+          <slot name="footer" />
+        </v-card-actions>
       </app-panel>
     </v-dialog>
   </span>
@@ -70,62 +75,62 @@
 
 <script>
 export default {
-  props: {
-    icon: {
-      type: Boolean,
-      required: false,
+    props: {
+        icon: {
+            type: Boolean,
+            required: false,
+        },
+        fullscreen: {
+            required: false,
+            type: Boolean,
+        },
+        persistent: {
+            required: false,
+            type: Boolean,
+        },
+        notitle: {
+            required: false,
+            type: Boolean,
+        },
+        togglefull: {
+            required: false,
+            type: Boolean,
+        },
+        height: {
+            required: false,
+            type: String,
+            default: '300'
+        },
+        width: {
+            required: false,
+            type: String,
+            default: '300'
+        },
+        divide: {
+            required: false,
+            type: Boolean,
+        }
     },
-    fullscreen: {
-      required: false,
-      type: Boolean,
+    data: () => ({
+        dialog: false
+    }),
+    computed: {
+        darkness () {
+            return this.$store.getters.ui_g_dark;
+        }
     },
-    persistent: {
-      required: false,
-      type: Boolean,
-    },
-    notitle: {
-      required: false,
-      type: Boolean,
-    },
-    togglefull: {
-      required: false,
-      type: Boolean,
-    },
-    height: {
-      required: false,
-      type: String,
-      default: '300'
-    },
-    width: {
-      required: false,
-      type: String,
-      default: '300'
-    },
-    divide: {
-      required: false,
-      type: Boolean,
-    }
-  },
-  data: () => ({
-    dialog: false
-  }),
-  computed: {
-    darkness () {
-      return this.$store.getters.ui_g_dark;
-    }
-  },
-  methods: {
-    openWindow () {
-      this.dialog = true;
-    },
-    closeWindow () {
-      this.dialog = false;
-    },
-    toogleFullScreen () {
-      this.fullscreen = !this.fullscreen;
-    }
+    methods: {
+        openWindow () {
+            this.dialog = true;
+        },
+        closeWindow () {
+            this.dialog = false;
+        },
+        toogleFullScreen () {
+            this.fullscreen = !this.fullscreen;
+        }
 
-  }
+    }
 };
 </script>
 
