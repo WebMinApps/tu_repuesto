@@ -3,8 +3,9 @@ import mutations from './mutations';
 import actions from './actions';
 
 export default {
-    login: false,
-    getters,
-    mutations,
-    actions
+  namespaced: true,
+  state: {},
+  getters,
+  mutations,
+  actions
 };

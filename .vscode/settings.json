@@ -82,4 +82,5 @@
         "**/bower_components": false,
         "**/node_modules": false
     },
+    "git.ignoreLimitWarning": true,
 }

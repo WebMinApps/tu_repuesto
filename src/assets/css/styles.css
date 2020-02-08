@@ -28,12 +28,18 @@
 .dark-bg {
   background-color: #303030;
   color: white !important;
+  background-image: url("../img/bg_partners_dark.png");
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .light-bg {
-  background-color: #c9c9c9;
+  background-image: url("../img/bg_partners.png");
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
 }
-
 
 .blackbg {
   padding: 1em;
@@ -67,6 +73,10 @@
   height: 64px;
 }
 
+.titlefooter {
+  height: 30px;
+}
+
 @media (max-width: 959px) {
   .titlemargin {
     height: 56px !important;
@@ -77,6 +87,159 @@
   text-decoration: none;
 }
 
-.primary--color {
-  color: #970202
+.dialog-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.img-responsive,
+.thumbnail>img,
+.thumbnail a>img,
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background-position: center center;
+}
+
+.img-rounded {
+  border-radius: 6px;
+}
+
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.ask_bg_dark {
+  background-color: #00000095;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.ask_bg_light {
+  background-color: #ffffffd5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 3px;
+  background: rgb(41, 41, 41);
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background-color: rgb(138, 2, 2);
+  position: fixed;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  -webkit-border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
+  -o-border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px 0;
+}
+
+.pace .pace-activity {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: -28px;
+  bottom: 0;
+}
+
+@-webkit-keyframes pace-theme-mac-osx-motion {
+  0% {
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  100% {
+    -webkit-transform: translate(-28px, 0);
+    transform: translate(-28px, 0);
+  }
+}
+
+@-moz-keyframes pace-theme-mac-osx-motion {
+  0% {
+    -moz-transform: none;
+    transform: none;
+  }
+
+  100% {
+    -moz-transform: translate(-28px, 0);
+    transform: translate(-28px, 0);
+  }
+}
+
+@-o-keyframes pace-theme-mac-osx-motion {
+  0% {
+    -o-transform: none;
+    transform: none;
+  }
+
+  100% {
+    -o-transform: translate(-28px, 0);
+    transform: translate(-28px, 0);
+  }
+}
+
+@-ms-keyframes pace-theme-mac-osx-motion {
+  0% {
+    -ms-transform: none;
+    transform: none;
+  }
+
+  100% {
+    -ms-transform: translate(-28px, 0);
+    transform: translate(-28px, 0);
+  }
+}
+
+@keyframes pace-theme-mac-osx-motion {
+  0% {
+    transform: none;
+    transform: none;
+  }
+
+  100% {
+    transform: translate(-28px, 0);
+    transform: translate(-28px, 0);
+  }
 }

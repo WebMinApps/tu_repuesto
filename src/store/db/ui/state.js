@@ -3,10 +3,19 @@ import mutations from './mutations';
 import actions from './actions';
 
 export default {
-    state: {
-        dark: true
-    },
-    getters,
-    mutations,
-    actions
+  namespaced: false,
+  state: {
+    dark: true,
+    notificationsbtn: true,
+    loading: false,
+    message: {
+      text: '',
+      type: null,
+      timeout: 5000,
+      full: false
+    }
+  },
+  getters,
+  mutations,
+  actions
 };

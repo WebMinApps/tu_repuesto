@@ -3,9 +3,12 @@ import mutations from './mutations.js';
 import actions from './actions.js';
 
 export default {
-    modules: {
-        getters,
-        mutations,
-        actions
-    }
+  namespaced: false,
+  state: {
+    user: {},
+    notification: [],
+  },
+  getters,
+  mutations,
+  actions
 };
