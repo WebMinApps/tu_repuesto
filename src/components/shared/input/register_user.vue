@@ -1,13 +1,20 @@
 <template>
 	<v-container>
-		<v-layout>
+		<v-layout :style="{'background-color': dark ? '#303030' : '#FFFFFF'}">
 			<v-stepper
 				v-model="pasos"
-				style="width:100%"
+				:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF',
+                  'width': '100%'
+                }"
 			>
-				<v-stepper-header v-if="!userdata.level">
+				<v-stepper-header
+					v-if="!userdata.level"
+					:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
+				>
 					<v-stepper-step
-						step="1"
+						step="
+					1"
 						:complete="pasos > 1"
 						:color="(pasos > 1) ? 'success ' : 'primary'"
 					>
@@ -39,7 +46,11 @@
 						</center>
 					</v-stepper-step>
 				</v-stepper-header>
-				<v-stepper-header v-else>
+				<v-stepper-header
+					v-else
+					:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
+				>
+
 					<v-stepper-step
 						:complete="pasos > 1"
 						step="1"
@@ -432,7 +443,10 @@
 				</v-stepper-items>
 				<!-- Secciones de la pagina -->
 				<v-stepper-items v-else>
-					<v-stepper-content step="1">
+					<v-stepper-content
+						step="1"
+						:dark="dark"
+					>
 						<v-container>
 							<v-layout row>
 								<v-flex xs12>
@@ -497,7 +511,10 @@
 							</v-layout>
 						</v-container>
 					</v-stepper-content>
-					<v-stepper-content step="2">
+					<v-stepper-content
+						step="2"
+						:dark="dark"
+					>
 						<form>
 							<v-container
 								grid-list-lg
@@ -713,7 +730,10 @@
 							</v-container>
 						</form>
 					</v-stepper-content>
-					<v-stepper-content step="3">
+					<v-stepper-content
+						step="3"
+						:dark="dark"
+					>
 						<v-container
 							grid-list-lg
 							align-content-center
@@ -830,27 +850,55 @@
 							</v-layout>
 						</v-container>
 					</v-stepper-content>
-					<v-stepper-content step="4">
+					<v-stepper-content
+						:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
+						step="4"
+						:dark="dark"
+					>
 						<v-tabs
 							v-model="tabs"
 							:background-color="dark ? '#303030' : ''"
 							:dark="dark"
 							:slider-color="dark ? '#303030' : '#FFFFFF'"
+							:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
 						>
 							<v-spacer v-show="showtabs"></v-spacer>
 							<v-tab
 								v-show="showtabs"
+								:dark="dark"
 								ripple
+								:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
 							>Marcas</v-tab>
 							<v-spacer v-show="showtabs"></v-spacer>
 							<v-tab
 								v-show="showtabs"
+								:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
+								:dark="dark"
 								ripple
 							>Partes</v-tab>
 							<v-spacer v-show="showtabs"></v-spacer>
-							<v-tab-item>1
+							<v-tab-item
+								:dark="dark"
+								:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
+							>
+								<app-register-user-brands v-model="userdata.profile"></app-register-user-brands>
 							</v-tab-item>
-							<v-tab-item>
+							<v-tab-item
+								:dark="dark"
+								:style="{
+                  'background-color': dark ? '#303030' : '#FFFFFF'
+                }"
+							>
 								<app-register-user-parts v-model="userdata.profile"></app-register-user-parts>
 							</v-tab-item>
 						</v-tabs>
@@ -860,7 +908,9 @@
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
+		<code>{{userdata.profile}}</code>
 	</v-container>
+
 </template>
 
 <script>
@@ -1233,45 +1283,10 @@ export default {
       const tabs = parseInt(this.tabs);
       this.tabs = tabs < 3 ? tabs + 1 : 0;
     },
-    profile_subparts () {
-      axios
-        .get('ask/notilist/subparts')
-        .then(response => {
-          const list = response.data.data;
-          this.PH.subparts = list;
-        })
-        .catch(error => {
-          let message = '';
-          if (error.response != undefined) {
-            message = error.response.data.error.message;
-          } else {
-            message = error;
-          }
-          this.$store.dispatch('ui_a_error', message);
-        })
-        .then(() => { });
-    },
     actsectab () {
       this.sectab = true;
     },
-    profile_brands () {
-      axios
-        .get('ask/notilist/brands')
-        .then(response => {
-          const list = response.data.data;
-          this.PH.brands = list;
-        })
-        .catch(error => {
-          let message = '';
-          if (error.response != undefined) {
-            message = error.response.data.error.message;
-          } else {
-            message = error;
-          }
-          this.$store.dispatch('ui_a_error', message);
-        })
-        .then(() => { });
-    },
+
     cmenu1 () {
       this.menu1 = false;
     },

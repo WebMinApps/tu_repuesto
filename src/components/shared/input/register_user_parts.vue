@@ -1,15 +1,14 @@
 <template>
-	<v-layout
-		row
-		wrap
-	>
+	<v-layout fluid>
 		<v-expansion-panels
+			:dark="dark"
 			accordion
-			popout
+			tile
 		>
 			<v-expansion-panel
 				v-for="(item,i) in parts"
 				:key="i"
+				:dark="dark"
 			>
 				<v-expansion-panel-header>
 					<h3>{{item.text}}</h3>
@@ -78,6 +77,11 @@ export default {
     selparts: [],
     parts: []
   }),
+  computed: {
+    dark () {
+      return this.$store.getters.ui_g_dark;
+    }
+  },
   watch: {
     selparts () {
       this.parts.forEach((part, index) => {
@@ -95,10 +99,29 @@ export default {
           }
         });
       });
+      var csp = [];
+      var ic = 0;
+      this.parts.forEach((sp, i1) => {
+        sp.childs.forEach(p => {
+          this.selparts.forEach(sp => {
+            if (p.value == sp) {
+              ic++;
+            }
+          });
+          csp.splice(i1, 1, { max: sp.childs.length, count: ic });
+        });
+        ic = 0;
+      });
+      csp.forEach((c, index) => {
+        if (c.max == c.count) {
+          this.selparts.push(this.parts[index].value);
+        }
+      });
       this.$emit('input', this.selparts);
     }
   },
   created () {
+    this.value = this.selparts;
     this.loadparts();
   },
   methods: {
