@@ -1,10 +1,10 @@
 import workbox from 'workbox-build';
 
 workbox.generateSW({
-  cacheID: 'NAMEOFCACHE',
+  cacheID: 'TRV0.0.0.1',
   globDirectory: './',
   globPatters: [
-    '**/*.{css,js}'
+    '**/*.{css,js,jpg,png,jpeg,gif}'
   ],
   globIgnores: [
     '**/generator.js',

@@ -1,6 +1,6 @@
 <template>
 	<v-app-bar
-		style="position:fixed"
+		style="position:fixed; z-index:9999"
 		elevation="6"
 		absolute
 		fixed

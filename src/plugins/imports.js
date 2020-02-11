@@ -11,7 +11,7 @@ import list from '@/components/shared/container/list.vue';
 import listcards from '@/components/shared/container/listcards.vue';
 import fileinput from '@/components/shared/input/input_file.vue';
 import alert from '@/components/shared/container/alert.vue';
-
+import registeruserparts from '@/components/shared/input/register_user_parts.vue';
 
 //Alertas del sistema
 Vue.component('app-alert', alert);
@@ -36,3 +36,6 @@ Vue.component('app-dialog', dialog);
 
 // Ventana de dialogo [depende de Panel, Tooltip]
 Vue.component('app-fileinput', fileinput);
+
+
+Vue.component('app-register-user-parts', registeruserparts);

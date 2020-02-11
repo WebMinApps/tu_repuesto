@@ -5,7 +5,7 @@ import actions from './actions';
 export default {
   namespaced: false,
   state: {
-    dark: true,
+    dark: false,
     notificationsbtn: true,
     loading: false,
     message: {

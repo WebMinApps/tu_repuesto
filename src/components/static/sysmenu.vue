@@ -6,7 +6,8 @@
 		:mini-variant="mini"
 		:clipped="clip"
 		:fixed="fixed"
-		width="200"
+		width="180"
+		dense
 		class="fill-height"
 	>
 		<v-toolbar

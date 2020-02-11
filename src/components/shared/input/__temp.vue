@@ -727,11 +727,12 @@
                                         <v-checkbox
                                           :key="index"
                                           v-model="userdata.profile"
-                                          :disabled="userdata.profile.indexOf(subpart.value) != -1"
+                                          :disabled="selparts.indexOf(subpart.value) != -1"
                                           color="primary"
                                           :label="part.text"
                                           :value="part.value"
                                         ></v-checkbox>
+                                        
                                       </v-flex>
                                     </template>
                                   </v-layout>
@@ -1055,7 +1056,7 @@ export default {
                 }
               });
             });
-          }
+          };
         });
       });
     },

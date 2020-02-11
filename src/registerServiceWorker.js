@@ -6,6 +6,7 @@ import {
 } from 'register-service-worker';
 
 if (process.env.NODE_ENV === 'production') {
+  alert(process.env.BASE_URL);
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready () {
       console.log(

@@ -830,6 +830,33 @@
 							</v-layout>
 						</v-container>
 					</v-stepper-content>
+					<v-stepper-content step="4">
+						<v-tabs
+							v-model="tabs"
+							:background-color="dark ? '#303030' : ''"
+							:dark="dark"
+							:slider-color="dark ? '#303030' : '#FFFFFF'"
+						>
+							<v-spacer v-show="showtabs"></v-spacer>
+							<v-tab
+								v-show="showtabs"
+								ripple
+							>Marcas</v-tab>
+							<v-spacer v-show="showtabs"></v-spacer>
+							<v-tab
+								v-show="showtabs"
+								ripple
+							>Partes</v-tab>
+							<v-spacer v-show="showtabs"></v-spacer>
+							<v-tab-item>1
+							</v-tab-item>
+							<v-tab-item>
+								<app-register-user-parts v-model="userdata.profile"></app-register-user-parts>
+							</v-tab-item>
+						</v-tabs>
+
+						<!--  -->
+					</v-stepper-content>
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
@@ -897,6 +924,9 @@ export default {
     termstext: '<p align=\'justify\'> Officia ut laboris exercitation aute eiusmod labore. Voluptate nostrud non aliquip voluptate duis Lorem minim deserunt aliqua. Ullamco culpa qui consequat adipisicing aliqua occaecat. </p> <p align=\'justify\'>Ut Lorem sunt ea elit ex dolore veniam esse. Minim ea tempor ea elit labore laborum labore do deserunt do nulla. Ipsum minim sint consequat elit amet occaecat proident sint labore. Quis laborum tempor non magna sunt velit veniam do adipisicing Lorem cupidatat duis laborum nisi. Anim ea ut eu commodo tempor incididunt proident pariatur. Dolore sit tempor ut eu elit. Sunt reprehenderit est esse Lorem tempor magna officia Lorem officia mollit consequat est. </p> <p align=\'justify\'> Sunt dolore excepteur cillum amet proident nulla sunt excepteur do eu anim velit aliqua irure. Consequat sunt commodo anim tempor labore ad voluptate. Aliqua eiusmod consectetur anim esse culpa.</p> <p align="justify"> Ea irure aliqua officia est in. Eiusmod amet duis irure non mollit quis esse nulla cillum. Labore elit ex exercitation officia do non occaecat laborum ea ea do officia nulla anim. Duis ullamco dolor cillum duis sit occaecat ut do duis eu dolor. Eiusmod magna id ncididunt sunt magna sunt qui.</p> <p align="justify">Officia anim dolor quis nulla nisi ad cillum dolore cillum magna aliquip nostrud. Ullamco ea et ad ex laboris excepteur nulla quis eiusmod consequat ea est ut in. Ea labore sit irure occaecat ullamco. Elit Lorem labore aliquip eiusmod dolore ad consequat anim pariatur. Amet culpa aute et non sit est laboris nostrud dolore laboris eu aliqua non mollit.</p>'
   }),
   computed: {
+    dark () {
+      return this.$store.getters.ui_g_dark;
+    },
     partscheck () {
       let check = true;
       this.subparts.forEach(spart => {
@@ -953,7 +983,6 @@ export default {
     parts () {
       return this.PH.parts;
     },
-
     mindate () {
       let ys = 80;
       return this.datediff(ys);
@@ -1069,6 +1098,22 @@ export default {
     this.profile_subparts();
   },
   methods: {
+    allParts () {
+      this.profilequest.subparts = 1;
+      this.subparts.forEach(spart => {
+        this.userdata.profile.forEach((profile, index) => {
+          if (spart.value == profile) {
+            this.userdata.profile.splice(index, 1);
+          }
+        });
+      });
+    },
+    allpartsset () {
+      this.profilequest.subparts = 0;
+      this.subparts.forEach(item => {
+        this.userdata.profile.push(item.value);
+      });
+    },
     datediff (ddiff = 80) {
       let dnow = new Date();
       let ystart = dnow.getFullYear() - ddiff;
