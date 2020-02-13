@@ -92,7 +92,6 @@
 							<small v-if="pasos > 5"><br>(Completo)</small></center>
 					</v-stepper-step>
 				</v-stepper-header>
-
 				<!-- Secciones de la pagina -->
 				<v-stepper-items v-if="!userdata.level">
 					<v-stepper-content step="1">
@@ -157,44 +156,42 @@
 						</v-container>
 					</v-stepper-content>
 					<v-stepper-content step="2">
-						<form>
-							<v-container
-								grid-list-lg
-								align-content-center
-								text-xs-center
-							>
-								<v-layout row>
-									<v-flex xs12>
-										<app-register-user-data v-model="userdata"></app-register-user-data>
-									</v-flex>
-									<v-flex xs6>
-										<center>
-											<v-btn @click="prevStep">
-												<v-icon
-													left
-													small
-												>mdi-arrow-left-bold</v-icon>Anterior
-											</v-btn>
-										</center>
-									</v-flex>
-									<v-flex xs6>
-										<center>
-											<v-btn
-												color="primary"
-												:disabled="proxpaso"
-												@click="nextStep"
-											>
-												Siguiente
-												<v-icon
-													right
-													small
-												>mdi-arrow-right-bold</v-icon>
-											</v-btn>
-										</center>
-									</v-flex>
-								</v-layout>
-							</v-container>
-						</form>
+						<v-container
+							grid-list-lg
+							align-content-center
+							text-xs-center
+						>
+							<v-layout row>
+								<v-flex xs12>
+									<app-register-user-data v-model="userdata"></app-register-user-data>
+								</v-flex>
+								<v-flex xs6>
+									<center>
+										<v-btn @click="prevStep">
+											<v-icon
+												left
+												small
+											>mdi-arrow-left-bold</v-icon>Anterior
+										</v-btn>
+									</center>
+								</v-flex>
+								<v-flex xs6>
+									<center>
+										<v-btn
+											color="primary"
+											:disabled="proxpaso"
+											@click="nextStep"
+										>
+											Siguiente
+											<v-icon
+												right
+												small
+											>mdi-arrow-right-bold</v-icon>
+										</v-btn>
+									</center>
+								</v-flex>
+							</v-layout>
+						</v-container>
 					</v-stepper-content>
 					<v-stepper-content step="3">
 						<v-container
@@ -338,221 +335,42 @@
 						step="2"
 						:dark="dark"
 					>
-						<form>
-							<v-container
-								grid-list-lg
-								align-content-center
-								text-xs-center
-							>
-								<v-layout
-									row
-									wrap
-									align-center
-									align-content-center
-								>
-									<v-flex
-										xs12
-										sm6
-										md3
-									>
-										<v-text-field
-											id="email"
-											v-model="userdata.email"
-											name="email"
-											label="Correo electrónico"
-											type="email"
-											hint="Tu correo será verificado"
-											required
-											:rules="[emailmessage,emailused]"
-											@blur="onBlurEmail(userdata.email)"
-										></v-text-field>
-									</v-flex>
-									<v-flex
-										xs12
-										sm6
-										md3
-									>
-										<v-text-field
-											id="name"
-											v-model="userdata.name"
-											name="name"
-											label="Nombre"
-											type="text"
-											required
-										></v-text-field>
-									</v-flex>
-									<v-flex
-										xs12
-										sm6
-										md3
-									>
-										<v-text-field
-											id="last"
-											v-model="userdata.last"
-											name="last"
-											label="Apellido"
-											type="text"
-											required
-										></v-text-field>
-									</v-flex>
-									<v-flex
-										xs12
-										sm6
-										md3
-									>
-										<app-fileinput
-											v-model="userdata.image"
-											base64
-											placeholder="Foto"
-										></app-fileinput>
-									</v-flex>
-									<v-flex xs5>
-										<v-select
-											v-model="userdata.doctype"
-											item-value="value"
-											:items="docs"
-											:rules="[v => !!v || 'Coloca el tipo de documento']"
-											label="Documento"
-											hint="Tipo de documento de identificación"
-											required
-										></v-select>
-									</v-flex>
-									<v-flex xs2>
-										<v-select
-											v-model="userdata.nac"
-											item-value="value"
-											:items="nacs"
-											:rules="[v => !!v || 'Coloca nacionalidad']"
-											label
-											required
-										></v-select>
-									</v-flex>
-									<v-flex xs5>
-										<v-text-field
-											id="cedula"
-											v-model="userdata.doc"
-											name="cedula"
-											label="Cedula"
-											type="text"
-											hint="Numero de documento"
-											:rules="[v => !!v || 'Coloca tu ' + doctypelabel ,docused]"
-											mask="########"
-											required
-											@blur="onBlurDoc(userdata.doc)"
-										></v-text-field>
-									</v-flex>
-									<v-flex xs6>
-										<v-text-field
-											id="password"
-											v-model="userdata.pass"
-											name="password"
-											label="Contraseña"
-											type="password"
-											:rules="[minlength]"
-											required
-										></v-text-field>
-									</v-flex>
-									<v-flex xs6>
-										<v-text-field
-											id="confirmpassword"
-											v-model="userdata.confirmpass"
-											name="confirmpassword"
-											label="Confirmar la Contraseña"
-											type="password"
-											:rules="[comparePasswords]"
-										></v-text-field>
-									</v-flex>
-									<v-flex
-										v-show="showlevel"
-										xs6
-									>
-										<v-select
-											v-model="userdata.level"
-											item-value="value"
-											:items="niveles"
-											:rules="[v => !!v || 'Establece el nivel de acceso']"
-											label="Nivel de acceso"
-											required
-											persistent-hint
-										></v-select>
-									</v-flex>
-									<v-flex xs6>
-										<v-text-field
-											id="telefono"
-											v-model="userdata.phone"
-											name="telefono"
-											label="Teléfono"
-											type="text"
-											required
-											hint="(####) - ### ####"
-											mask="(####) - ### ####"
-										></v-text-field>
-									</v-flex>
-									<v-flex xs6>
-										<v-menu
-											ref="menu1"
-											v-model="menu1"
-											:close-on-content-click="false"
-											:nudge-right="40"
-											transition="scale-transition"
-											offset-y
-											max-width="290px"
-											min-width="290px"
+						<v-container
+							grid-list-lg
+							align-content-center
+							text-xs-center
+						>
+							<v-layout row>
+								<v-flex xs12>
+									<app-register-user-data v-model="userdata"></app-register-user-data>
+								</v-flex>
+								<v-flex xs6>
+									<center>
+										<v-btn @click="prevStep">
+											<v-icon
+												left
+												small
+											>mdi-arrow-left-bold</v-icon>Anterior
+										</v-btn>
+									</center>
+								</v-flex>
+								<v-flex xs6>
+									<center>
+										<v-btn
+											color="primary"
+											:disabled="proxpaso"
+											@click="nextStep"
 										>
-											<template v-slot:activator="{on}">
-												<v-text-field
-													id="birth"
-													v-model="birthdateFormatted"
-													readonly
-													name="birth"
-													label="Fecha de Nacimiento"
-													type="text"
-													hint
-													persistent-hint
-													prepend-icon="mdi-calendar-check"
-													required
-													v-on="on"
-												></v-text-field>
-											</template>
-											<v-date-picker
-												v-model="birthdate"
-												:show-current="false"
-												locale="es-es"
-												:max="maxdate"
-												:min="mindate"
-												no-title
-												@input="cmenu1"
-											></v-date-picker>
-										</v-menu>
-									</v-flex>
-									<v-flex xs6>
-										<center>
-											<v-btn @click="prevStep">
-												<v-icon
-													left
-													small
-												>mdi-arrow-left-bold</v-icon>Anterior
-											</v-btn>
-										</center>
-									</v-flex>
-									<v-flex xs6>
-										<center>
-											<v-btn
-												color="primary"
-												:disabled="proxpaso"
-												@click="nextStep"
-											>
-												Siguiente
-												<v-icon
-													right
-													small
-												>mdi-arrow-right-bold</v-icon>
-											</v-btn>
-										</center>
-									</v-flex>
-								</v-layout>
-							</v-container>
-						</form>
+											Siguiente
+											<v-icon
+												right
+												small
+											>mdi-arrow-right-bold</v-icon>
+										</v-btn>
+									</center>
+								</v-flex>
+							</v-layout>
+						</v-container>
 					</v-stepper-content>
 					<v-stepper-content
 						step="3"
@@ -765,7 +583,6 @@
 									<br />
 									<div v-html="termstext"></div>
 								</v-flex>
-
 								<v-flex
 									xs12
 									sm10
@@ -829,6 +646,8 @@
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
+        <code>{{proxpaso}}</code><br>
+        <code>{{userdata}}</code>
 	</v-container>
 </template>
 
@@ -883,7 +702,11 @@ export default {
     },
     proxpaso () {
       let condition;
-      if (this.pasos == 2) { condition = !this.emailformatted || this.userdata.name.length < 3 || this.userdata.last.length < 3 || this.userdata.doctype.length < 0 || this.userdata.nac.length < 0 || this.userdata.doc.length < 7 || this.pml || this.cpp || this.userdata.phone.length <= 10 || this.emailused != '' || this.docused != ''; } else if (this.pasos == 3) { condition = this.userdata.seller.name.length < 3 || this.userdata.seller.nac.length == 0 || this.userdata.seller.rif.length < 9 || this.userdata.seller.phone.length <= 10 || this.userdata.seller.city.length == 0 || this.userdata.seller.address == 0; }
+      if (this.pasos == 2) {
+        condition = this.userdata.email.length < 1;
+      } else if (this.pasos == 3) { 
+        condition = !this.userdata.seller.name;
+      }
       return condition;
     },
     profiled () {
