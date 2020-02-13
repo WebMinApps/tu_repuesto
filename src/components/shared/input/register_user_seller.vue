@@ -96,7 +96,16 @@ export default {
     },
     data: () => ({
 
-    })
+    }),
+    computed: {
+      docs () {
+        return [
+          { text: 'Cedula', value: 'C' },
+          { text: 'Pasaporte', value: 'P' },
+          { text: 'RIF', value: 'R' }
+        ];
+      },
+    }
   }
 };
 </script>
