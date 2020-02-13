@@ -3,18 +3,14 @@
 		<v-layout :style="{'background-color': dark ? '#303030' : '#FFFFFF'}">
 			<v-stepper
 				v-model="pasos"
-				:style="{
-                  'background-color': dark ? '#303030' : '#FFFFFF',
-                  'width': '100%'
-                }"
+				:style="{'background-color': dark ? '#303030' : '#FFFFFF','width': '100%'}"
 			>
 				<v-stepper-header
 					v-if="!userdata.level"
 					:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
 				>
 					<v-stepper-step
-						step="
-					1"
+						step="1"
 						:complete="pasos > 1"
 						:color="(pasos > 1) ? 'success ' : 'primary'"
 					>
@@ -50,7 +46,6 @@
 					v-else
 					:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
 				>
-
 					<v-stepper-step
 						:complete="pasos > 1"
 						step="1"
@@ -66,9 +61,7 @@
 						step="2"
 						:color="(pasos > 2) ? 'success' : 'primary'"
 					>
-						<center>
-							Registro
-							<small v-if="pasos > 2"><br>(Completo)</small></center>
+						<center>Registro<small v-if="pasos > 2"><br>(Completo)</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -76,9 +69,7 @@
 						step="3"
 						:color="(pasos > 3) ? 'success' : 'primary'"
 					>
-						<center>
-							Empresa
-							<small v-if="pasos > 3"><br>(Completo)</small></center>
+						<center>Empresa<small v-if="pasos > 3"><br>(Completo)</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -229,6 +220,7 @@
 									>
 										<app-fileinput
 											v-model="userdata.image"
+											base64
 											placeholder="Foto"
 										></app-fileinput>
 									</v-flex>
@@ -437,6 +429,13 @@
 							/>
 							<h2>Gracias por registrarte!</h2>
 							<br />
+							<center>
+								<v-btn
+									color="primary"
+									to="signin"
+								>Ingresar</v-btn>
+							</center>
+							<br />
 							<br />
 						</center>
 					</v-stepper-content>
@@ -579,6 +578,7 @@
 									>
 										<app-fileinput
 											v-model="userdata.image"
+											base64
 											placeholder="Foto"
 										></app-fileinput>
 									</v-flex>
@@ -748,79 +748,8 @@
 										<h2>Datos de la Empresa</h2>
 									</center>
 								</v-flex>
-								<v-flex
-									xs12
-									sm8
-								>
-									<v-text-field
-										id="rif"
-										v-model="userdata.seller.name"
-										name="sellername"
-										label="Nombre o Razón Social"
-										type="text"
-										required
-									></v-text-field>
-								</v-flex>
-								<v-flex
-									xs12
-									sm4
-								>
-									<app-fileinput
-										v-model="userdata.seller.image"
-										placeholder="Foto (Logo y Fachada)"
-									></app-fileinput>
-								</v-flex>
-								<v-flex xs2>
-									<v-select
-										v-model="userdata.seller.nac"
-										:items="nacsg"
-										:rules="[v => !!v || 'Coloca nacionalidad']"
-										required
-									></v-select>
-								</v-flex>
-								<v-flex xs4>
-									<v-text-field
-										id="rif"
-										v-model="userdata.seller.rif"
-										name="rif"
-										label="Rif"
-										type="text"
-										required
-										mask="########-#"
-									></v-text-field>
-								</v-flex>
-								<v-flex xs6>
-									<v-text-field
-										id="telefonos"
-										v-model="userdata.seller.phone"
-										name="telefonos"
-										label="Teléfono de la Empresa"
-										type="text"
-										required
-										hint="(####) - ### ####"
-										mask="(####) - ### ####"
-									></v-text-field>
-								</v-flex>
-								<v-flex xs6>
-									<v-text-field
-										id="city"
-										v-model="userdata.seller.city"
-										name="city"
-										label="Ciudad"
-										type="text"
-										required
-									></v-text-field>
-								</v-flex>
-								<v-flex xs6>
-									<v-text-field
-										id="address"
-										v-model="userdata.seller.address"
-										name="address"
-										label="Dirección"
-										type="text"
-										required
-										counter="300"
-									></v-text-field>
+								<v-flex xs12>
+									Seller
 								</v-flex>
 								<v-flex xs6>
 									<center>
@@ -855,6 +784,37 @@
 						step="4"
 						:dark="dark"
 					>
+						<v-container>
+							<v-layout>
+								<v-flex xs12>
+									<center>
+										<h2>Perfil de Vendedor</h2>
+									</center>
+								</v-flex>
+							</v-layout><br>
+							<v-layout>
+								<v-flex
+									v-if="tabs === 0"
+									xs12
+								>
+									<center>
+										<h3>Selecciona las marcas en las que vendes repuestos</h3>
+										[1/2]
+										<h5>{{infoallparts}}</h5>
+									</center>
+								</v-flex>
+								<v-flex
+									v-else
+									xs12
+								>
+									<center>
+										<h3>{{infospecialparts}}</h3>
+										[1/2]
+									</center>
+								</v-flex>
+							</v-layout>
+							<br>
+						</v-container>
 						<v-tabs
 							v-model="tabs"
 							:background-color="dark ? '#303030' : ''"
@@ -881,31 +841,180 @@
 								:dark="dark"
 								:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
 							>
-								<app-register-user-brands v-model="selbrands"></app-register-user-brands>
+								<v-card
+									:dark="dark"
+									class="mb-5"
+								>
+									<v-container>
+										<v-layout>
+											<app-register-user-brands v-model="selbrands"></app-register-user-brands>
+										</v-layout>
+									</v-container>
+								</v-card><br>
 							</v-tab-item>
 							<v-tab-item
 								:dark="dark"
 								:style="{'background-color': dark ? '#303030' : '#FFFFFF'}"
 							>
-								<app-register-user-parts v-model="selparts"></app-register-user-parts>
+								<v-container>
+									<v-layout>
+										<app-register-user-parts v-model="selparts"></app-register-user-parts>
+									</v-layout>
+								</v-container><br>
 							</v-tab-item>
 						</v-tabs>
+						<v-layout>
+							<v-flex
+								v-if="tabs"
+								xs6
+							>
+								<center>
+									<v-btn @click="prevTab">
+										<v-icon
+											left
+											small
+										>mdi-arrow-left</v-icon>Anterior
+									</v-btn>
+								</center>
+							</v-flex>
+							<v-flex
+								v-else
+								xs6
+							>
+								<center>
+									<v-btn @click="prevStep">
+										<v-icon
+											left
+											small
+										>mdi-arrow-left-bold</v-icon>Anterior
+									</v-btn>
+								</center>
+							</v-flex>
+							<v-flex
+								v-if="tabs < 1"
+								xs6
+							>
+								<center>
+									<v-btn
+										color="primary"
+										:disabled="!selbrands.length"
+										@click="nextTab"
+									>
+										Siguiente
+										<v-icon
+											right
+											small
+										>mdi-arrow-right</v-icon>
+									</v-btn>
+								</center>
+							</v-flex>
+							<v-flex
+								v-else
+								xs6
+							>
+								<center>
+									<v-btn
+										color="primary"
+										:disabled="!selbrands.length || !selparts.length"
+										@click="nextStep"
+									>
+										Siguiente
+										<v-icon
+											right
+											small
+										>mdi-arrow-right-bold</v-icon>
+									</v-btn>
+								</center>
+							</v-flex>
+						</v-layout>
+					</v-stepper-content>
+					<v-stepper-content step="5">
+						<v-container grid-list-lg>
+							<v-layout
+								row
+								wrap
+							>
+								<v-flex xs12>
+									<h1>Terminos y Condiciones del sitio</h1>
+									<v-divider></v-divider>
+									<br />
+									<br />
+									<div v-html="termstext"></div>
+								</v-flex>
+
+								<v-flex
+									xs12
+									sm10
+									md8
+									lg6
+									offset-sm-1
+									offset-md-2
+									offset-lg3
+								>
+									<p align="center">
+										<center>
+											<v-checkbox
+												v-model="terms"
+												label="Estoy de acuerdo con los terminos y condiciones del uso de este sitio"
+												color="primary"
+											></v-checkbox>
+										</center>
+									</p>
+								</v-flex>
+
+								<v-flex xs6>
+									<center>
+										<v-btn @click="prevStep">
+											<v-icon
+												left
+												small
+											>fa-arrow-left</v-icon>Anterior
+										</v-btn>
+									</center>
+								</v-flex>
+								<v-flex xs6>
+									<center>
+										<v-btn
+											color="primary"
+											:disabled="!terms"
+											@click="onSignUp"
+										>Registrar</v-btn>
+									</center>
+								</v-flex>
+							</v-layout>
+						</v-container>
+					</v-stepper-content>
+					<v-stepper-content step="6">
+						<center>
+							<img
+								src="@/assets/img/gracias.png"
+								class="img-responsive"
+							/>
+							<h2>Gracias por registrarte!</h2>
+							<br />
+							<center>
+								<v-btn
+									color="primary"
+									to="signin"
+								>Ingresar</v-btn>
+							</center>
+							<br />
+							<br />
+						</center>
 					</v-stepper-content>
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
-		<code>{{userdata.profile}}</code>
+		<code>{{userdata}}</code>
 	</v-container>
-
 </template>
 
 <script>
 import axios from 'axios';
 export default {
   data: () => ({
-    infoallparts: 'Sera notificado por todos los tipos de partes.',
+    infoallparts: 'Sera notificado por todos los tipos de partes que elijas.',
     infospecialparts: 'Debes seleccionar las partes que vendes.',
-    sectab: false,
     showtabs: true,
     tabs: 0,
     pasos: 1,
@@ -937,16 +1046,21 @@ export default {
         city: 'Somewhere Somehow',
         address: '123'
       },
-      profile: []
+      profile: [
+      ]
     },
-    selbrands: [],
-    selparts: [],
+    selbrands: [
+
+    ],
+    selparts: [
+
+    ],
     birthdate: '0000-00-00',
     birthdateFormatted: '0000-00-00',
     showlevel: false,
     menu1: false,
     terms: false,
-    termstext: '<p align=\'justify\'> Officia ut laboris exercitation aute eiusmod labore. Voluptate nostrud non aliquip voluptate duis Lorem minim deserunt aliqua. Ullamco culpa qui consequat adipisicing aliqua occaecat. </p> <p align=\'justify\'>Ut Lorem sunt ea elit ex dolore veniam esse. Minim ea tempor ea elit labore laborum labore do deserunt do nulla. Ipsum minim sint consequat elit amet occaecat proident sint labore. Quis laborum tempor non magna sunt velit veniam do adipisicing Lorem cupidatat duis laborum nisi. Anim ea ut eu commodo tempor incididunt proident pariatur. Dolore sit tempor ut eu elit. Sunt reprehenderit est esse Lorem tempor magna officia Lorem officia mollit consequat est. </p> <p align=\'justify\'> Sunt dolore excepteur cillum amet proident nulla sunt excepteur do eu anim velit aliqua irure. Consequat sunt commodo anim tempor labore ad voluptate. Aliqua eiusmod consectetur anim esse culpa.</p> <p align="justify"> Ea irure aliqua officia est in. Eiusmod amet duis irure non mollit quis esse nulla cillum. Labore elit ex exercitation officia do non occaecat laborum ea ea do officia nulla anim. Duis ullamco dolor cillum duis sit occaecat ut do duis eu dolor. Eiusmod magna id ncididunt sunt magna sunt qui.</p> <p align="justify">Officia anim dolor quis nulla nisi ad cillum dolore cillum magna aliquip nostrud. Ullamco ea et ad ex laboris excepteur nulla quis eiusmod consequat ea est ut in. Ea labore sit irure occaecat ullamco. Elit Lorem labore aliquip eiusmod dolore ad consequat anim pariatur. Amet culpa aute et non sit est laboris nostrud dolore laboris eu aliqua non mollit.</p>'
+    termstext: '<p align="justify"> Officia ut laboris exercitation aute eiusmod labore. Voluptate nostrud non aliquip voluptate duis Lorem minim deserunt aliqua. Ullamco culpa qui consequat adipisicing aliqua occaecat. </p> <p align="justify">Ut Lorem sunt ea elit ex dolore veniam esse. Minim ea tempor ea elit labore laborum labore do deserunt do nulla. Ipsum minim sint consequat elit amet occaecat proident sint labore. Quis laborum tempor non magna sunt velit veniam do adipisicing Lorem cupidatat duis laborum nisi. Anim ea ut eu commodo tempor incididunt proident pariatur. Dolore sit tempor ut eu elit. Sunt reprehenderit est esse Lorem tempor magna officia Lorem officia mollit consequat est. </p> <p align="justify"> Sunt dolore excepteur cillum amet proident nulla sunt excepteur do eu anim velit aliqua irure. Consequat sunt commodo anim tempor labore ad voluptate. Aliqua eiusmod consectetur anim esse culpa.</p> <p align="justify"> Ea irure aliqua officia est in. Eiusmod amet duis irure non mollit quis esse nulla cillum. Labore elit ex exercitation officia do non occaecat laborum ea ea do officia nulla anim. Duis ullamco dolor cillum duis sit occaecat ut do duis eu dolor. Eiusmod magna id ncididunt sunt magna sunt qui.</p> <p align="justify">Officia anim dolor quis nulla nisi ad cillum dolore cillum magna aliquip nostrud. Ullamco ea et ad ex laboris excepteur nulla quis eiusmod consequat ea est ut in. Ea labore sit irure occaecat ullamco. Elit Lorem labore aliquip eiusmod dolore ad consequat anim pariatur. Amet culpa aute et non sit est laboris nostrud dolore laboris eu aliqua non mollit.</p>'
   }),
   computed: {
     dark () {
@@ -1072,13 +1186,13 @@ export default {
     },
     nextttab () {
       if (this.tabs === 0) {
-        if (this.profiled) {
+        if (this.selbrands > 0) {
           return false;
         } else {
           return true;
         }
       } else {
-        if (this.sectab) {
+        if (this.selparts > 1) {
           return false;
         } else {
           return true;
@@ -1168,9 +1282,7 @@ export default {
       const tabs = parseInt(this.tabs);
       this.tabs = tabs < 3 ? tabs + 1 : 0;
     },
-    actsectab () {
-      this.sectab = true;
-    },
+
     cmenu1 () {
       this.menu1 = false;
     },

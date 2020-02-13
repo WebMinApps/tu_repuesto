@@ -121,7 +121,7 @@ export default {
     }
   },
   created () {
-    this.value = this.selparts;
+    this.selparts = this.value;
     this.loadparts();
   },
   methods: {

@@ -70,9 +70,6 @@ export default {
     }
   },
   methods: {
-    msg () {
-      alert('cleared');
-    },
     update () {
       if (this.base64) {
         this.$emit('input', this.filescoded);
