@@ -137,8 +137,8 @@
 				label="Teléfono"
 				type="text"
 				required
-				hint="(####) - ### ####"
-				mask="(####) - ### ####"
+				:hint="mask"
+				:mask="mask"
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
@@ -182,8 +182,12 @@
 </template>
 
 <script>
+import { mask } from 'vue-the-mask';
 import axios from 'axios';
 export default {
+  directives: {
+    mask
+  },
   props: {
     value: {
       type: Object,
@@ -215,7 +219,8 @@ export default {
     menu1: false,
     showlevel: false,
     docused: false,
-    emailused: false
+    emailused: false,
+    mask: '(####) - ### ####'
   }),
   computed: {
     loading () {
