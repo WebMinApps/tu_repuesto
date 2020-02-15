@@ -11,9 +11,10 @@ import list from '@/components/shared/container/list.vue';
 import listcards from '@/components/shared/container/listcards.vue';
 import fileinput from '@/components/shared/input/input_file.vue';
 import alert from '@/components/shared/container/alert.vue';
+import registeruserdata from '@/components/shared/input/register_user_data.vue';
 import registeruserbrands from '@/components/shared/input/register_user_brands.vue';
 import registeruserparts from '@/components/shared/input/register_user_parts.vue';
-import registeruserdata from '@/components/shared/input/register_user_data.vue';
+import registeruserseller from '@/components/shared/input/register_user_seller.vue';
 
 //Alertas del sistema
 Vue.component('app-alert', alert);
@@ -41,6 +42,9 @@ Vue.component('app-fileinput', fileinput);
 
 // Formulario de datos del usuario
 Vue.component('app-register-user-data', registeruserdata);
+
+// Formulario de datos de empresa Vendedora
+Vue.component('app-register-user-seller', registeruserseller);
 
 // Formulario de perfil de Marcas
 Vue.component('app-register-user-brands', registeruserbrands);

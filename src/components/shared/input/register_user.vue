@@ -391,7 +391,7 @@
 									</center>
 								</v-flex>
 								<v-flex xs12>
-									Seller
+									<app-register-user-seller v-model="userdata.seller"></app-register-user-seller>
 								</v-flex>
 								<v-flex xs6>
 									<center>
@@ -646,8 +646,8 @@
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
-        <code>{{proxpaso}}</code><br>
-        <code>{{userdata}}</code>
+		<code>{{proxpaso}}</code><br>
+		<code>{{userdata}}</code>
 	</v-container>
 </template>
 
@@ -661,19 +661,18 @@ export default {
     pasos: 1,
     userdata: {
       redirect: false,
-      email: 'saotand@gmail.com',
-      pass: '123123',
-      confirmpass: '123123',
-      doc: '15879381',
-      doctype: 'C',
-      nac: 'V',
-      name: 'David',
-      last: 'Salinas',
+      email: '',
+      pass: '',
+      confirmpass: '',
+      doc: '',
+      doctype: '',
+      nac: '',
+      name: '',
+      last: '',
       level: 0,
-      phone: '04163231120',
-      birth: '1983-04-13',
-      created: '',
-      active: '1',
+      phone: '',
+      birth: '',
+      active: '0',
       verified: '0',
       image: [],
       seller: {
@@ -703,26 +702,18 @@ export default {
     proxpaso () {
       let condition;
       if (this.pasos == 2) {
-        condition = this.userdata.email.length < 1;
-      } else if (this.pasos == 3) { 
+        condition = this.userdata.email.length < 1 ||
+					this.userdata.name.length <= 2 ||
+					this.userdata.last.length <= 2 ||
+					this.userdata.doc.length <= 7
+        ;
+      } else if (this.pasos == 3) {
         condition = !this.userdata.seller.name;
       }
       return condition;
     },
     profiled () {
       return this.userdata.profile.length;
-    },
-    nacsg () {
-      return [
-        {
-          text: 'J',
-          value: 'J'
-        },
-        {
-          text: 'V',
-          value: 'V'
-        }
-      ];
     },
     loading () {
       return !this.$store.getters.ui_g_loading;

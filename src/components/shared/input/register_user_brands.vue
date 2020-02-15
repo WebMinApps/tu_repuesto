@@ -39,7 +39,6 @@
 				></v-checkbox>
 			</v-flex>
 		</v-layout>
-		<code>{{profile}}</code>
 	</v-container>
 
 </template>

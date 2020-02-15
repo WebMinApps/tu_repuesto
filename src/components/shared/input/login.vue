@@ -7,7 +7,7 @@
 					:disabled="disabled ? true : false"
 					prepend-icon="mdi-account"
 					label="E-Mail"
-					:append-outer-icon="'mdi-account-box-multiple'"
+					:append-icon="'mdi-account-box-multiple'"
 				></v-text-field>
 			</v-flex>
 			<v-flex>
@@ -17,7 +17,7 @@
 					prepend-icon="mdi-lock"
 					:type="ptype"
 					label="Contraseña"
-					:append-outer-icon="picon"
+					:append-icon="picon"
 				></v-text-field>
 			</v-flex>
 			<v-flex
@@ -59,6 +59,7 @@ export default {
       pass: '',
       keep: false
     },
+
     showpass: false
   }),
   computed: {
@@ -67,6 +68,9 @@ export default {
     },
     picon () {
       return this.showpass ? 'mdi-eye-off' : 'mdi-eye';
+    },
+    typepass () {
+      return this.showpass ? 'text' : 'password';
     }
   },
   created () {
@@ -74,8 +78,11 @@ export default {
   },
   methods: {
     update () {
-      this.emit('input', this.login);
+      this.$emit('input', this.login);
     },
+    togglepass () {
+      this.showpass = !this.showpass;
+    }
   }
 };
 </script>

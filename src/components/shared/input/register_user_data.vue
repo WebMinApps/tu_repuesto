@@ -62,6 +62,7 @@
 		<v-flex xs5>
 			<v-select
 				v-model="userdata.doctype"
+				v-mask="maskdoc"
 				item-value="value"
 				:items="docs"
 				:rules="[v => !!v || 'Coloca el tipo de documento']"
@@ -133,12 +134,13 @@
 			<v-text-field
 				id="telefono"
 				v-model="userdata.phone"
+				v-mask="masktel"
 				name="telefono"
 				label="Teléfono"
-				type="text"
+				type="tel"
+				masked
 				required
 				:hint="mask"
-				:mask="mask"
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
@@ -182,32 +184,28 @@
 </template>
 
 <script>
-import { mask } from 'vue-the-mask';
 import axios from 'axios';
 export default {
-  directives: {
-    mask
-  },
   props: {
     value: {
       type: Object,
       required: false,
       default: () => ({
         ID: null,
-        email: 'saotand@gmail.com',
-        pass: '123123',
-        confirmpass: '123123',
-        doc: '15879381',
-        doctype: 'C',
-        nac: 'V',
-        name: 'David',
-        last: 'Salinas',
+        email: '',
+        pass: '',
+        confirmpass: '',
+        doc: '',
+        doctype: '',
+        nac: '',
+        name: '',
+        last: '',
         level: 0,
-        phone: '04163231120',
-        birth: '1983-04-13',
+        phone: '',
+        birth: '',
         created: '',
-        active: '1',
-        verified: '0',
+        active: '',
+        verified: '',
         image: []
       })
     }
@@ -220,7 +218,9 @@ export default {
     showlevel: false,
     docused: false,
     emailused: false,
-    mask: '(####) - ### ####'
+    maskdoc: '#########',
+    masktel: '(####) - ### ####',
+    doctypelabel: 'tipo de Documento'
   }),
   computed: {
     loading () {
