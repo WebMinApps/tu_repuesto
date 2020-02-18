@@ -26,8 +26,8 @@ You can do many things with visibility control, for example, show badge on hover
 */
 
 export default {
-    data: () => ({
-        hover: false,
-    }),
+  data: () => ({
+    hover: false,
+  }),
 };
 </script>

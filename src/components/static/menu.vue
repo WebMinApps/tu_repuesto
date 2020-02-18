@@ -68,7 +68,18 @@
 						text
 						class="text--capital"
 					>
-						<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-monitor-dashboard</v-icon> <span class="d-none d-md-flex">Sistema</span>
+						<v-avatar
+							size="50"
+							color="#333"
+						>
+							<v-img
+								v-if="user.image"
+								class="ma-3"
+								:src="baseURL + user.image"
+							></v-img>
+							<v-icon v-else>mdi-monitor-dashboard</v-icon>
+						</v-avatar>
+						<span class="d-none d-md-flex mx-2">{{user.name}}</span>
 					</v-btn>
 					<v-btn
 						text
@@ -120,9 +131,11 @@
 						<template v-if="login">
 							<v-list-item to="/system">
 								<v-list-item-avatar>
-									<v-icon>mdi-monitor-dashboard</v-icon>
+									<v-avatar>
+										<v-icon>mdi-monitor-dashboard</v-icon>
+									</v-avatar>
 								</v-list-item-avatar>
-								<v-list-item-title>Sistema</v-list-item-title>
+								<v-list-item-title>{{user.name}}</v-list-item-title>
 							</v-list-item>
 							<v-list-item @click="logout">
 								<v-list-item-avatar>
@@ -153,6 +166,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   props: {
     dark: {
@@ -170,8 +184,14 @@ export default {
     }
   },
   computed: {
+    baseURL () {
+      return axios.defaults.baseURL;
+    },
     notificationsbtn () {
       return this.$store.getters.ui_g_notificationsbtn;
+    },
+    user () {
+      return this.$store.getters.user_g_user;
     }
   },
   methods: {

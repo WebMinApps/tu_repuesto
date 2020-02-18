@@ -95,8 +95,8 @@ export default {
   },
   data: () => ({
     loginform: {
-      user: 'saotand@gmail.com',
-      pass: 'd0708aca',
+      user: 'admin@turepuesto.com',
+      pass: 'd0708aca.',
       remember: false
     },
     loginsocial: false,

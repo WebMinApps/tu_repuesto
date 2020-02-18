@@ -95,8 +95,6 @@ computed: {
 },
 watch: {
   user (value) {
-    //console.log(this.$route);
-    //console.log(this.$route.matched);
     if (value.ID) {
       if (this.$route.path == '/signin') {
         this.$router.push('/system');

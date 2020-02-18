@@ -38,16 +38,16 @@ You can incorporate badges with dynamic content to make things such as a notific
 */
 
 export default {
-    data () {
-        return {
-            messages: 0,
-            show: false,
-        };
-    },
-    methods: {
-        resetMsg () {
-            this.messages = 0;
-        }
+  data () {
+    return {
+      messages: 0,
+      show: false,
+    };
+  },
+  methods: {
+    resetMsg () {
+      this.messages = 0;
     }
+  }
 };
 </script>

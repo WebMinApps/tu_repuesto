@@ -117,7 +117,7 @@
 											<v-container>
 												<v-layout column>
 													<v-flex xs12>
-														<v-icon size="110">mdi-allergy</v-icon>
+														<v-icon size="110">mdi-cart</v-icon>
 													</v-flex>
 													<v-flex xs12>
 														<h1>Comprar</h1>
@@ -291,7 +291,7 @@
 											<v-container>
 												<v-layout column>
 													<v-flex xs12>
-														<v-icon size="110">mdi-allergy</v-icon>
+														<v-icon size="110">mdi-cart</v-icon>
 													</v-flex>
 													<v-flex xs12>
 														<h1>Comprar</h1>
@@ -646,8 +646,6 @@
 				</v-stepper-items>
 			</v-stepper>
 		</v-layout>
-		<code>{{proxpaso}}</code><br>
-		<code>{{userdata}}</code>
 	</v-container>
 </template>
 
