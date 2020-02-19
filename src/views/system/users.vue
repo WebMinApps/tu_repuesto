@@ -1,4 +1,5 @@
 <template>
+
 	<app-section
 		icon="mdi-account-group"
 		title="Usuarios"
@@ -8,6 +9,14 @@
 				<v-icon>mdi-refresh</v-icon>
 			</v-btn>
 		</template>
+		<app-users-list
+			v-model="selected"
+			:headers="headers"
+			key-item="doc"
+			:singleselect="false"
+			show-select
+			:dense="dense"
+		></app-users-list>
 		<app-list
 			v-model="selected"
 			:headers="headers"
@@ -16,6 +25,7 @@
 			show-select
 			dense
 		></app-list>
+		{{selected}}
 	</app-section>
 </template>
 
@@ -23,6 +33,7 @@
 export default {
   data: () => ({
     selected: [],
+    dense: false,
     headers: [
       {
         text: 'Imagen',

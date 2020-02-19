@@ -7,7 +7,13 @@ import panel from '@/components/shared/container/panel.vue';
 import tooltip from '@/components/shared/container/tooltip.vue';
 import dialog from '@/components/shared/container/dialog.vue';
 import section from '@/components/shared/container/section.vue';
+
+
 import list from '@/components/shared/container/list.vue';
+
+import users_list from '@/components/shared/list/users_list.vue';
+
+
 import listcards from '@/components/shared/container/listcards.vue';
 import fileinput from '@/components/shared/input/input_file.vue';
 import alert from '@/components/shared/container/alert.vue';
@@ -25,11 +31,19 @@ Vue.component('app-panel', panel);
 // Tooltip
 Vue.component('app-tooltip', tooltip);
 
+
+//////////////////////////////// ELIMINAR SEPARADOS
 // Listas
 Vue.component('app-list', list);
 
 // Listas en cartas
 Vue.component('app-list-card', listcards);
+
+
+
+Vue.component('app-users-list', users_list);
+
+
 
 // Section [Depende de Panel]
 Vue.component('app-section', section);
