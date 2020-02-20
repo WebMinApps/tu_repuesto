@@ -11,6 +11,7 @@
     "dependencies": {
         "@babel/polyfill": "^7.4.4",
         "@mdi/font": "^4.7.95",
+        "animate.css": "^3.7.2",
         "core-js": "^3.6.4",
         "jshint": "^2.11.0-rc1",
         "jsonwebtoken": "^8.5.1",

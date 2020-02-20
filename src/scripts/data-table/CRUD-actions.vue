@@ -265,13 +265,10 @@ export default {
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
-
     deleteItem (item) {
       const index = this.desserts.indexOf(item);
-      confirm('Are you sure you want to delete this item?') &&
-				this.desserts.splice(index, 1);
+      confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1);
     },
-
     close () {
       this.dialog = false;
       setTimeout(() => {

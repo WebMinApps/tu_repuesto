@@ -12,19 +12,12 @@
 		<app-users-list
 			v-model="selected"
 			:headers="headers"
+			:items="users"
 			key-item="doc"
 			:singleselect="false"
 			show-select
 			:dense="dense"
 		></app-users-list>
-		<app-list
-			v-model="selected"
-			:headers="headers"
-			item-key="name"
-			:singleselect="false"
-			show-select
-			dense
-		></app-list>
 		{{selected}}
 	</app-section>
 </template>
@@ -34,6 +27,17 @@ export default {
   data: () => ({
     selected: [],
     dense: false,
+    users: [
+      {
+        image: null,
+        name: 'David',
+        last: 'Salinas',
+        email: 'saotand@gmail.com',
+        doc: '15879381',
+        level: '0',
+        phone: '04163231120'
+      }
+    ],
     headers: [
       {
         text: 'Imagen',
@@ -50,7 +54,7 @@ export default {
         value: 'last'
       },
       {
-        text: 'email',
+        text: 'E-mail',
         value: 'email'
       },
       {
@@ -59,15 +63,11 @@ export default {
       },
       {
         text: 'Tipo',
-        value: ''
+        value: 'level'
       },
       {
-        text: 'Protein (g)',
-        value: 'protein'
-      },
-      {
-        text: 'Iron (%)',
-        value: 'iron'
+        text: 'Telefono',
+        value: 'phone'
       },
       {
         text: 'Actions',
@@ -75,7 +75,19 @@ export default {
         sortable: false
       }
     ]
-  })
+  }),
+  computed: {
+
+  },
+  watch: {
+
+  },
+  created () {
+
+  },
+  methods: {
+
+  }
 };
 
 </script>
