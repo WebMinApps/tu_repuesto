@@ -1,86 +1,157 @@
-<!DOCTYPE html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta name=mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-capable content=yes><meta name=application-name content=TuRepuesto><meta name=apple-mobile-web-app-title content=TuRepuesto><meta name=theme-color content=#810000><meta name=msapplication-navbutton-color content=#810000><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=msapplication-starturl content=/ ><meta name=description content="Encuentra tu repuesto en un solo sitio!"><meta property=og:title content="Tu Repuesto"><meta property=og:description content="Encuentra tu repuesto en un solo sitio!"><meta property=og:type content=website><meta property=og:url content=tu_repuesto/ ><meta property=og:image content=tu_repuesto//img/icons/logo.png><meta name=format-detection content="telephone=no"><meta name=robots content=noodp><!--[if IE]><link rel="icon" type="image/png" sizes="32x32" href="/img/icons/webapp-icon-32.png"><![endif]--><link rel=apple-touch-icon type=image/png sizes=32x32 href=./img/icons/webapp-icon-32.png><link rel=icon type=image/png sizes=60x60 href=/img/icons/webapp-icon-60.png><link rel=apple-touch-icon type=image/png sizes=60x60 href=./img/icons/webapp-icon-60.png><link rel=icon type=image/png sizes=80x80 href=/img/icons/webapp-icon-80.png><link rel=apple-touch-icon type=image/png sizes=80x80 href=./img/icons/webapp-icon-80.png><link rel=icon type=image/png sizes=128x128 href=/img/icons/webapp-icon-128.png><link rel=apple-touch-icon type=image/png sizes=128x128 href=./img/icons/webapp-icon-128.png><link rel=icon type=image/png sizes=192x192 href=/img/icons/webapp-icon-192.png><link rel=apple-touch-icon type=image/png sizes=192x192 href=./img/icons/webapp-icon-192.png><link rel=icon type=image/png sizes=256x256 href=/img/icons/webapp-icon-256.png><link rel=apple-touch-icon type=image/png sizes=256x256 href=./img/icons/webapp-icon-256.png><link rel=icon type=image/png sizes=512x512 href=/img/icons/webapp-icon-512.png><link rel=apple-touch-icon type=image/png sizes=512x512 href=./img/icons/webapp-icon-512.png><link rel=icon href=/favicon.ico><link rel=manifest href=/manifest.json><script src=./js/pace.min.js></script><title>Tu Repuesto</title><link href=tu_repuesto/assets/css/app.c71d665a.css rel=preload as=style><link href=tu_repuesto/assets/css/chunk-vendors.58be8267.css rel=preload as=style><link href=tu_repuesto/assets/js/app.734511eb.js rel=preload as=script><link href=tu_repuesto/assets/js/chunk-vendors.079a6f8c.js rel=preload as=script><link href=tu_repuesto/assets/css/chunk-vendors.58be8267.css rel=stylesheet><link href=tu_repuesto/assets/css/app.c71d665a.css rel=stylesheet><link rel=icon type=image/png sizes=32x32 href=tu_repuesto/img/icons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=tu_repuesto/img/icons/favicon-16x16.png><link rel=manifest href=tu_repuesto/manifest.json><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=no><meta name=apple-mobile-web-app-status-bar-style content=default><meta name=apple-mobile-web-app-title content="Tu Repuesto"><link rel=apple-touch-icon href=tu_repuesto/img/icons/apple-touch-icon-152x152.png><link rel=mask-icon href=tu_repuesto/img/icons/safari-pinned-tab.svg color=#4DBA87><meta name=msapplication-TileImage content=tu_repuesto/img/icons/msapplication-icon-144x144.png><meta name=msapplication-TileColor content=#000000></head><body><noscript><strong>Lo sentimos pero este sitio web no funciona adecuadamente si JavaScript esta deshabilitado. Por favor habilitelo para continuar.</strong></noscript><div id=app><div class=loader><div class=logo><img class=img-responsive src=./img/icons/webapp-icon-512.png></div><br>Cargando...<div class=loading><svg class=circular viewBox="25 25 50 50"><circle class=path cx=50 cy=50 r=20 fill=none stroke-width=2 stroke-miterlimit=10 /></svg></div></div><style>html {
-                    font-family: Arial, Helvetica, sans-serif;
-                    overflow: hidden;
-                    background-color: #303030;
-                    color: white;
-                }
+<!DOCTYPE html>
+<html lang=es>
 
-                .loader {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    justify-items: center;
+    <head>
+        <meta charset=utf-8>
+        <meta http-equiv=X-UA-Compatible content="IE=edge">
+        <meta name=viewport
+            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+        <meta name=mobile-web-app-capable content=yes>
+        <meta name=apple-mobile-web-app-capable content=yes>
+        <meta name=application-name content=TuRepuesto>
+        <meta name=apple-mobile-web-app-title content=TuRepuesto>
+        <meta name=theme-color content=#810000>
+        <meta name=msapplication-navbutton-color content=#810000>
+        <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+        <meta name=msapplication-starturl content= />
+        <meta name=description content="Encuentra tu repuesto en un solo sitio!">
+        <meta property=og:title content="Tu Repuesto">
+        <meta property=og:description content="Encuentra tu repuesto en un solo sitio!">
+        <meta property=og:type content=website>
+        <meta property=og:url content=tu_repuesto />
+        <meta property=og:image content=tu_repuesto//img/icons/logo.png> <meta name=format-detection
+            content="telephone=no">
+        <meta name=robots content=noodp>
+        <!--[if IE]><link rel="icon" type="image/png" sizes="32x32" href="/img/icons/webapp-icon-32.png"><![endif]-->
+        <link rel=apple-touch-icon type=image/png sizes=32x32 href=./img/icons/webapp-icon-32.png> <link rel=icon
+            type=image/png sizes=60x60 href=/img/icons/webapp-icon-60.png> <link rel=apple-touch-icon type=image/png
+            sizes=60x60 href=./img/icons/webapp-icon-60.png> <link rel=icon type=image/png sizes=80x80
+            href=/img/icons/webapp-icon-80.png> <link rel=apple-touch-icon type=image/png sizes=80x80
+            href=./img/icons/webapp-icon-80.png> <link rel=icon type=image/png sizes=128x128
+            href=/img/icons/webapp-icon-128.png> <link rel=apple-touch-icon type=image/png sizes=128x128
+            href=./img/icons/webapp-icon-128.png> <link rel=icon type=image/png sizes=192x192
+            href=/img/icons/webapp-icon-192.png> <link rel=apple-touch-icon type=image/png sizes=192x192
+            href=./img/icons/webapp-icon-192.png> <link rel=icon type=image/png sizes=256x256
+            href=/img/icons/webapp-icon-256.png> <link rel=apple-touch-icon type=image/png sizes=256x256
+            href=./img/icons/webapp-icon-256.png> <link rel=icon type=image/png sizes=512x512
+            href=/img/icons/webapp-icon-512.png> <link rel=apple-touch-icon type=image/png sizes=512x512
+            href=./img/icons/webapp-icon-512.png> <link rel=icon href=/favicon.ico> <link rel=manifest
+            href=/manifest.json> <script src=./js/pace.min.js> </script> <title>Tu Repuesto</title>
+        <link href=tu_repuesto/assets/css/app.c71d665a.css rel=preload as=style>
+        <link href=tu_repuesto/assets/css/chunk-vendors.58be8267.css rel=preload as=style>
+        <link href=tu_repuesto/assets/js/app.734511eb.js rel=preload as=script>
+        <link href=tu_repuesto/assets/js/chunk-vendors.079a6f8c.js rel=preload as=script>
+        <link href=tu_repuesto/assets/css/chunk-vendors.58be8267.css rel=stylesheet>
+        <link href=tu_repuesto/assets/css/app.c71d665a.css rel=stylesheet>
+        <link rel=icon type=image/png sizes=32x32 href=tu_repuesto/img/icons/favicon-32x32.png> <link rel=icon
+            type=image/png sizes=16x16 href=tu_repuesto/img/icons/favicon-16x16.png> <link rel=manifest
+            href=tu_repuesto/manifest.json> <meta name=theme-color content=#4DBA87>
+        <meta name=apple-mobile-web-app-capable content=no>
+        <meta name=apple-mobile-web-app-status-bar-style content=default>
+        <meta name=apple-mobile-web-app-title content="Tu Repuesto">
+        <link rel=apple-touch-icon href=tu_repuesto/img/icons/apple-touch-icon-152x152.png> <link rel=mask-icon
+            href=tu_repuesto/img/icons/safari-pinned-tab.svg color=#4DBA87>
+        <meta name=msapplication-TileImage content=tu_repuesto/img/icons/msapplication-icon-144x144.png> <meta
+            name=msapplication-TileColor content=#000000>
+    </head>
 
-                }
-
-                .loader>div {
-                    margin-top: 35px;
-                    flex: 1 200px;
-                    max-width: 200px;
-                }
-
-                .img-responsive {
-                    display: block;
-                    max-width: 100%;
-                    height: auto;
-                    background-position: center center;
-                }
-
-                .circular {
-                    animation: rotate 3s linear infinite;
-                    height: 100%;
-                    transform-origin: center center;
-                    width: 100%;
-                }
-
-                .path {
-                    stroke-dasharray: 1, 200;
-                    stroke-dashoffset: 0;
-                    animation: dash 2.0s ease-in-out infinite, color 3s ease-in-out infinite;
-                    stroke-linecap: round;
-                }
-
-                @keyframes rotate {
-                    100% {
-                        transform: rotate(360deg);
+    <body><noscript><strong>Lo sentimos pero este sitio web no funciona adecuadamente si JavaScript esta deshabilitado.
+                Por favor habilitelo para continuar.</strong></noscript>
+        <div id=app>
+            <div class=loader>
+                <div class=logo><img class=img-responsive src=./img/icons/webapp-icon-512.png> </div> <br>Cargando...
+                    <div class=loading><svg class=circular viewBox="25 25 50 50">
+                            <circle class=path cx=50 cy=50 r=20 fill=none stroke-width=2 stroke-miterlimit=10 /></svg>
+                    </div>
+                </div>
+                <style>
+                    html {
+                        font-family: Arial, Helvetica, sans-serif;
+                        overflow: hidden;
+                        background-color: #303030;
+                        color: white;
                     }
-                }
 
-                @keyframes dash {
-                    0% {
+                    .loader {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        justify-items: center;
+
+                    }
+
+                    .loader>div {
+                        margin-top: 35px;
+                        flex: 1 200px;
+                        max-width: 200px;
+                    }
+
+                    .img-responsive {
+                        display: block;
+                        max-width: 100%;
+                        height: auto;
+                        background-position: center center;
+                    }
+
+                    .circular {
+                        animation: rotate 3s linear infinite;
+                        height: 100%;
+                        transform-origin: center center;
+                        width: 100%;
+                    }
+
+                    .path {
                         stroke-dasharray: 1, 200;
                         stroke-dashoffset: 0;
+                        animation: dash 2.0s ease-in-out infinite, color 3s ease-in-out infinite;
+                        stroke-linecap: round;
                     }
 
-                    50% {
-                        stroke-dasharray: 89, 200;
-                        stroke-dashoffset: -35px;
+                    @keyframes rotate {
+                        100% {
+                            transform: rotate(360deg);
+                        }
                     }
 
-                    100% {
-                        stroke-dasharray: 89, 200;
-                        stroke-dashoffset: -124px;
-                    }
-                }
+                    @keyframes dash {
+                        0% {
+                            stroke-dasharray: 1, 200;
+                            stroke-dashoffset: 0;
+                        }
 
-                @keyframes color {
+                        50% {
+                            stroke-dasharray: 89, 200;
+                            stroke-dashoffset: -35px;
+                        }
 
-                    100%,
-                    0% {
-                        stroke: #d62d20;
-                    }
-
-                    40% {
-                        stroke: #d62d20;
-                    }
-
-                    66% {
-                        stroke: #d62d20;
+                        100% {
+                            stroke-dasharray: 89, 200;
+                            stroke-dashoffset: -124px;
+                        }
                     }
 
-                    80%,
-                    90% {
-                        stroke: #d62d20;
+                    @keyframes color {
+
+                        100%,
+                        0% {
+                            stroke: #d62d20;
+                        }
+
+                        40% {
+                            stroke: #d62d20;
+                        }
+
+                        66% {
+                            stroke: #d62d20;
+                        }
+
+                        80%,
+                        90% {
+                            stroke: #d62d20;
+                        }
                     }
-                }</style></div><script src=tu_repuesto/assets/js/chunk-vendors.079a6f8c.js></script><script src=tu_repuesto/assets/js/app.734511eb.js></script></body></html>
+                </style>
+            </div>
+            <script src=./assets/js/chunk-vendors.079a6f8c.js> </script> <script src=./assets/js/app.734511eb.js>
+                </script> </body> </html>
