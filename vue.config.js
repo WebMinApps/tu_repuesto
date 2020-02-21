@@ -11,5 +11,5 @@ module.exports = {
     requireModuleExtension: true
   },
   outputDir: 'docs',
-  publicPath: process.env.NODE_ENV === 'production' ? '/tu_repuesto' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? 'https://webminapps.github.io/tu_repuesto/' : '/'
 };
