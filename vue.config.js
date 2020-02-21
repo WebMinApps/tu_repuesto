@@ -10,6 +10,6 @@ module.exports = {
   css: {
     requireModuleExtension: true
   },
-
-  outputDir: 'docs'
+  outputDir: 'docs',
+  publicPath: 'tu_repuesto'
 };
