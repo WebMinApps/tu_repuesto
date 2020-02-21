@@ -164,7 +164,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "tu_repuesto/assets/js/chunk-vendors.079a6f8c.js"
   },
   {
-    "revision": "7045e512d0114c7148a0ec81fb167fa9",
+    "revision": "49f49292c3d98f6d826a9e51bc0da727",
     "url": "tu_repuesto/index.html"
   },
   {
