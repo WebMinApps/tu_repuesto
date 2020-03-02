@@ -133,7 +133,11 @@ export default {
         }
         sessionStorage.setItem('rem', JSON.stringify(users));
       }
-      this.$store.dispatch('user_a_login', { email: this.loginform.user, pass: this.loginform.pass });
+      this.$store.dispatch('user_a_login', { email: this.loginform.user, pass: this.loginform.pass }).then(() => {
+        alert('si');
+      }).catch(() => {
+        alert('no');
+      });
     }
   }
 };

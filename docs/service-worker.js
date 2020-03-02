@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://webminapps.github.io/tu_repuesto/precache-manifest.5c46471bbe884d913d213d0a72c2c7af.js"
+  "/precache-manifest.10e6f4ae9efb146362b7fb1f19b952bd.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tu_repuesto"});
