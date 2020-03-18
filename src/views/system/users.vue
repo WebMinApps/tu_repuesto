@@ -1,4 +1,5 @@
 <template>
+
 	<app-section
 		icon="mdi-account-group"
 		title="Usuarios"
@@ -8,14 +9,16 @@
 				<v-icon>mdi-refresh</v-icon>
 			</v-btn>
 		</template>
-		<app-list
+		<app-users-list
 			v-model="selected"
 			:headers="headers"
-			item-key="name"
+			:items="users"
+			key-item="doc"
 			:singleselect="false"
 			show-select
-			dense
-		></app-list>
+			:dense="dense"
+		></app-users-list>
+		{{selected}}
 	</app-section>
 </template>
 
@@ -23,6 +26,18 @@
 export default {
   data: () => ({
     selected: [],
+    dense: false,
+    users: [
+      {
+        image: null,
+        name: 'David',
+        last: 'Salinas',
+        email: 'saotand@gmail.com',
+        doc: '15879381',
+        level: '0',
+        phone: '04163231120'
+      }
+    ],
     headers: [
       {
         text: 'Imagen',
@@ -39,7 +54,7 @@ export default {
         value: 'last'
       },
       {
-        text: 'email',
+        text: 'E-mail',
         value: 'email'
       },
       {
@@ -48,15 +63,11 @@ export default {
       },
       {
         text: 'Tipo',
-        value: ''
+        value: 'level'
       },
       {
-        text: 'Protein (g)',
-        value: 'protein'
-      },
-      {
-        text: 'Iron (%)',
-        value: 'iron'
+        text: 'Telefono',
+        value: 'phone'
       },
       {
         text: 'Actions',
@@ -64,7 +75,19 @@ export default {
         sortable: false
       }
     ]
-  })
+  }),
+  computed: {
+
+  },
+  watch: {
+
+  },
+  created () {
+
+  },
+  methods: {
+
+  }
 };
 
 </script>

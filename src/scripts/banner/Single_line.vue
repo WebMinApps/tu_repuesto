@@ -41,8 +41,8 @@ Single-line (desktop)
 Single-line VBanner is used for small amount of information and is recommended for desktop only implementations. You can optionally enable the sticky prop to ensure the content is pinned to the screen (note: does not work in IE11). You can find more information about sticky positioning here -> https://developer.mozilla.org/en-US/docs/Web/CSS/position.
 */
 export default {
-    data: () => ({
-        sticky: false,
-    }),
+  data: () => ({
+    sticky: false,
+  }),
 };
 </script>

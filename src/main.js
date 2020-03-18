@@ -11,10 +11,13 @@ import '@babel/polyfill';
 import '@mdi/font/css/materialdesignicons.css';
 import '@/assets/css/styles.css';
 import '@/plugins/imports.js';
+import VueTheMask from 'vue-the-mask';
+
 
 Vue.config.productionTip = true;
 
 Vue.use(VueMomentLib);
+Vue.use(VueTheMask);
 
 new Vue({
   vuetify,

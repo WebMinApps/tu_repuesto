@@ -89,15 +89,15 @@
 
 <script>
 import loginform from '@/components/shared/input/login';
-
 export default {
   components: {
     'app-login-form': loginform
   },
   data: () => ({
     loginform: {
-      user: 'saotand@gmail.com',
-      pass: 'd0708aca'
+      user: 'admin@turepuesto.com',
+      pass: 'd0708aca.',
+      remember: false
     },
     loginsocial: false,
     passrecover: false,
@@ -113,11 +113,28 @@ export default {
   },
   methods: {
     submit () {
+      if (this.loginform.remember) {
+        let users = JSON.parse(sessionStorage.getItem('rem'));
+        let coin = null;
+        if (users) {
+          users.forEach((element, index) => {
+            if (element.user == this.loginform.user) {
+              coin = index;
+            }
+          });
+          if (coin === null) {
+            users.push({ user: this.loginform.user, access: new Date() });
+          } else {
+            users.splice(coin, 1, { user: this.loginform.user, access: new Date() });
+          }
+        } else {
+          users = [];
+          users.push({ user: this.loginform.user, access: new Date() });
+        }
+        sessionStorage.setItem('rem', JSON.stringify(users));
+      }
       this.$store.dispatch('user_a_login', { email: this.loginform.user, pass: this.loginform.pass });
     }
   }
 };
 </script>
-
-<style>
-</style>

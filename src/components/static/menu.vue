@@ -20,12 +20,16 @@
 							<v-icon>mdi-bell</v-icon>
 						</v-btn>
 					</template>
-					<v-list two-line>
+					<v-list
+						two-line
+						color="grey darken-4"
+					>
 						<template v-for="(item, index) in notification">
 							<v-subheader
 								v-if="item.header"
 								:key="item.header"
 								inset
+								color="white"
 							>
 								{{ item.header }}
 							</v-subheader>
@@ -34,12 +38,14 @@
 								v-else-if="item.divider"
 								:key="index"
 								inset
+								:dark="dark"
 							></v-divider>
 
 							<v-list-item
 								v-else
 								:key="item.title"
 								ripple
+								color="white"
 							>
 								<v-list-item-avatar>
 									<img :src="item.avatar">
@@ -68,7 +74,18 @@
 						text
 						class="text--capital"
 					>
-						<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-monitor-dashboard</v-icon> <span class="d-none d-md-flex">Sistema</span>
+						<v-avatar
+							size="50"
+							color="#333"
+						>
+							<v-img
+								v-if="user.image"
+								class="ma-3"
+								:src="baseURL + user.image"
+							></v-img>
+							<v-icon v-else>mdi-monitor-dashboard</v-icon>
+						</v-avatar>
+						<span class="d-none d-md-flex mx-2">{{user.name}}</span>
 					</v-btn>
 					<v-btn
 						text
@@ -110,7 +127,7 @@
 							<v-icon>mdi-dots-vertical</v-icon>
 						</v-btn>
 					</template>
-					<v-list>
+					<v-list :dark="dark">
 						<v-list-item to="/">
 							<v-list-item-avatar>
 								<v-icon>mdi-home</v-icon>
@@ -120,9 +137,19 @@
 						<template v-if="login">
 							<v-list-item to="/system">
 								<v-list-item-avatar>
-									<v-icon>mdi-monitor-dashboard</v-icon>
+									<v-avatar
+										size="50"
+										color="#333"
+									>
+										<v-img
+											v-if="user.image"
+											class="ma-3"
+											:src="baseURL + user.image"
+										></v-img>
+										<v-icon v-else>mdi-monitor-dashboard</v-icon>
+									</v-avatar>
 								</v-list-item-avatar>
-								<v-list-item-title>Sistema</v-list-item-title>
+								<v-list-item-title>{{user.name}}</v-list-item-title>
 							</v-list-item>
 							<v-list-item @click="logout">
 								<v-list-item-avatar>
@@ -153,6 +180,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   props: {
     dark: {
@@ -170,8 +198,14 @@ export default {
     }
   },
   computed: {
+    baseURL () {
+      return axios.defaults.baseURL;
+    },
     notificationsbtn () {
       return this.$store.getters.ui_g_notificationsbtn;
+    },
+    user () {
+      return this.$store.getters.user_g_user;
     }
   },
   methods: {

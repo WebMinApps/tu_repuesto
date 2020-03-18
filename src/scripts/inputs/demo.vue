@@ -1,18 +1,18 @@
 <template>
-  <v-container
-    id="input-usage"
-    fluid
-  >
-    <v-row>
-      <v-col cols="12">
-        <v-input
-          :messages="['Messages']"
-          append-icon="close"
-          prepend-icon="phone"
-        >Default Slot</v-input>
-      </v-col>
-    </v-row>
-  </v-container>
+	<v-container
+		id="input-usage"
+		fluid
+	>
+		<v-row>
+			<v-col cols="12">
+				<v-input
+					:messages="['Messages']"
+					append-icon="close"
+					prepend-icon="phone"
+				>Default Slot</v-input>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <script>
@@ -22,15 +22,15 @@ v-input has 4 main areas. The prepended slot, the appended slot, the default slo
 */
 
 export default {
-    data () {
-        return {
-            text: ''
-        };
-    },
-    methods: {
-        appendIconCallback () { },
-        prependIconCallback () { }
-    }
+  data () {
+    return {
+      text: ''
+    };
+  },
+  methods: {
+    appendIconCallback () { },
+    prependIconCallback () { }
+  }
 };
 </script>
 
@@ -39,6 +39,6 @@ export default {
 #input-usage .v-input__append-outer,
 #input-usage .v-input__slot,
 #input-usage .v-messages {
-  border: 1px dashed rgba(0, 0, 0, 0.4);
+	border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 </style>

@@ -104,16 +104,14 @@ export default {
     // Verificamos que hy datos de session en UI
     let rawtoken = sessionStorage.getItem('token');
     if (rawtoken) {
-      console.log(rawtoken);
       // Valores de opciones para la Peticion de cierre de session al API
       const options = { headers: { Authorization: rawtoken } };
       // Recurso al API de cierre de sesion
       const URL = '/logout' + f;
       // Peticion de cierre de sesion
       axios.post(URL, null, options)
-        .then((response) => {
+        .then(() => {
           // eslint-disable-next-line no-console
-          console.log(response);
           sessionStorage.removeItem('token');
           commit('user_m_unload');
           commit('ui_m_message', { title: 'Cerrar Sesion', text: 'Has cerrado sesion', type: 'info' });

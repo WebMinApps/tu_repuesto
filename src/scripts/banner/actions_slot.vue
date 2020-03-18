@@ -32,8 +32,8 @@ the actions slot has dismiss function in its scope, you can use it to easily dis
 */
 
 export default {
-    data: () => ({
-        v0: true,
-    }),
+  data: () => ({
+    v0: true,
+  }),
 };
 </script>

@@ -1,13 +1,14 @@
 <template>
-	<v-container>
+	<v-container class="pt-0 mt-0">
 		<v-layout
+			class="pt-0 mt-0 "
 			row
 			wrap
 		>
 			<v-flex
-				xs12
-				sm12
-				md2
+				xs6
+				sm4
+				md3
 				lg2
 				xl2
 			>
@@ -21,9 +22,9 @@
 			<v-flex
 				v-for="(brand) in brands"
 				:key="brand.ID"
-				xs12
-				sm12
-				md2
+				xs6
+				sm4
+				md3
 				lg2
 				xl2
 			>
@@ -39,6 +40,7 @@
 			</v-flex>
 		</v-layout>
 	</v-container>
+
 </template>
 
 <script>
@@ -75,10 +77,11 @@ export default {
     },
   },
   created () {
+    this.profile = this.value;
     this.profile_brands();
+
   },
   methods: {
-
     profile_brands () {
       axios
         .get('ask/notilist/brands')

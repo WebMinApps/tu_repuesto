@@ -1,23 +1,23 @@
 <template>
-  <div class="text-center">
-    <v-progress-circular :value="20"></v-progress-circular>
+	<div class="text-center">
+		<v-progress-circular :value="20"></v-progress-circular>
 
-    <v-progress-circular :value="40"></v-progress-circular>
+		<v-progress-circular :value="40"></v-progress-circular>
 
-    <v-progress-circular
-      :size="50"
-      :rotate="1"
-      :value="60"
-    ></v-progress-circular>
+		<v-progress-circular
+			:size="50"
+			:rotate="1"
+			:value="60"
+		></v-progress-circular>
 
-    <v-progress-circular :value="80"></v-progress-circular>
+		<v-progress-circular :value="80"></v-progress-circular>
 
-    <v-progress-circular :value="100"></v-progress-circular>
-  </div>
+		<v-progress-circular :value="100"></v-progress-circular>
+	</div>
 </template>
 
 <style scoped>
 .v-progress-circular {
-  margin: 1rem;
+	margin: 1rem;
 }
 </style>

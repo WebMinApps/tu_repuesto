@@ -23,24 +23,27 @@
 						:style="{order: askformorder}"
 					>
 						<div :class="darkness ? 'ask_bg_dark' : 'ask_bg_light'">
-							<center>
-								<h2 :style="{color: darkness ? '#eee' : '#555'}">Encuentra el Repuesto que buscas.</h2>
-							</center>
-							<app-input-ask
-								v-model="ask"
-								showicons
-								:dark="darkness"
-							/>
-							<center>
-								<v-btn
-									:loading="loading"
-									:disabled="valid"
-									class="primary"
-									@click="sendAsk"
-								>
-									<v-icon left>mdi-search-web</v-icon>Consultar
-								</v-btn>
-							</center>
+							<form @submit.prevent="submit">
+								<center>
+									<h2 :style="{color: darkness ? '#eee' : '#555'}">Encuentra el Repuesto que buscas.</h2>
+								</center>
+
+								<app-input-ask
+									v-model="ask"
+									showicons
+									:dark="darkness"
+								/>
+								<center>
+									<v-btn
+										:loading="loading"
+										:disabled="valid"
+										class="primary"
+										type="submit"
+									>
+										<v-icon left>mdi-search-web</v-icon>Consultar
+									</v-btn>
+								</center>
+							</form>
 						</div>
 					</v-flex>
 					<v-flex
@@ -53,12 +56,70 @@
 				</v-layout>
 			</v-container>
 		</v-parallax>
+		<!-- Cuadro de dialogo para no registrados -->
+		<v-dialog
+			v-model="intrologin"
+			width="500"
+		>
+			<v-card :dark="darkness">
+				<v-card-title
+					:class="!darkness  ? 'headline grey lighten-2' : 'headline grey darken-2'"
+					primary-title
+				>
+					<span :style="darkness  ? 'color:white' : ''">Aun no estas registrado?</span>
+				</v-card-title>
+				<v-card-text>
+					<div style="margin:10px">
+						<center>
+							<img
+								v-if="darkness"
+								src="@/assets/img/logominidark.png"
+								class="img-responsive"
+							/>
+							<img
+								v-else
+								src="@/assets/img/logomini.png"
+								class="img-responsive"
+							/>
+							<br />
+							<img
+								src="@/assets/img/gracias.png"
+								class="img-responsive"
+							/>
+						</center>
+					</div>
+					<center>Para poder realizar consultas en debes registrarte o ingresar al sitio.</center>
+				</v-card-text>
+				<v-divider></v-divider>
+				<v-card-actions>
+					<v-spacer></v-spacer>
+					<v-btn
+						color="primary"
+						flat
+						@click="tosignup"
+					>
+						<v-icon left>mdi-login</v-icon>Registrar
+					</v-btn>
+					<div class="mx-4">o</div>
+					<v-btn
+						color="primary"
+						flat
+						@click="tosignin"
+					>
+						<v-icon left>mdi-account</v-icon>Ingresar
+					</v-btn>
+					<v-spacer></v-spacer>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
+		<code>{{ask}}</code>
 	</span>
 </template>
 
 <script>
 import ask_input from '@/components/shared/input/ask.vue';
 import sponsor from '@/components/shared/container/sponsor.vue';
+
 
 export default {
   components: {
@@ -68,15 +129,17 @@ export default {
   data: () => ({
     ask: {
       ID: '',
-      brand: '',
-      model: '',
-      part: '',
-      spart: '',
-      year: '',
-      details: '',
+      brand: '312c379dde93a2140d4ca950a676a6',
+      model: '01fc23c961e17f0f7ac1e87d1387f3',
+      part: 'a8f0202c26a8dc50c606621e4f1d53',
+      spart: '37b4903df0cf43e45449c86a8e25a3',
+      year: '2019',
+      details: 'Detalles',
       image: []
     },
-    parallax: false
+    intrologin: false,
+    sendedWindow: false,
+    parallax: true
   }),
   computed: {
     askformorder () {
@@ -128,8 +191,21 @@ export default {
   },
   watch: {},
   methods: {
-    sendAsk () {
-      alert('Enviado');
+    tosignup () {
+      this.$router.push('/signup');
+    },
+    tosignin () {
+      this.$router.push('/signin');
+    },
+    submit () {
+      if (this.user.ID) {
+        this.ask.userID = this.user.ID;
+        // eslint-disable-next-line no-console
+        console.log(this.ask);
+        this.$store.dispatch('ask_a_ask', this.ask);
+      } else {
+        this.intrologin = true;
+      }
     }
   }
 };

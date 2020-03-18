@@ -179,6 +179,8 @@
 					:outlined="outlined"
 					:dark="dark"
 					:solo="solo"
+					:required="required"
+					:disabled="loading"
 					base64
 					multiple
 				></app-fileinput>
@@ -212,7 +214,8 @@ export default {
     outlined: { type: Boolean },
     imglimit: { type: String, default: '2000000' },
     unique: { type: String, required: false, default: '0' },
-    clearable: { type: Boolean }
+    clearable: { type: Boolean },
+    required: { type: Boolean }
   },
   data: () => ({
     form: { ID: '0', brand: '', model: '', part: '', spart: '', details: '', image: [] },

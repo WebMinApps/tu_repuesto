@@ -29,10 +29,10 @@ Icon click event
 VBanner emits click:icon event on icon click, even with custom icon slot.
 */
 export default {
-    methods: {
-        alert () {
-            alert('Hello, World!');
-        },
+  methods: {
+    alert () {
+      alert('Hello, World!');
     },
+  },
 };
 </script>

@@ -2,11 +2,9 @@
 import Vue from 'vue';
 import axios from 'axios';
 
-// SET BASE URL
-const Burls = ['http://192.168.1.100/', 'http://api.carparts/', 'http://servidorg77:2077/'];
 
 // Base URL
-axios.defaults.baseURL = Burls[0];
+axios.defaults.baseURL = process.env.VUE_APP_apiURL;
 
 // Full config:  https://github.com/axios/axios#request-config
 

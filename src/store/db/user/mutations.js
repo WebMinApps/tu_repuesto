@@ -13,6 +13,7 @@ export default {
       birth: payload.birth,
       created: payload.create,
       verified: payload.verified,
+      image: payload.image,
       login_count: payload.login_count,
       ip: payload.ip,
       config: payload.config,
