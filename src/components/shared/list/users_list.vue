@@ -37,7 +37,6 @@
 				No se cargo la informacion
 			</template>
 		</v-data-table>
-		<code>{{data}}</code>
 	</span>
 </template>
 

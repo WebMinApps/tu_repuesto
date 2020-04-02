@@ -1,6 +1,7 @@
 <template>
 	<div class="home">
 		<app-askform />
+		<hr><br><br>
 		<app-brief />
 	</div>
 </template>

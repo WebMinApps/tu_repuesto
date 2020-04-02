@@ -1,6 +1,7 @@
 <template>
 	<div style="margin:10px">
 		<v-carousel
+			v-model="pic"
 			height="420px"
 			progress-color="black"
 			:show-arrows="true"
@@ -31,6 +32,13 @@
 				</v-sheet>
 			</v-carousel-item>
 		</v-carousel>
+		{{pic}}
+		<app-alt
+			v-model="pic"
+			min="0"
+			max="1"
+			interval="5000"
+		></app-alt>
 	</div>
 </template>
 
@@ -46,10 +54,18 @@ export default {
           imgsize: 'contain',
           color: null
         },
+        {
+          img: './img/icons/webapp-icon-512.png',
+          imgsize: 'contain',
+          color: 'red'
+        }
       ])
     }
   },
-  data: () => ({})
+  data: () => ({
+    pic: 1,
+    pic2: 0
+  })
 };
 </script>
 

@@ -21,6 +21,12 @@ import registeruserdata from '@/components/shared/input/register_user_data.vue';
 import registeruserbrands from '@/components/shared/input/register_user_brands.vue';
 import registeruserparts from '@/components/shared/input/register_user_parts.vue';
 import registeruserseller from '@/components/shared/input/register_user_seller.vue';
+import alternate from '@/components/shared/container/alternate.vue';
+
+
+// Alterna entre elementos
+Vue.component('app-alt', alternate);
+
 
 //Alertas del sistema
 Vue.component('app-alert', alert);

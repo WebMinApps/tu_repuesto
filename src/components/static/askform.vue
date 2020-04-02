@@ -27,7 +27,6 @@
 								<center>
 									<h2 :style="{color: darkness ? '#eee' : '#555'}">Encuentra el Repuesto que buscas.</h2>
 								</center>
-
 								<app-input-ask
 									v-model="ask"
 									showicons
@@ -40,7 +39,7 @@
 										class="primary"
 										type="submit"
 									>
-										<v-icon left>mdi-search-web</v-icon>Consultar
+										<v-icon left>mdi-comment-search</v-icon>Consultar
 									</v-btn>
 								</center>
 							</form>
@@ -88,31 +87,78 @@
 							/>
 						</center>
 					</div>
-					<center>Para poder realizar consultas en debes registrarte o ingresar al sitio.</center>
+					<center>Para poder realizar consultas, debes registrarte o ingresar al sitio.</center>
 				</v-card-text>
 				<v-divider></v-divider>
 				<v-card-actions>
 					<v-spacer></v-spacer>
 					<v-btn
 						color="primary"
-						flat
-						@click="tosignup"
+						@click="tosignin"
 					>
-						<v-icon left>mdi-login</v-icon>Registrar
+						<v-icon left>mdi-login</v-icon>Ingresar
 					</v-btn>
 					<div class="mx-4">o</div>
 					<v-btn
-						color="primary"
-						flat
-						@click="tosignin"
+						color="success"
+						text-md-left
+						@click="tosignup"
 					>
-						<v-icon left>mdi-account</v-icon>Ingresar
+						<v-icon left>mdi-account-check</v-icon>Registrate
 					</v-btn>
 					<v-spacer></v-spacer>
 				</v-card-actions>
 			</v-card>
 		</v-dialog>
-		<code>{{ask}}</code>
+
+		<!-- Cuadro de dialogo para confirmacion de envio de Pregunta -->
+		<v-dialog
+			v-model="asksended"
+			width="500"
+		>
+			<v-card :dark="darkness">
+				<v-card-title
+					:class="darkness ? 'headline grey darken-2' : 'headline grey lighten-2'"
+					primary-title
+				>
+					<span :style="darkness ? 'color:white' : ''">Pregunta enviada</span>
+				</v-card-title>
+				<v-card-text>
+					<div style="margin:10px">
+						<center>
+							<img
+								v-if="darkness"
+								src="@/assets/img/logominidark.png"
+								class="img-responsive"
+							/>
+							<img
+								v-else
+								src="@/assets/img/logomini.png"
+								class="img-responsive"
+							/>
+							<br />
+							<img
+								src="@/assets/img/gracias.png"
+								class="img-responsive"
+							/>
+						</center>
+					</div>
+					<center>
+						<h2>Tu pregunta ha sido enviada</h2>
+					</center>
+				</v-card-text>
+				<v-divider></v-divider>
+				<v-card-actions>
+					<v-spacer></v-spacer>
+					<v-btn
+						color="success"
+						@click="gotoasked"
+					>
+						<v-icon left>mdi-comment</v-icon>Ir a mis Preguntas
+					</v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
 	</span>
 </template>
 
@@ -137,11 +183,15 @@ export default {
       details: 'Detalles',
       image: []
     },
+    asksended: false,
     intrologin: false,
     sendedWindow: false,
     parallax: true
   }),
   computed: {
+    message () {
+      return this.$store.getters.ui_g_message;
+    },
     askformorder () {
       let o = 2;
       if (this.$vuetify.breakpoint.name == 'xs' || this.$vuetify.breakpoint.name == 'sm') {
@@ -197,12 +247,20 @@ export default {
     tosignin () {
       this.$router.push('/signin');
     },
+    gotoasked () {
+      this.asksended = false;
+      this.$router.push('/system/asked');
+    },
     submit () {
       if (this.user.ID) {
         this.ask.userID = this.user.ID;
-        // eslint-disable-next-line no-console
-        console.log(this.ask);
-        this.$store.dispatch('ask_a_ask', this.ask);
+        this.$store.dispatch('ask_a_create', this.ask);
+        let messagetype = this.message.type;
+        if (messagetype == 'success') {
+          this.asksended = true;
+        } else {
+          this.asksended = true;
+        }
       } else {
         this.intrologin = true;
       }

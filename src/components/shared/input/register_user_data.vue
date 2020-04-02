@@ -17,7 +17,7 @@
 				hint="Tu correo será verificado"
 				required
 				:rules="[emailmessage,emailused]"
-				@blur="onBlurEmail(userdata.email)"
+				@input="onBlurEmail(userdata.email)"
 			></v-text-field>
 		</v-flex>
 		<v-flex
@@ -62,7 +62,6 @@
 		<v-flex xs5>
 			<v-select
 				v-model="userdata.doctype"
-				v-mask="maskdoc"
 				item-value="value"
 				:items="docs"
 				:rules="[v => !!v || 'Coloca el tipo de documento']"
@@ -85,14 +84,14 @@
 			<v-text-field
 				id="cedula"
 				v-model="userdata.doc"
+				v-mask="maskdoc"
 				name="cedula"
 				label="Cedula"
 				type="text"
 				hint="Numero de documento"
 				:rules="[v => !!v || 'Coloca tu ' + doctypelabel ,docused]"
-				mask="########"
 				required
-				@blur="onBlurDoc(userdata.doc)"
+				@input="onBlurDoc(userdata.doc)"
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
@@ -138,9 +137,8 @@
 				name="telefono"
 				label="Teléfono"
 				type="tel"
-				masked
 				required
-				:hint="mask"
+				:hint="masktel"
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
@@ -181,9 +179,12 @@
 			</v-menu>
 		</v-flex>
 	</v-layout>
+  
 </template>
 
 <script>
+import common from '../../../store/common.js';
+
 import axios from 'axios';
 export default {
   props: {
@@ -211,20 +212,37 @@ export default {
     }
   },
   data: () => ({
-    userdata: {},
-    birthdate: '0000-00-00',
+    userdata: {
+      ID: null,
+      email: '',
+      pass: '',
+      confirmpass: '',
+      doc: '',
+      doctype: '',
+      nac: '',
+      name: '',
+      last: '',
+      level: 0,
+      phone: '',
+      birth: '',
+      created: '',
+      active: '',
+      verified: '',
+      image: []
+    },
+    birthdate: '000-00-00',
     birthdateFormatted: '0000-00-00',
     menu1: false,
     showlevel: false,
     docused: false,
     emailused: false,
     maskdoc: '#########',
-    masktel: '(####) - ### ####',
+    masktel: '(####) ### ####',
     doctypelabel: 'tipo de Documento'
   }),
   computed: {
     loading () {
-      return !this.$store.getters.ui_g_loading;
+      return this.$store.getters.ui_g_loading;
     },
     emailformatted () {
       let regexemail = /^[a-zA-Z0-9!#$&*?^{}˜.Çç-]+(\.[a-zA-Z0-9!#$&*?^{}˜.Çç-]+)*@([a-zA-Z0-9]+([a-zA-Z0-9-]*)\.)+[a-zA-Z]+$/;
@@ -278,8 +296,7 @@ export default {
     },
     minlength () {
       return this.pml ? 'Minimo 6 caracteres' : false;
-    },
-
+    }
   },
   watch: {
     userdata () {
@@ -291,9 +308,12 @@ export default {
     }
   },
   created () {
+    let thedate = (this.value.birth != '0000-00-00') ? this.value.birth : this.maxdate;
     this.userdata = this.value;
     this.birthdate = this.maxdate;
-    this.birthdateFormatted = this.formatDate(this.maxdate);
+    this.birthdateFormatted = this.formatDate(thedate);
+    this.birthdate = thedate;
+
   },
   methods: {
     datediff (ddiff = 80) {
@@ -306,52 +326,47 @@ export default {
     },
     onBlurDoc (cData) {
       let data = { doc: cData };
-      let url = 'user/check';
-      axios
-        .post(url, data)
-        .then(response => {
-          let exists = response.data.data;
-          if (exists) {
-            this.docused = 'Ya Existe';
-          } else {
-            this.docused = false;
-          }
-        })
-        .catch(error => {
-          let message = '';
-          if (error.response != undefined) {
-            message = error.response.data.error.message;
+      let url = common.url('user/check');
+      if (cData.length > 7) {
+        axios
+          .post(url, data)
+          .then(response => {
+            let exists = response.data.data;
+            if (exists) {
+              this.docused = 'Ya Existe';
+            } else {
+              this.docused = false;
+            }
+          })
+          .catch(error => {
+            // capturamos el error y lo mostramos
+            let message = common.error(error);
             this.$store.dispatch('ui_a_error', message);
-          } else {
-            message = error;
-            //commit("ui_m_warning", message);
-          }
-        })
-        .then();
+          })
+          .then();
+      }
     },
     onBlurEmail (cData) {
       let data = { email: cData };
-      let url = 'user/check';
-      axios
-        .post(url, data)
-        .then(response => {
-          let exists = response.data.data;
-          if (exists) {
-            this.emailused = 'Ya Existe';
-          } else {
-            this.emailused = false;
-          }
-        })
-        .catch(error => {
-          let message = '';
-          if (error.response != undefined) {
-            message = error.response.data.error.message;
-          } else {
-            message = error;
-          }
-          this.$store.dispatch('ui_a_error', message);
-        })
-        .then();
+      let url = common.url('user/check');
+      if (this.emailformatted) {
+        axios
+          .post(url, data)
+          .then(response => {
+            let exists = response.data.data;
+            if (exists) {
+              this.emailused = 'Ya Existe';
+            } else {
+              this.emailused = false;
+            }
+          })
+          .catch(error => {
+            // capturamos el error y lo mostramos
+            let message = common.error(error);
+            this.$store.dispatch('ui_a_error', message);
+          })
+          .then();
+      }
     },
     parseDate (date) {
       if (!date) return null;

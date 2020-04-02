@@ -20,8 +20,12 @@
 			>
 				<app-fileinput
 					v-model="seller.image"
+					clearable
+					accept="image/*"
 					base64
 					placeholder="Foto (Logo y Fachada)"
+					:prepend-icon="showicons ? 'mdi-file-image' : ''"
+					multiple
 				></app-fileinput>
 			</v-flex>
 			<v-flex xs2>
@@ -36,23 +40,25 @@
 				<v-text-field
 					id="rif"
 					v-model="seller.rif"
+					v-mask="maskrif"
 					name="rif"
 					label="Rif"
 					type="text"
 					required
 					mask="########-#"
 				></v-text-field>
+
 			</v-flex>
 			<v-flex xs6>
 				<v-text-field
 					id="telefonos"
 					v-model="seller.phone"
+					v-mask="masktel"
 					name="telefonos"
 					label="Teléfono de la Empresa"
 					type="text"
 					required
-					hint="(####) - ### ####"
-					mask="(####) - ### ####"
+					:hint="masktel"
 				></v-text-field>
 			</v-flex>
 			<v-flex xs6>
@@ -85,7 +91,7 @@ export default {
   props: {
     value: {
       type: Object,
-      required: false,
+      required: true,
       default: () => ({
         ID: '',
         name: '',
@@ -96,43 +102,46 @@ export default {
         city: '',
         address: ''
       })
-    },
-    data: () => ({
-      seller: {
-        ID: '',
-        name: '',
-        image: [],
-        rif: '',
-        nac: '',
-        phone: '',
-        city: '',
-        address: ''
-      }
-    }),
-    created () {
-      this.seller = this.value;
-    },
-    computed: {
-      docs () {
-        return [
-          { text: 'Cedula', value: 'C' },
-          { text: 'Pasaporte', value: 'P' },
-          { text: 'RIF', value: 'R' }
-        ];
-      },
-      nacsg () {
-        return [
-          {
-            text: 'J',
-            value: 'J'
-          },
-          {
-            text: 'V',
-            value: 'V'
-          }
-        ];
-      },
     }
+  },
+  data: () => ({
+    seller: {
+      ID: '',
+      name: '',
+      image: [],
+      rif: '',
+      nac: '',
+      phone: '',
+      city: '',
+      address: ''
+    },
+    maskrif: '#########',
+    masktel: '(####) ### ####'
+  }),
+  computed: {
+    docs () {
+      return [
+        { text: 'Cedula', value: 'C' },
+        { text: 'Pasaporte', value: 'P' },
+        { text: 'RIF', value: 'R' }
+      ];
+    },
+    nacsg () {
+      return [
+        {
+          text: 'J',
+          value: 'J'
+        },
+        {
+          text: 'V',
+          value: 'V'
+        }
+      ];
+    },
+  },
+  created () {
+    this.seller = this.value;
   }
+
 };
 </script>

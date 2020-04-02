@@ -163,6 +163,9 @@
 						>
 							<v-layout row>
 								<v-flex xs12>
+									<center>
+										<h3>Datos personales</h3>
+									</center>
 									<app-register-user-data v-model="userdata"></app-register-user-data>
 								</v-flex>
 								<v-flex xs6>
@@ -202,7 +205,7 @@
 							<v-layout row>
 								<v-flex xs12>
 									<center>
-										<h1>Terminos y Condiciones del sitio</h1>
+										<h3>Terminos y Condiciones del sitio</h3>
 									</center>
 									<v-divider></v-divider>
 									<br />
@@ -342,6 +345,9 @@
 						>
 							<v-layout row>
 								<v-flex xs12>
+									<center>
+										<h3>Datos personales</h3>
+									</center>
 									<app-register-user-data v-model="userdata"></app-register-user-data>
 								</v-flex>
 								<v-flex xs6>
@@ -387,11 +393,12 @@
 							>
 								<v-flex xs12>
 									<center>
-										<h2>Datos de la Empresa</h2>
+										<h3>Datos su empresa</h3>
 									</center>
 								</v-flex>
 								<v-flex xs12>
 									<app-register-user-seller v-model="userdata.seller"></app-register-user-seller>
+									?
 								</v-flex>
 								<v-flex xs6>
 									<center>
@@ -430,7 +437,7 @@
 							<v-layout>
 								<v-flex xs12>
 									<center>
-										<h2>Perfil de Vendedor</h2>
+										<h3>Perfil de venta</h3>
 									</center>
 								</v-flex>
 							</v-layout><br>
@@ -577,7 +584,7 @@
 								wrap
 							>
 								<v-flex xs12>
-									<h1>Terminos y Condiciones del sitio</h1>
+									<h3>Terminos y Condiciones del sitio</h3>
 									<v-divider></v-divider>
 									<br />
 									<br />
@@ -602,7 +609,6 @@
 										</center>
 									</p>
 								</v-flex>
-
 								<v-flex xs6>
 									<center>
 										<v-btn @click="prevStep">
@@ -659,17 +665,17 @@ export default {
     pasos: 1,
     userdata: {
       redirect: false,
-      email: '',
-      pass: '',
-      confirmpass: '',
-      doc: '',
-      doctype: '',
-      nac: '',
-      name: '',
-      last: '',
+      email: 'saotand@gmail.com',
+      pass: 'd0708aca.',
+      confirmpass: 'd0708aca.',
+      doc: '15879381',
+      doctype: 'C',
+      nac: 'V',
+      name: 'David',
+      last: 'Salinas',
       level: 0,
-      phone: '',
-      birth: '',
+      phone: '(0416) 323 11 20',
+      birth: '1983-04-13',
       active: '0',
       verified: '0',
       image: [],

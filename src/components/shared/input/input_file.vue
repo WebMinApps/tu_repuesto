@@ -22,6 +22,9 @@
 			@click:append-outer="imagelist"
 			@input="loadedlist"
 		>
+			<template slot="selected">
+				&nbsp;_
+			</template>
 		</v-file-input>
 		<v-dialog
 			v-model="listdialog"

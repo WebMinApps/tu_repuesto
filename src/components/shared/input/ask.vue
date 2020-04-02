@@ -22,10 +22,10 @@
 					loader-height="5"
 					:prepend-icon="showicons ? 'mdi-certificate' : ''"
 					:items="brands"
-					:loading="loading.brands"
 					:dark="dark"
 					:solo="solo"
 					:outlined="outlined"
+					:loading="loadingf.brands"
 					label="Marca"
 					hint="Marca de vehiculo"
 					required
@@ -52,6 +52,7 @@
 					:solo="solo"
 					:outlined="outlined"
 					hint="Modelo de vehiculo"
+					:loading="loadingf.models"
 					label="Modelo"
 					:rules="[v => !!v || 'Coloca el Modelo']"
 					required
@@ -95,6 +96,7 @@
 						:dark="dark"
 						:solo="solo"
 						:outlined="outlined"
+						:loading="loadingf.parts"
 						label="Partes"
 						hint="Selecciona en el listado la parte"
 						:rules="[v => !!v || 'Coloca la Parte']"
@@ -117,6 +119,7 @@
 						:dark="dark"
 						:solo="solo"
 						:outlined="outlined"
+						:loading="loadingf.sparts"
 						label="Sub-parte"
 						hint="Selecciona la Sub-parte del vehiculo"
 						:rules="[v => !!v || 'Coloca la Sub-Parte']"
@@ -139,6 +142,7 @@
 						:solo="solo"
 						:outlined="outlined"
 						:clearable="clearable"
+						:loading="loadingf.parts"
 						label="Parte"
 						hint="Selecciona la parte del vehiculo"
 						:rules="[v => !!v || 'Coloca la Parte']"
@@ -197,14 +201,17 @@
 					:solo="solo"
 					:rules="[v => !!v || 'Rellena este campo']"
 					label="Detalles y condiciones"
+					counter="300"
 				></v-textarea>
 			</v-flex>
 		</v-layout>
+
 	</v-container>
 </template>
 
 <script>
 import axios from 'axios';
+import common from '@/store/common.js';
 export default {
   props: {
     showicons: { type: Boolean },
@@ -266,9 +273,10 @@ export default {
       this.$emit('input', value);
     },
     loadbrands () {
+      let url = common.url('/car/brands');
       if (this.brands.length <= 0) {
         this.loadingf.brands = true;
-        axios.get('/car/brands').then(response => {
+        axios.get(url).then(response => {
           this.brands = response.data.data;
         }).catch(error => {
           this.error = error;
@@ -278,17 +286,17 @@ export default {
       }
     },
     loadmodels (value) {
+      let url = common.url('/car/models/brand/' + value);
       if (value) {
         this.loadingf.models = true;
-        axios.get('/car/models/brand/' + value).then(response => {
+        axios.get(url).then(response => {
           this.models = response.data.data;
         }).catch(error => {
-          if (error.response != undefined) {
-            this.error = error.response.data.error.message;
-          } else {
-            this.error = error;
-          }
-        }).then(() => { });
+          let message = common.error(error);
+          this.$store.dispatch('ui_m_message', message);
+        }).then(() => {
+          this.loadingf.models = false;
+        });
       }
     },
     loadyears () {
@@ -307,13 +315,11 @@ export default {
           this.sparts = response.data.data;
         })
         .catch(error => {
-          if (error.response != undefined) {
-            this.error = error.response.data.error.message;
-          } else {
-            this.error = error;
-          }
+          let message = common.error(error);
+          this.$store.dispatch('ui_m_message', message);
         })
-        .then(function () {
+        .then(() => {
+          this.loadingf.models = false;
         });
     },
     togglesimple () {
@@ -326,13 +332,12 @@ export default {
           this.mparts = response.data.data;
         })
         .catch(error => {
-          if (error.response != undefined) {
-            this.error = error.response.data.error.message;
-          } else {
-            this.error = error;
-          }
+          let message = common.error(error);
+          this.$store.dispatch('ui_m_message', message);
         })
-        .then(() => { });
+        .then(() => {
+          this.loadingf.models = false;
+        });
     },
     updateparts (value) {
       this.sparts.forEach(parts => {
