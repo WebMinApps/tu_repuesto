@@ -7,6 +7,7 @@
 			<template v-if="notificationsbtn">
 				<app-notifications
 					v-if="login"
+
 					:notification="notification"
 					:dark="dark"
 				></app-notifications>

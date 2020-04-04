@@ -3,7 +3,7 @@
 		<v-menu
 			v-model="menu"
 			:close-on-content-click="false"
-			:nudge-width="300"
+			:nudge-width="180"
 			offset-y
 			left
 		>
@@ -15,7 +15,10 @@
 					:dark="dark"
 					v-on="on"
 				>
-					<v-icon class="bounce">mdi-bell</v-icon>
+					<v-icon
+						:color="unread ? 'primary' : ''"
+						:class="unread ? 'animated infinite wobble  delay-1s' : ''"
+					>mdi-bell</v-icon>
 				</v-btn>
 			</template>
 
@@ -34,8 +37,7 @@
 							:href="`#${item.text}`"
 						>
 							<v-icon left>{{item.icon}}</v-icon>
-							<span class="d-none d-xs-flex d-sm-flex lowercaseclass ">{{item.text }}</span>
-							<v-icon v-if="icons">mdi-phone</v-icon>
+							<span class="d-none d-lg-flex">{{item.text }}</span>
 						</v-tab>
 						<v-tab-item :value="'Recientes'">
 							<v-card
@@ -43,49 +45,7 @@
 								flat
 								tile
 							>
-								<v-list>
-									<!-- Entrada de item donde ubicar el FOR -->
-									<v-list-item>
-										<!-- Imagen -->
-										<v-list-item-avatar>
-											<img
-												src="https://cdn.vuetifyjs.com/images/john.jpg"
-												alt="John"
-											>
-										</v-list-item-avatar>
-										<!-- Texto de Contenido-->
-
-										<v-list-item-content>
-											<!-- Titulo de entrada -->
-											<v-list-item-title>John Leider</v-list-item-title>
-											<!-- Subtitulo -->
-											<v-list-item-subtitle>Founder of Vuetify.js</v-list-item-subtitle>
-										</v-list-item-content>
-										<!-- Acciones Botones laterales Se pueden repetir con FOR -->
-										<v-list-item-action>
-											<!-- 1er Boton -->
-											<v-btn
-												:class="fav ? 'red--text' : ''"
-												icon
-												@click="togglefav"
-											>
-												<!-- Icono de Boton -->
-												<v-icon>mdi-heart</v-icon>
-											</v-btn>
-										</v-list-item-action>
-										<!-- 2do Boton -->
-										<v-list-item-action>
-											<v-btn
-												:class="fav ? 'red--text' : ''"
-												icon
-												@click="togglefav"
-											>
-												<v-icon>mdi-heart</v-icon>
-											</v-btn>
-										</v-list-item-action>
-
-									</v-list-item>
-								</v-list>
+								<app-notification-list></app-notification-list>
 							</v-card>
 						</v-tab-item>
 						<v-tab-item :value="'Mensajes'">
@@ -93,21 +53,27 @@
 								:dark="dark"
 								flat
 								tile
-							>Mensajes</v-card>
+							>
+								<app-notification-list></app-notification-list>
+							</v-card>
 						</v-tab-item>
 						<v-tab-item :value="'Respuestas'">
 							<v-card
 								:dark="dark"
 								flat
 								tile
-							>Respuestas</v-card>
+							>
+								<app-notification-list></app-notification-list>
+							</v-card>
 						</v-tab-item>
 						<v-tab-item :value="'Actividad'">
 							<v-card
 								:dark="dark"
 								flat
 								tile
-							>Actividad</v-card>
+							>
+								<app-notification-list></app-notification-list>
+							</v-card>
 						</v-tab-item>
 					</v-tabs>
 				</span>
@@ -119,14 +85,12 @@
 						class="lowercaseclass"
 						text
 						x-small
-						@click="closemenu"
 					>Marcar todo como leido</v-btn>
 					<v-spacer></v-spacer>
 					<v-btn
 						class="lowercaseclass"
 						text
 						x-small
-						@click="closemenu"
 					>Mostrar Todo</v-btn>
 					<v-spacer></v-spacer>
 
@@ -137,10 +101,10 @@
 </template>
 
 <script>
-//import notification_list from '@/components/static/notifications/notifications_list.vue';
+import notification_list from '@/components/static/notifications/notifications_list.vue';
 
 export default {
-  //components: { 'app-notification-list': notification_list},
+  components: { 'app-notification-list': notification_list },
   props: {
     notification: {
       type: Array,
@@ -159,9 +123,10 @@ export default {
       { text: 'Respuestas', icon: 'mdi-comment-check', color: '' },
       { text: 'Actividad', icon: 'mdi-account', color: '' }
     ],
-    menu: true,
+    menu: false,
+    tab: 'Recientes',
     text: 'hola',
-    tabs: 1
+    unread: true
   }),
   computed: {
 
