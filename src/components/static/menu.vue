@@ -5,59 +5,11 @@
 			app
 		>
 			<template v-if="notificationsbtn">
-				<v-menu
+				<app-notifications
 					v-if="login"
-					offset-y
-					left
+					:notification="notification"
 					:dark="dark"
-				>
-					<template v-slot:activator="{on}">
-						<v-btn
-							text
-							:dark="dark"
-							v-on="on"
-						>
-							<v-icon>mdi-bell</v-icon>
-						</v-btn>
-					</template>
-					<v-list
-						two-line
-						color="grey darken-4"
-					>
-						<template v-for="(item, index) in notification">
-							<v-subheader
-								v-if="item.header"
-								:key="item.header"
-								inset
-								color="white"
-							>
-								{{ item.header }}
-							</v-subheader>
-
-							<v-divider
-								v-else-if="item.divider"
-								:key="index"
-								inset
-								:dark="dark"
-							></v-divider>
-
-							<v-list-item
-								v-else
-								:key="item.title"
-								ripple
-								color="white"
-							>
-								<v-list-item-avatar>
-									<img :src="item.avatar">
-								</v-list-item-avatar>
-								<v-list-item-content>
-									<v-list-item-title v-html="item.title"></v-list-item-title>
-									<v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-								</v-list-item-content>
-							</v-list-item>
-						</template>
-					</v-list>
-				</v-menu>
+				></app-notifications>
 			</template>
 			<template v-if="$vuetify.breakpoint.smAndUp">
 				<v-btn
@@ -67,7 +19,6 @@
 				>
 					<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-home</v-icon> <span class="d-none d-md-flex">Inicio</span>
 				</v-btn>
-
 				<template v-if="login">
 					<v-btn
 						to="/system"
@@ -213,9 +164,5 @@ export default {
       this.$store.dispatch('user_a_logout');
     }
   }
-
 };
 </script>
-
-<style>
-</style>

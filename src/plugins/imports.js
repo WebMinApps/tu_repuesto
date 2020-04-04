@@ -22,11 +22,11 @@ import registeruserbrands from '@/components/shared/input/register_user_brands.v
 import registeruserparts from '@/components/shared/input/register_user_parts.vue';
 import registeruserseller from '@/components/shared/input/register_user_seller.vue';
 import alternate from '@/components/shared/container/alternate.vue';
+import notifications from '@/components/static/notifications.vue';
 
 
 // Alterna entre elementos
 Vue.component('app-alt', alternate);
-
 
 //Alertas del sistema
 Vue.component('app-alert', alert);
@@ -37,19 +37,18 @@ Vue.component('app-panel', panel);
 // Tooltip
 Vue.component('app-tooltip', tooltip);
 
-
-//////////////////////////////// ELIMINAR SEPARADOS
+/////////////////////////////// ELIMINAR SEPARADOS
 // Listas
 Vue.component('app-list', list);
 
 // Listas en cartas
 Vue.component('app-list-card', listcards);
 
-
-
 Vue.component('app-users-list', users_list);
 
 
+//Notificaciones
+Vue.component('app-notifications', notifications);
 
 // Section [Depende de Panel]
 Vue.component('app-section', section);

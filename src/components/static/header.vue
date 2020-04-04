@@ -55,6 +55,7 @@
 			class="titlemargin"
 			:notification="notifications"
 			:login="login"
+			:dark="dark"
 		/>
 	</v-app-bar>
 </template>

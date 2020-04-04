@@ -12,7 +12,7 @@ import '@mdi/font/css/materialdesignicons.css';
 import '@/assets/css/styles.css';
 import '@/plugins/imports.js';
 import VueTheMask from 'vue-the-mask';
-
+import '@/assets/css/animate.css';
 
 Vue.config.productionTip = true;
 
