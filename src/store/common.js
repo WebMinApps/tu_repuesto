@@ -43,5 +43,18 @@ export default {
     }
     // Retornamos un objeto con el formato de Error
     return { text: message, type: type };
+  },
+  // Animacion de elementos CSS con [animatecss]
+  animateCSS (element, animationName, callback) {
+    const node = document.querySelector(element);
+    node.classList.add('animated', animationName);
+    function handleAnimationEnd () {
+      node.classList.remove('animated', animationName);
+      node.removeEventListener('animationend', handleAnimationEnd);
+      if (typeof callback === 'function') callback();
+    }
+    node.addEventListener('animationend', handleAnimationEnd);
   }
+
+
 };

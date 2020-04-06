@@ -32,7 +32,6 @@
 				</v-sheet>
 			</v-carousel-item>
 		</v-carousel>
-		{{pic}}
 		<app-alt
 			v-model="pic"
 			min="0"

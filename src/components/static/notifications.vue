@@ -17,7 +17,7 @@
 				>
 					<v-icon
 						:color="unread ? 'primary' : ''"
-						:class="unread ? 'animated infinite wobble  delay-1s' : ''"
+						:class="unread ? 'animated infinite tada faster delay-1s' : ''"
 					>mdi-bell</v-icon>
 				</v-btn>
 			</template>
@@ -132,6 +132,9 @@ export default {
 
   },
   watch: {},
+  created () {
+
+  },
   methods: {}
 };
 </script>
