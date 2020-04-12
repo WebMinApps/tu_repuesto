@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import common from '@/store/common.js';
+import common from '@/lib/common.js';
 
 export default {
   user_a_autoload ({ commit }) {

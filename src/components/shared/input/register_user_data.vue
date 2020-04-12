@@ -18,6 +18,7 @@
 				required
 				:rules="[emailmessage,emailused]"
 				@input="onBlurEmail(userdata.email)"
+				@blur="onBlurEmail(userdata.email)"
 			></v-text-field>
 		</v-flex>
 		<v-flex
@@ -92,6 +93,7 @@
 				:rules="[v => !!v || 'Coloca tu ' + doctypelabel ,docused]"
 				required
 				@input="onBlurDoc(userdata.doc)"
+				@blur="onBlurDoc(userdata.doc)"
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
@@ -142,48 +144,19 @@
 			></v-text-field>
 		</v-flex>
 		<v-flex xs6>
-			<v-menu
-				ref="menu1"
-				v-model="menu1"
-				:close-on-content-click="false"
-				:nudge-right="40"
-				transition="scale-transition"
-				offset-y
-				max-width="290px"
-				min-width="290px"
+			<app-input-date
+				v-model="userdata.birth"
+				name="birth"
+				label="Fecha de Nacimiento"
 			>
-				<template v-slot:activator="{on}">
-					<v-text-field
-						id="birth"
-						v-model="birthdateFormatted"
-						readonly
-						name="birth"
-						label="Fecha de Nacimiento"
-						type="text"
-						hint
-						persistent-hint
-						prepend-icon="mdi-calendar-check"
-						required
-						v-on="on"
-					></v-text-field>
-				</template>
-				<v-date-picker
-					v-model="birthdate"
-					:show-current="false"
-					locale="es-es"
-					:max="maxdate"
-					:min="mindate"
-					no-title
-					@input="cmenu1"
-				></v-date-picker>
-			</v-menu>
+			</app-input-date>
 		</v-flex>
 	</v-layout>
-  
+
 </template>
 
 <script>
-import common from '../../../store/common.js';
+import common from '@/lib/common.js';
 
 import axios from 'axios';
 export default {
@@ -230,9 +203,6 @@ export default {
       verified: '',
       image: []
     },
-    birthdate: '000-00-00',
-    birthdateFormatted: '0000-00-00',
-    menu1: false,
     showlevel: false,
     docused: false,
     emailused: false,
@@ -245,9 +215,7 @@ export default {
       return this.$store.getters.ui_g_loading;
     },
     emailformatted () {
-      let regexemail = /^[a-zA-Z0-9!#$&*?^{}˜.Çç-]+(\.[a-zA-Z0-9!#$&*?^{}˜.Çç-]+)*@([a-zA-Z0-9]+([a-zA-Z0-9-]*)\.)+[a-zA-Z]+$/;
-      let validemail = this.userdata.email.match(regexemail) ? true : false;
-      return validemail;
+      return common.formatEmail(this.userdata.email);
     },
     emailmessage () {
       return this.emailformatted ? false : 'Escribe un formato de email válido';
@@ -283,14 +251,6 @@ export default {
     comparePasswords () {
       return this.cpp ? 'Las contraseñas deben ser iguales' : false;
     },
-    mindate () {
-      let ys = 80;
-      return this.datediff(ys);
-    },
-    maxdate () {
-      let ys = 18;
-      return this.datediff(ys);
-    },
     pml () {
       return this.userdata.pass.length < 6 ? true : false;
     },
@@ -301,85 +261,59 @@ export default {
   watch: {
     userdata () {
       this.$emit('input', this.userdata);
-    },
-    birthdate () {
-      this.birthdateFormatted = this.formatDate(this.birthdate);
-      this.userdata.birth = this.birthdate;
     }
   },
   created () {
-    let thedate = (this.value.birth != '0000-00-00') ? this.value.birth : this.maxdate;
     this.userdata = this.value;
-    this.birthdate = this.maxdate;
-    this.birthdateFormatted = this.formatDate(thedate);
-    this.birthdate = thedate;
-
   },
   methods: {
-    datediff (ddiff = 80) {
-      let dnow = new Date();
-      let ystart = dnow.getFullYear() - ddiff;
-      let mstart = dnow.getMonth();
-      let dystart = dnow.getUTCDate();
-      let dstart = new Date(ystart + '-' + (mstart + 1) + '-' + dystart);
-      return this.$moment(dstart).format('YYYY-MM-DD');
-    },
-    onBlurDoc (cData) {
+    onBlurDoc (cData, allowed = '') {
       let data = { doc: cData };
-      let url = common.url('user/check');
-      if (cData.length > 7) {
-        axios
-          .post(url, data)
-          .then(response => {
-            let exists = response.data.data;
-            if (exists) {
-              this.docused = 'Ya Existe';
-            } else {
-              this.docused = false;
-            }
-          })
-          .catch(error => {
-            // capturamos el error y lo mostramos
-            let message = common.error(error);
-            this.$store.dispatch('ui_a_error', message);
-          })
-          .then();
+      if (cData != allowed) {
+        let url = common.url('user/check');
+        if (cData.length > 6) {
+          axios
+            .post(url, data)
+            .then(response => {
+              let exists = common.getdata(response);
+              if (exists) {
+                this.docused = 'Ya Existe';
+              } else {
+                this.docused = false;
+              }
+            })
+            .catch(error => {
+              // capturamos el error y lo mostramos
+              let message = common.error(error);
+              this.$store.dispatch('ui_a_error', message);
+            })
+            .then();
+        }
       }
     },
-    onBlurEmail (cData) {
+    onBlurEmail (cData, allowed = '') {
       let data = { email: cData };
       let url = common.url('user/check');
       if (this.emailformatted) {
-        axios
-          .post(url, data)
-          .then(response => {
-            let exists = response.data.data;
-            if (exists) {
-              this.emailused = 'Ya Existe';
-            } else {
-              this.emailused = false;
-            }
-          })
-          .catch(error => {
-            // capturamos el error y lo mostramos
-            let message = common.error(error);
-            this.$store.dispatch('ui_a_error', message);
-          })
-          .then();
+        if (cData != allowed) {
+          axios
+            .post(url, data)
+            .then(response => {
+              let exists = response.data.data;
+              if (exists) {
+                this.emailused = 'Ya Existe';
+              } else {
+                this.emailused = false;
+              }
+            })
+            .catch(error => {
+              // capturamos el error y lo mostramos
+              let message = common.error(error);
+              this.$store.dispatch('ui_a_error', message);
+            })
+            .then();
+        }
       }
-    },
-    parseDate (date) {
-      if (!date) return null;
-      const [month, day, year] = date.split('/');
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-    },
-    formatDate (date) {
-      if (!date) return null;
-      const [year, month, day] = date.split('-');
-      return `${day}/${month}/${year}`;
-    },
-    cmenu1 () {
-      this.menu1 = false;
     }
   }
 };

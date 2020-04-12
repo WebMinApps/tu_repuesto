@@ -211,7 +211,7 @@
 
 <script>
 import axios from 'axios';
-import common from '@/store/common.js';
+import common from '@/lib/common.js';
 export default {
   props: {
     showicons: { type: Boolean },
@@ -293,7 +293,7 @@ export default {
           this.models = response.data.data;
         }).catch(error => {
           let message = common.error(error);
-          this.$store.dispatch('ui_m_message', message);
+          this.$store.dispatch('ui_a_message', message);
         }).then(() => {
           this.loadingf.models = false;
         });
@@ -316,7 +316,7 @@ export default {
         })
         .catch(error => {
           let message = common.error(error);
-          this.$store.dispatch('ui_m_message', message);
+          this.$store.dispatch('ui_a_message', message);
         })
         .then(() => {
           this.loadingf.models = false;
@@ -333,7 +333,7 @@ export default {
         })
         .catch(error => {
           let message = common.error(error);
-          this.$store.dispatch('ui_m_message', message);
+          this.$store.dispatch('ui_a_message', message);
         })
         .then(() => {
           this.loadingf.models = false;

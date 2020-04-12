@@ -23,6 +23,7 @@ import registeruserparts from '@/components/shared/input/register_user_parts.vue
 import registeruserseller from '@/components/shared/input/register_user_seller.vue';
 import alternate from '@/components/shared/container/alternate.vue';
 import notifications from '@/components/static/notifications.vue';
+import dateinput from '@/components/shared/input/input_date.vue';
 
 
 // Alterna entre elementos
@@ -56,8 +57,7 @@ Vue.component('app-section', section);
 // Ventana de dialogo [depende de Panel, Tooltip]
 Vue.component('app-dialog', dialog);
 
-// Ventana de dialogo [depende de Panel, Tooltip]
-Vue.component('app-fileinput', fileinput);
+
 
 // Formulario de datos del usuario
 Vue.component('app-register-user-data', registeruserdata);
@@ -70,3 +70,12 @@ Vue.component('app-register-user-brands', registeruserbrands);
 
 // Formulario de perfil de partes
 Vue.component('app-register-user-parts', registeruserparts);
+
+
+// IMPUTS PERSONALIZADOS
+
+// Fechas
+Vue.component('app-input-date', dateinput);
+
+// Ventana de dialogo [depende de Panel, Tooltip]
+Vue.component('app-fileinput', fileinput);

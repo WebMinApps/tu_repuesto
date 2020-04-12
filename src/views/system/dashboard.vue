@@ -46,8 +46,6 @@
 
 <script>
 import ask_input from '@/components/shared/input/ask.vue';
-
-
 export default {
   components: {
     'app-input-ask': ask_input

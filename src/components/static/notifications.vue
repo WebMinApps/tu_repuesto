@@ -12,12 +12,14 @@
 					height="100%"
 					tile
 					text
+					:class="menu ? 'primary wt' : ''"
 					:dark="dark"
+					:color="menu ? 'gray' : ''"
 					v-on="on"
 				>
 					<v-icon
-						:color="unread ? 'primary' : ''"
-						:class="unread ? 'animated infinite tada faster delay-1s' : ''"
+						:color="unread ? 'warning' : ''"
+						:class="unread ? 'animated infinite rubberBand delay-1s' : ''"
 					>mdi-bell</v-icon>
 				</v-btn>
 			</template>
@@ -29,7 +31,7 @@
 						background-color="#970202"
 						dark
 					>
-						<v-tabs-slider color="white"></v-tabs-slider>
+						<v-tabs-slider color="orange"></v-tabs-slider>
 
 						<v-tab
 							v-for="(item,i) in items"
@@ -118,7 +120,7 @@ export default {
   },
   data: () => ({
     items: [
-      { text: 'Recientes', icon: 'mdi-av-timer', color: '' },
+      { text: 'Recientes', icon: 'mdi-av-timer', color: 'blue' },
       { text: 'Mensajes', icon: 'mdi-android-messages', color: '' },
       { text: 'Respuestas', icon: 'mdi-comment-check', color: '' },
       { text: 'Actividad', icon: 'mdi-account', color: '' }
@@ -129,6 +131,13 @@ export default {
     unread: true
   }),
   computed: {
+    recents () {
+      return [];
+    },
+    messages () {
+      return [];
+    },
+
 
   },
   watch: {},
@@ -142,6 +151,10 @@ export default {
 <style>
 .lowercaseclass {
 	text-transform: capitalize !important;
+}
+
+.wt {
+	color: white !important;
 }
 </style>
 

@@ -1,11 +1,11 @@
 <template>
 	<v-container
 		fluid
-		justify-space-around
-		style="padding:6px 0"
+		style="padding:5px 0;"
+		full-width
 		class="fill-height"
 	>
-		<v-layout>
+		<v-layout style="width:100%">
 			<v-flex>
 				<app-sysmenu />
 			</v-flex>
@@ -20,6 +20,14 @@ import sysmenu from '@/components/static/sysmenu.vue';
 export default {
   components: {
     'app-sysmenu': sysmenu
+  },
+  created () {
+    this.$store.dispatch('admin_a_users');
+  },
+  methods: {
+    userlevel () {
+      return 5;
+    }
   }
 };
 </script>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import common from '@/store/common.js';
+import common from '@/lib/common.js';
 
 export default {
   ask_a_create: ({ commit }, payload) => {

@@ -1,5 +1,8 @@
 <template>
-	<v-layout>
+	<v-layout
+		full-width
+		style=""
+	>
 		<v-flex>
 			<v-card
 				:height="height"
@@ -7,22 +10,25 @@
 				:dark="darkness"
 				:loading="loading"
 			>
+
+				<v-card-title
+					v-if="!notitle"
+					class="primary"
+					:class="darkness ? '' : ' lighten-3'"
+					:style="stylecss"
+				>
+					<div style="height:36px"></div>
+					<slot name="title" />
+					<v-spacer />
+					<slot name="buttons" />
+				</v-card-title>
 				<v-responsive :aspect-ratio="noratio ? '' : ratio">
-					<v-card-title
-						v-if="!notitle"
-						class="primary"
-						:class="darkness ? '' : ' lighten-3'"
-						:style="stylecss"
-					>
-						<div style="height:36px"></div>
-						<slot name="title" />
-						<v-spacer />
-						<slot name="buttons" />
-					</v-card-title>
 					<slot />
-					<v-divider v-if="divide" />
-					<slot name="footer" />
 				</v-responsive>
+				<v-divider v-if="divide" />
+				<v-card-actions>
+					<slot name="footer" />
+				</v-card-actions>
 			</v-card>
 		</v-flex>
 	</v-layout>
@@ -84,13 +90,13 @@ export default {
     margin () {
       let margin_w = [0, 0];
       if (this.m == 'lg') {
-        margin_w = [-22, 0];
+        margin_w = [-125, 0];
       } else if (this.m == 'md') {
-        margin_w = [0, 0];
+        margin_w = [-95, 0];
       } else if (this.m == 'sm') {
-        margin_w = [-70, 0];
+        margin_w = [-120, 0];
       } else if (this.m == 'xs') {
-        margin_w = [-58, 0];
+        margin_w = [-150, 0];
       }
       return margin_w;
     }

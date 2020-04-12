@@ -10,6 +10,7 @@
 		</v-btn>
 		<v-dialog
 			v-model="dialog"
+			style="z-index:-100000"
 			:fullscreen="fullscreen"
 			:width="width"
 			:dark="darkness"
@@ -64,7 +65,6 @@
 				<v-card-text>
 					<slot />
 				</v-card-text>
-				<v-divider />
 				<v-card-actions>
 					<slot name="actions" />
 				</v-card-actions>
@@ -76,6 +76,10 @@
 <script>
 export default {
   props: {
+    value: {
+      type: Boolean,
+      required: false
+    },
     icon: {
       type: Boolean,
       required: false,
@@ -119,6 +123,14 @@ export default {
       return this.$store.getters.ui_g_dark;
     }
   },
+  watch: {
+    dialog (value) {
+      this.$emit('input', value);
+    }
+  },
+  created () {
+    this.dialog = this.value;
+  },
   methods: {
     openWindow () {
       this.dialog = true;
@@ -129,7 +141,6 @@ export default {
     toogleFullScreen () {
       this.fullscreen = !this.fullscreen;
     }
-
   }
 };
 </script>

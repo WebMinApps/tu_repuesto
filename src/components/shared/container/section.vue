@@ -1,7 +1,10 @@
 <template>
 	<v-container>
-		<v-layout>
-			<app-panel>
+		<v-layout
+			full-width
+			style="width:100%"
+		>
+			<app-panel :loading="loading">
 				<template slot="title">
 					<v-icon
 						v-if="icon"
@@ -9,11 +12,9 @@
 					>{{icon}}</v-icon> {{title}}
 				</template>
 				<template slot="buttons">
-					<slot name="buttons"></slot>
+					<slot name="buttons" />
 				</template>
-				<v-card-text>
-					<slot></slot>
-				</v-card-text>
+				<slot></slot>
 			</app-panel>
 		</v-layout>
 	</v-container>
@@ -31,6 +32,10 @@ export default {
       required: false,
       type: String,
       default: ''
+    },
+    loading: {
+      required: false,
+      type: Boolean
     }
   }
 };

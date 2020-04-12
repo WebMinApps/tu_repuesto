@@ -27,6 +27,27 @@ export default {
     }
     return options;
   },
+  // Formato Correo Eletrónico
+  formatEmail (email) {
+    let regexemail = /^[a-zA-Z0-9!#$&*?^{}˜.Çç-]+(\.[a-zA-Z0-9!#$&*?^{}˜.Çç-]+)*@([a-zA-Z0-9]+([a-zA-Z0-9-]*)\.)+[a-zA-Z]+$/;
+    let validemail = false;
+    if (email != undefined) {
+      validemail = email.match(regexemail) ? true : false;
+    }
+    return validemail;
+  },
+  // Obtiene los datos de repuesta de una peticion Axios
+  getdata (response) {
+    let data = null;
+    if (response != undefined) {
+      if (response.data != undefined) {
+        if (response.data.data != undefined) {
+          data = response.data.data;
+        }
+      }
+    }
+    return data;
+  },
   // Objeto error para el toast
   error (error) {
     // Holder para el error
@@ -44,6 +65,18 @@ export default {
     // Retornamos un objeto con el formato de Error
     return { text: message, type: type };
   },
+  // Cambia formato de fecha DD/MM/AAAA -> AAAA-MM-DD
+  parseDate (date) {
+    if (!date) return null;
+    const [month, day, year] = date.split('/');
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  },
+  // Cambia formato de fecha a AAAA-MM-DD -> DD/MM/AAAA
+  formatDate (date) {
+    if (!date) return null;
+    const [year, month, day] = date.split('-');
+    return `${day}/${month}/${year}`;
+  },
   // Animacion de elementos CSS con [animatecss]
   animateCSS (element, animationName, callback) {
     const node = document.querySelector(element);
@@ -55,6 +88,4 @@ export default {
     }
     node.addEventListener('animationend', handleAnimationEnd);
   }
-
-
 };
