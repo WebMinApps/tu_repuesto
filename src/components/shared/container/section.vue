@@ -4,7 +4,7 @@
 			full-width
 			style="width:100%"
 		>
-			<app-panel :loading="loading">
+			<app-panel :loading="loading ? 'orange' : false">
 				<template slot="title">
 					<v-icon
 						v-if="icon"
@@ -32,10 +32,11 @@ export default {
       required: false,
       type: String,
       default: ''
-    },
-    loading: {
-      required: false,
-      type: Boolean
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.ui_g_loading;
     }
   }
 };

@@ -1,11 +1,25 @@
+const imagen = {
+  text: 'Imagen',
+  align: 'center',
+  sortable: false,
+  value: 'image',
+};
+
+const item = {
+  text: 'Item',
+  value: 'name'
+};
+
+const actions = {
+  text: 'Acciones',
+  align: 'center',
+  value: 'action',
+  sortable: false
+};
+
 export default {
   users: [
-    {
-      text: 'Imagen',
-      align: 'center',
-      sortable: false,
-      value: 'image',
-    },
+    imagen,
     {
       text: 'Nombre',
       value: 'name'
@@ -30,15 +44,26 @@ export default {
       text: 'Telefono',
       value: 'phone'
     },
-    {
-      text: 'Actions',
-      value: 'action',
-      sortable: false
-    }
+    actions
   ],
-  brands: {},
-  models: {},
-  subparts: {},
-  parts: {}
-
+  brands: [
+    imagen,
+    item,
+    actions
+  ],
+  models: [
+    imagen,
+    item,
+    actions
+  ],
+  subparts: [
+    imagen,
+    item,
+    actions
+  ],
+  parts: [
+    imagen,
+    item,
+    actions
+  ]
 };

@@ -7,7 +7,7 @@
 				style="width:100%"
 			>
 				<v-stepper-header
-					v-if="!userdata.level"
+					v-if="(userdata.level !== 1 && userdata.level !== 2 && userdata.level !== 5)"
 					:style="stylecss"
 				>
 					<v-stepper-step
@@ -729,6 +729,9 @@ export default {
     },
     selparts () {
       this.userdata.profile = this.selbrands.concat(this.selparts);
+    },
+    'userdata.level' (value) {
+      this.do_action(value, false);
     }
   },
   created () {
@@ -743,13 +746,20 @@ export default {
     prevStep () {
       this.pasos--;
     },
-    do_action (who) {
-      if (who === 1) {
-        this.userdata.level = 1;
+    do_action (who, nomove = true) {
+
+      if (this.showlevel) {
+        this.userdata.level = who;
       } else {
-        this.userdata.level = 0;
+        if (who === 1) {
+          this.userdata.level = 1;
+        } else {
+          this.userdata.level = 0;
+        }
       }
-      this.nextStep();
+      if (nomove) {
+        this.nextStep();
+      }
     },
     nextttab () {
       if (this.tabs === 0) {

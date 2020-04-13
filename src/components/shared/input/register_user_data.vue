@@ -1,29 +1,13 @@
+
 <template>
 	<v-layout
 		row
 		wrap
 	>
+
 		<v-flex
-			xs12
-			sm6
-			md3
-		>
-			<v-text-field
-				id="email"
-				v-model="userdata.email"
-				name="email"
-				label="Correo electrónico"
-				type="email"
-				hint="Tu correo será verificado"
-				required
-				:rules="[emailmessage,emailused]"
-				@input="onBlurEmail(userdata.email)"
-				@blur="onBlurEmail(userdata.email)"
-			></v-text-field>
-		</v-flex>
-		<v-flex
-			xs12
-			sm6
+			xs6
+			sm4
 			md3
 		>
 			<v-text-field
@@ -35,9 +19,10 @@
 				required
 			></v-text-field>
 		</v-flex>
+
 		<v-flex
-			xs12
-			sm6
+			xs6
+			sm4
 			md3
 		>
 			<v-text-field
@@ -49,9 +34,23 @@
 				required
 			></v-text-field>
 		</v-flex>
+
 		<v-flex
-			xs12
-			sm6
+			xs6
+			sm4
+			md3
+		>
+			<app-input-date
+				v-model="userdata.birth"
+				name="birth"
+				label="Fecha de Nacimiento"
+			>
+			</app-input-date>
+		</v-flex>
+
+		<v-flex
+			xs6
+			sm4
 			md3
 		>
 			<app-fileinput
@@ -60,7 +59,29 @@
 				placeholder="Foto"
 			></app-fileinput>
 		</v-flex>
-		<v-flex xs5>
+
+		<v-flex
+			xs6
+			sm4
+			md3
+		>
+			<v-text-field
+				id="telefono"
+				v-model="userdata.phone"
+				v-mask="masktel"
+				name="telefono"
+				label="Teléfono"
+				type="tel"
+				required
+				:hint="masktel"
+			></v-text-field>
+		</v-flex>
+
+		<v-flex
+			xs6
+			sm4
+			md3
+		>
 			<v-select
 				v-model="userdata.doctype"
 				item-value="value"
@@ -71,7 +92,12 @@
 				required
 			></v-select>
 		</v-flex>
-		<v-flex xs2>
+
+		<v-flex
+			xs4
+			sm5
+			md3
+		>
 			<v-select
 				v-model="userdata.nac"
 				item-value="value"
@@ -81,7 +107,12 @@
 				required
 			></v-select>
 		</v-flex>
-		<v-flex xs5>
+
+		<v-flex
+			xs8
+			sm7
+			md3
+		>
 			<v-text-field
 				id="cedula"
 				v-model="userdata.doc"
@@ -96,7 +127,49 @@
 				@blur="onBlurDoc(userdata.doc)"
 			></v-text-field>
 		</v-flex>
-		<v-flex xs6>
+
+		<v-flex
+			:xs12="!showlevel"
+			:xs6="showlevel"
+			:sm12="!showlevel"
+			:sm6="showlevel"
+			:md4="!showlevel"
+		>
+			<v-text-field
+				id="email"
+				v-model="userdata.email"
+				name="email"
+				label="Correo electrónico"
+				type="email"
+				hint="Tu correo será verificado"
+				required
+				:rules="[emailmessage,emailused]"
+				@input="onBlurEmail(userdata.email)"
+				@blur="onBlurEmail(userdata.email)"
+			></v-text-field>
+		</v-flex>
+
+		<v-flex
+			v-show="showlevel"
+			xs6
+			md6
+		>
+			<v-select
+				v-model="userdata.level"
+				item-value="value"
+				:items="niveles"
+				label="Nivel de acceso"
+				required
+				persistent-hint
+			></v-select>
+		</v-flex>
+
+		<v-flex
+			xs6
+			sm6
+			:md4="!showlevel"
+			:md6="showlevel"
+		>
 			<v-text-field
 				id="password"
 				v-model="userdata.pass"
@@ -107,7 +180,12 @@
 				required
 			></v-text-field>
 		</v-flex>
-		<v-flex xs6>
+		<v-flex
+			xs6
+			sm6
+			:md4="!showlevel"
+			:md6="showlevel"
+		>
 			<v-text-field
 				id="confirmpassword"
 				v-model="userdata.confirmpass"
@@ -117,53 +195,19 @@
 				:rules="[comparePasswords]"
 			></v-text-field>
 		</v-flex>
-		<v-flex
-			v-show="showlevel"
-			xs6
-		>
-			<v-select
-				v-model="userdata.level"
-				item-value="value"
-				:items="niveles"
-				:rules="[v => !!v || 'Establece el nivel de acceso']"
-				label="Nivel de acceso"
-				required
-				persistent-hint
-			></v-select>
-		</v-flex>
-		<v-flex xs6>
-			<v-text-field
-				id="telefono"
-				v-model="userdata.phone"
-				v-mask="masktel"
-				name="telefono"
-				label="Teléfono"
-				type="tel"
-				required
-				:hint="masktel"
-			></v-text-field>
-		</v-flex>
-		<v-flex xs6>
-			<app-input-date
-				v-model="userdata.birth"
-				name="birth"
-				label="Fecha de Nacimiento"
-			>
-			</app-input-date>
-		</v-flex>
 	</v-layout>
-
 </template>
 
 <script>
-import common from '@/lib/common.js';
+/* eslint-disable no-console */
 
+import common from '@/lib/common.js';
 import axios from 'axios';
+
 export default {
   props: {
     value: {
       type: Object,
-      required: false,
       default: () => ({
         ID: null,
         email: '',
@@ -182,6 +226,9 @@ export default {
         verified: '',
         image: []
       })
+    },
+    showlevel: {
+      type: Boolean
     }
   },
   data: () => ({
@@ -203,7 +250,6 @@ export default {
       verified: '',
       image: []
     },
-    showlevel: false,
     docused: false,
     emailused: false,
     maskdoc: '#########',
@@ -222,8 +268,12 @@ export default {
     },
     niveles () {
       return [
-        { text: 'usuario', value: '0' },
-        { text: 'vendedor', value: '1' }
+        { text: 'Usuario', value: 0 },
+        { text: 'Vendedor', value: 1 },
+        { text: 'Mayorista', value: 2 },
+        { text: 'Agente', value: 3 },
+        { text: 'Supervisor', value: 4 },
+        { text: 'Administrador', value: 5 }
       ];
     },
     docs () {
@@ -259,9 +309,16 @@ export default {
     }
   },
   watch: {
+    value (value) {
+      this.userdata = value;
+      console.log(value);
+    },
     userdata () {
       this.$emit('input', this.userdata);
     }
+  },
+  updated () {
+    this.userdata = this.value;
   },
   created () {
     this.userdata = this.value;
