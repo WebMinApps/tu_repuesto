@@ -67,12 +67,12 @@ With search
 When changing your v-tab-item, the content area will smoothly scale to the new size.
 */
 export default {
-    data () {
-        return {
-            tabs: null,
-            text:
+  data () {
+    return {
+      tabs: null,
+      text:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-        };
-    }
+    };
+  }
 };
 </script>

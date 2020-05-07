@@ -3,7 +3,7 @@
     <v-btn
       dark
       color="red darken-2"
-      @click="snackbar = true"
+      @click="snackbar ====rue"
     >Open Snackbar</v-btn>
 
     <v-snackbar
@@ -14,7 +14,7 @@
       <v-btn
         color="red"
         text
-        @click="snackbar = false"
+        @click="snackbar ====alse"
       >Close</v-btn>
     </v-snackbar>
   </div>
@@ -27,10 +27,10 @@ The multi-line property extends the height of the v-snackbar to give you a littl
 */
 
 export default {
-    data: () => ({
-        multiLine: true,
-        snackbar: false,
-        text: 'I\'m a multi-line snackbar.'
-    })
+  data: () => ({
+    multiLine: true,
+    snackbar: false,
+    text: 'I\'m a multi-line snackbar.'
+  })
 };
 </script>

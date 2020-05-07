@@ -9,39 +9,39 @@
 					cols="12"
 					md="4"
 				>
-					<v-boilerplate
+					<VBoilerplate
 						class="mb-6"
 						type="card-avatar, article, actions"
-					></v-boilerplate>
+					></VBoilerplate>
 
-					<v-boilerplate type="date-picker"></v-boilerplate>
+					<VBoilerplate type="date-picker"></VBoilerplate>
 				</v-col>
 
 				<v-col
 					cols="12"
 					md="4"
 				>
-					<v-boilerplate
+					<VBoilerplate
 						class="mb-6"
 						type="article, actions"
-					></v-boilerplate>
+					></VBoilerplate>
 
-					<v-boilerplate
+					<VBoilerplate
 						class="mb-6"
 						type="table-heading, list-item-two-line, image, table-tfoot"
-					></v-boilerplate>
+					></VBoilerplate>
 				</v-col>
 
 				<v-col
 					cols="12"
 					md="4"
 				>
-					<v-boilerplate
+					<VBoilerplate
 						class="mb-6"
 						type="list-item-avatar, divider, list-item-three-line, card-heading, image, actions"
-					></v-boilerplate>
+					></VBoilerplate>
 
-					<v-boilerplate type="list-item-avatar-three-line, image, article"></v-boilerplate>
+					<VBoilerplate type="list-item-avatar-three-line, image, article"></VBoilerplate>
 				</v-col>
 			</v-row>
 		</v-container>
@@ -60,30 +60,30 @@ The v-skeleton-loader can be used as boilerplate designs when creating mockups. 
 
 */
 export default {
-	// Vuetify components provide
-	// a theme variable that is
-	// used to determine dark
-	inject: ['theme'],
-	components: {
-		// Create a new component that
-		// extends v-skeleton-loader
-		VBoilerplate: {
-			functional: true,
-			render (h, { data, props, children }) {
-				return h(
-					'v-skeleton-loader',
-					{
-						...data,
-						props: {
-							boilerplate: true,
-							elevation: 2,
-							...props
-						}
-					},
-					children
-				);
-			}
-		}
-	}
+  // Vuetify components provide
+  // a theme variable that is
+  // used to determine dark
+  inject: ['theme'],
+  components: {
+    // Create a new component that
+    // extends v-skeleton-loader
+    VBoilerplate: {
+      functional: true,
+      render (h, { data, props, children }) {
+        return h(
+          'v-skeleton-loader',
+          {
+            ...data,
+            props: {
+              boilerplate: true,
+              elevation: 2,
+              ...props
+            }
+          },
+          children
+        );
+      }
+    }
+  }
 };
 </script>

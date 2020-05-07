@@ -3,7 +3,7 @@
     <v-btn
       dark
       color="orange darken-2"
-      @click="snackbar = true"
+      @click="snackbar ====rue"
     >Open Snackbar</v-btn>
 
     <v-snackbar
@@ -14,7 +14,7 @@
       <v-btn
         color="blue"
         text
-        @click="snackbar = false"
+        @click="snackbar ====alse"
       >Close</v-btn>
     </v-snackbar>
   </div>
@@ -27,10 +27,10 @@ The timeout property lets you customize the delay before the v-snackbar is hidde
 */
 
 export default {
-    data: () => ({
-        snackbar: false,
-        text: 'My timeout is set to 2000.',
-        timeout: 2000
-    })
+  data: () => ({
+    snackbar: false,
+    text: 'My timeout is set to 2000.',
+    timeout: 2000
+  })
 };
 </script>

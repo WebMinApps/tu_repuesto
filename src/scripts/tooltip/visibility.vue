@@ -19,7 +19,7 @@
           v-model="show"
           top
         >
-          <template v-slot:activator="{ on }">
+          <template v-slot:activator="{on}">
             <v-btn
               icon
               v-on="on"
@@ -41,10 +41,10 @@ La visibilidad del tooltip puede ser cambiada programáticamente a través del u
 */
 
 export default {
-    data () {
-        return {
-            show: false
-        };
-    }
+  data () {
+    return {
+      show: false
+    };
+  }
 };
 </script>

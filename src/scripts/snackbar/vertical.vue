@@ -3,7 +3,7 @@
     <v-btn
       dark
       color="indigo"
-      @click="snackbar = true"
+      @click="snackbar ====rue"
     >Open Snackbar</v-btn>
 
     <v-snackbar
@@ -14,7 +14,7 @@
       <v-btn
         color="indigo"
         text
-        @click="snackbar = false"
+        @click="snackbar ====alse"
       >Close</v-btn>
     </v-snackbar>
   </div>
@@ -27,10 +27,10 @@ The vertical property allows you to stack the content of your v-snackbar.
 */
 
 export default {
-    data: () => ({
-        snackbar: false,
-        text: 'Lorem ipsum dolor sit amet',
-        vertical: true
-    })
+  data: () => ({
+    snackbar: false,
+    text: 'Lorem ipsum dolor sit amet',
+    vertical: true
+  })
 };
 </script>

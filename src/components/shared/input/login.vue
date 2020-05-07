@@ -144,7 +144,7 @@ export default {
     },
     userRules: [
       user => !!user || 'Por favor ingresa tu correo',
-      user => /^[a-zA-Z0-9!#$&*?^{}˜.Çç-]+(\.[a-zA-Z0-9!#$&*?^{}˜.Çç-]+)*@([a-zA-Z0-9]+([a-zA-Z0-9-]*)\.)+[a-zA-Z]+$/.test(user) || 'Escribe un correo valido'
+      user => /^[a-zA-Z0-9!#$&*?^{}ï¿½.ï¿½ï¿½-]+(\.[a-zA-Z0-9!#$&*?^{}ï¿½.ï¿½ï¿½-]+)*@([a-zA-Z0-9]+([a-zA-Z0-9-]*)\.)+[a-zA-Z]+$/.test(user) || 'Escribe un correo valido'
     ],
     passwordRules: [],
     address: true,

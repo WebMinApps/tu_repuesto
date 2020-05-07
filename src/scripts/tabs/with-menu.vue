@@ -37,7 +37,7 @@
             bottom
             left
           >
-            <template v-slot:activator="{ on }">
+            <template v-slot:activator="{on}">
               <v-btn
                 text
                 class="align-self-center mr-4"
@@ -83,23 +83,23 @@ Puedes usar un menú para que contenga tabs adicionales, cambiándolos al vuelo
 */
 
 export default {
-    data: () => ({
-        currentItem: 'tab-Web',
-        items: ['Web', 'Shopping', 'Videos', 'Images'],
-        more: ['News', 'Maps', 'Books', 'Flights', 'Apps'],
-        text:
+  data: () => ({
+    currentItem: 'tab-Web',
+    items: ['Web', 'Shopping', 'Videos', 'Images'],
+    more: ['News', 'Maps', 'Books', 'Flights', 'Apps'],
+    text:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }),
+  }),
 
-    methods: {
-        addItem (item) {
-            const removed = this.items.splice(0, 1);
-            this.items.push(...this.more.splice(this.more.indexOf(item), 1));
-            this.more.push(...removed);
-            this.$nextTick(() => {
-                this.currentItem = 'tab-' + item;
-            });
-        }
+  methods: {
+    addItem (item) {
+      const removed = this.items.splice(0, 1);
+      this.items.push(...this.more.splice(this.more.indexOf(item), 1));
+      this.more.push(...removed);
+      this.$nextTick(() => {
+        this.currentItem = 'tab-' + item;
+      });
     }
+  }
 };
 </script>

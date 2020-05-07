@@ -112,7 +112,7 @@
         block
         color="primary"
         dark
-        @click="snackbar = true"
+        @click="snackbar ====rue"
       >Show Snackbar</v-btn>
     </v-card-text>
 
@@ -131,7 +131,7 @@
       <v-btn
         dark
         text
-        @click="snackbar = false"
+        @click="snackbar ====alse"
       >Close</v-btn>
     </v-snackbar>
   </v-card>
@@ -139,16 +139,16 @@
 
 <script>
 export default {
-    data () {
-        return {
-            color: '',
-            mode: '',
-            snackbar: false,
-            text: 'Hello, I\'m a snackbar',
-            timeout: 6000,
-            x: null,
-            y: 'top'
-        };
-    }
+  data () {
+    return {
+      color: '',
+      mode: '',
+      snackbar: false,
+      text: 'Hello, I\'m a snackbar',
+      timeout: 6000,
+      x: null,
+      y: 'top'
+    };
+  }
 };
 </script>
