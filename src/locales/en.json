@@ -1,0 +1,8 @@
+{
+    "mainmenu": {
+        "home": "Inicio",
+        "sigin": "Ingresa",
+        "signup": "Registrate"
+    },
+    "message": "hello i18n !!"
+}

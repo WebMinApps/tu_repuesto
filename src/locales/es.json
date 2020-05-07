@@ -1,3 +1,8 @@
 {
-  "message": "hello i18n !!"
+    "mainmenu": {
+        "home": "Home",
+        "signin": "Sign In",
+        "signup": "Sign Up"
+    },
+    "message": "hello i18n !!"
 }

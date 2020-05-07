@@ -7,7 +7,6 @@
 			<template v-if="notificationsbtn">
 				<app-notifications
 					v-if="login"
-
 					:notification="notification"
 					:dark="dark"
 				></app-notifications>
@@ -18,7 +17,7 @@
 					text
 					class="text--capital"
 				>
-					<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-home</v-icon> <span class="d-none d-md-flex">Inicio</span>
+					<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-home</v-icon> <span class="d-none d-md-flex">{{$t('mainmenu.home')}}</span>
 				</v-btn>
 				<template v-if="login">
 					<v-btn
@@ -53,14 +52,14 @@
 						text
 						class="text--capital"
 					>
-						<v-icon :left="!$vuetify.breakpoint.mdAndUp">mdi-login</v-icon> <span class="d-none d-md-flex">Ingresa</span>
+						<v-icon :left="!$vuetify.breakpoint.mdAndUp">mdi-login</v-icon> <span class="d-none d-md-flex">{{$t('mainmenu.signin')}}</span>
 					</v-btn>
 					<v-btn
 						to="/signup"
 						text
 						class="text--capital"
 					>
-						<v-icon :left="!$vuetify.breakpoint.mdAndUp">mdi-account-check</v-icon> <span class="d-none d-md-flex">Registrate</span>
+						<v-icon :left="!$vuetify.breakpoint.mdAndUp">mdi-account-check</v-icon> <span class="d-none d-md-flex">{{$t('mainmenu.signup')}}</span>
 					</v-btn>
 				</template>
 			</template>
@@ -84,7 +83,7 @@
 							<v-list-item-avatar>
 								<v-icon>mdi-home</v-icon>
 							</v-list-item-avatar>
-							<v-list-item-title>Inicio</v-list-item-title>
+							<v-list-item-title>{{$t('mainmenu.home')}}</v-list-item-title>
 						</v-list-item>
 						<template v-if="login">
 							<v-list-item to="/system">
@@ -115,13 +114,13 @@
 								<v-list-item-avatar>
 									<v-icon>mdi-login</v-icon>
 								</v-list-item-avatar>
-								<v-list-item-title>Ingresa</v-list-item-title>
+								<v-list-item-title>{{$t('mainmenu.signin')}}</v-list-item-title>
 							</v-list-item>
 							<v-list-item to="/signup">
 								<v-list-item-avatar>
 									<v-icon right>mdi-account-check</v-icon>
 								</v-list-item-avatar>
-								<v-list-item-title>Registrate</v-list-item-title>
+								<v-list-item-title>{{$t('mainmenu.signup')}}</v-list-item-title>
 							</v-list-item>
 						</template>
 					</v-list>

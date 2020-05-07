@@ -24,11 +24,9 @@ new Vue({
   vuetify,
   store,
   router,
-
   mounted () {
     this.$store.dispatch('user_a_autoload');
   },
-
   i18n,
   render: h => h(App)
 }).$mount('#app');

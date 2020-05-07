@@ -1,14 +1,11 @@
 <template>
 	<v-app dark>
-
 		<app-header
 			:dark="darkness"
 			:notifications="notifications"
 			:login="user.ID ? true : false"
 		/>
-
 		<div class="titlemargin" />
-
 		<v-container
 			:class="darkness ? 'dark-bg' : 'light-bg'"
 			fluid
