@@ -81,7 +81,7 @@
 
 export default {
   props: {
-    value: { type: Array, required: true, default: () => ([]) },
+    value: { required: true, default: () => ([]) },
     base64: { type: Boolean },
     accept: { type: String, required: false, default: 'image/*' },
     placeholder: { type: String, default: '' },

@@ -1,8 +1,5 @@
 <template>
-	<v-layout
-		full-width
-		style=""
-	>
+	<v-layout fill-height>
 		<v-flex>
 			<v-card
 				:height="height"

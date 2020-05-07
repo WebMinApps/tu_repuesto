@@ -21,9 +21,9 @@
 
 		<v-dialog
 			v-model="dialog"
-			width="700"
+			width="800"
 		>
-			<app-panel>
+			<app-panel height="500">
 				<template slot="title">
 					<v-icon left>mdi-account</v-icon>{{actionname}} Usuario
 				</template>
@@ -35,19 +35,29 @@
 						<v-icon>mdi-close</v-icon>
 					</v-btn>
 				</template>
-				<v-layout>
+				<template>
+					<!-- Solo ver Datos de usuario -->
+					<span v-if="action === 1">
+						<app-show-user v-model="user"></app-show-user>
+					</span>
+					<!-- Ver Formuario de creacion o edicion de usuarios -->
 					<v-tabs
+						v-if="action === 0 || action === 2"
 						v-model="tabs"
 						dark
 						grow
 					>
 						<v-tabs-slider color="orange"></v-tabs-slider>
-
 						<!-- Tabs names -->
 						<v-tab href="#user">Usuario</v-tab>
-						<v-tab href="#seller">Tienda</v-tab>
-						<v-tab href="#profile">Perfil</v-tab>
-
+						<v-tab
+							v-if="profileuser"
+							href="#seller"
+						>Tienda</v-tab>
+						<v-tab
+							v-if="profileuser"
+							href="#profile"
+						>Perfil</v-tab>
 						<!-- Tabs Content -->
 						<v-tab-item
 							value="user"
@@ -57,7 +67,10 @@
 								:dark="darkness"
 								tile
 							>
-								<app-user-form v-model="user"></app-user-form>
+								<app-user-form
+									v-model="user"
+									showlevel
+								></app-user-form>
 							</v-card>
 						</v-tab-item>
 						<v-tab-item
@@ -79,18 +92,37 @@
 								:dark="darkness"
 								tile
 							>
-								<v-tabs v-model="ptabs">
-									<v-tab href="#brands">Marcas</v-tab>
-									<v-tab href="#parts">Partes</v-tab>
-									<v-tab-item value="brands">
+								<v-tabs
+									v-model="ptabs"
+									grow
+									:dark="darkness"
+									style="background-color:#555"
+								>
+									<v-tab
+										:dark="darkness"
+										href="#brands"
+									>Marcas</v-tab>
+									<v-tab
+										:dark="darkness"
+										href="#parts"
+									>Partes</v-tab>
+									<v-tab-item
+										:dark="darkness"
+										value="brands"
+									>
 										<v-card
 											tile
 											:dark="darkness"
 										>
-											<app-user-profile-brands v-model="profile"></app-user-profile-brands>
+											<v-card-text>
+												<app-user-profile-brands v-model="profile"></app-user-profile-brands>
+											</v-card-text>
 										</v-card>
 									</v-tab-item>
-									<v-tab-item value="partss">
+									<v-tab-item
+										:dark="darkness"
+										value="parts"
+									>
 										<v-card
 											tile
 											:dark="darkness"
@@ -99,16 +131,19 @@
 										</v-card>
 									</v-tab-item>
 								</v-tabs>
-
 							</v-card>
 						</v-tab-item>
-
 					</v-tabs>
-				</v-layout>
+					<!-- Eliminar usuario -->
+					<span v-if="action === 3">
+						<h2>Confirma que desea eliminar el siguiente Usuario?</h2>
+						<br><br>
+						{{user.name}} {{user.last}}<br>
+						{{user.email}}
+					</span>
+				</template>
 			</app-panel>
-
 		</v-dialog>
-
 		<v-data-table
 			:headers="headers"
 			:items="users"
@@ -130,6 +165,9 @@
 						<v-icon style="color:black">mdi-image</v-icon>
 					</v-img>
 				</v-avatar>
+			</template>
+			<template v-slot:item.level="{item}">
+				{{usertypes[item.level]}}
 			</template>
 			<template v-slot:item.action="{item}">
 				<v-btn
@@ -158,14 +196,17 @@
 <script>
 /* eslint-disable no-console */
 import axios from 'axios';
+import common from '@/lib/common.js';
 import headers from '@/lib/table.headers.js';
 import userform from '@/components/shared/input/register_user_data.vue';
 import userseller from '@/components/shared/input/register_user_seller.vue';
 import userprofilebrands from '@/components/shared/input/register_user_brands.vue';
 import userprofileparts from '@/components/shared/input/register_user_parts.vue';
+import showuserdata from '@/components/shared/input/showuserdata.vue';
 
 export default {
   components: {
+    'app-show-user': showuserdata,
     'app-user-form': userform,
     'app-user-seller': userseller,
     'app-user-profile-brands': userprofilebrands,
@@ -207,9 +248,15 @@ export default {
     dense: true,
     dialog: false,
     tabs: 'user',
-    ptab: 'brands'
+    ptabs: 'brands'
   }),
   computed: {
+    profileuser () {
+      return this.user.level === 0 ? false : this.user.level === 1 ? true : this.user.level === 2 ? true : this.user.level === 3 ? false : this.user.level === 4 ? false : this.user.level === 5 ? true : false;
+    },
+    usertypes () {
+      return common.user_types;
+    },
     baseURL () {
       return axios.defaults.baseURL;
     },
@@ -236,7 +283,12 @@ export default {
     }
   },
   watch: {
-
+    'user.level' (value) {
+      if (value === 0 || value === 3 || value === 4) {
+        this.clearProfile();
+        this.clearSeller();
+      }
+    }
   },
   created () {
 
@@ -263,41 +315,6 @@ export default {
       this.user.pass = '******';
       this.user.confirmpass = '******';
     },
-    resetUser () {
-      this.user = {
-        ID: null,
-        email: '',
-        pass: '',
-        confirmpass: '',
-        doc: '',
-        doctype: '',
-        nac: '',
-        name: '',
-        last: '',
-        level: 0,
-        phone: '',
-        birth: '',
-        created: '',
-        active: '',
-        verified: '',
-        image: []
-      };
-    },
-    resetSeller () {
-      this.seller = {
-        ID: '',
-        name: '',
-        image: [],
-        rif: '',
-        nac: '',
-        phone: '',
-        city: '',
-        address: ''
-      };
-    },
-    resetProfile () {
-      this.profile = [];
-    },
     openDialog () {
       this.dialog = true;
     },
@@ -309,7 +326,7 @@ export default {
     },
     newuser () {
       this.action = 0;
-      this.resetUser();
+      this.clearUser();
       this.openDialog();
       console.log('New user');
     },
@@ -330,6 +347,42 @@ export default {
       this.setUserData(item);
       this.openDialog();
       console.log('Delete: ' + item.ID);
+    },
+    // Limpiar Formularios
+    clearUser () {
+      this.user = {
+        ID: null,
+        email: '',
+        pass: '',
+        confirmpass: '',
+        doc: '',
+        doctype: '',
+        nac: '',
+        name: '',
+        last: '',
+        level: 0,
+        phone: '',
+        birth: '',
+        created: '',
+        active: '',
+        verified: '',
+        image: []
+      };
+    },
+    clearSeller () {
+      this.seller = {
+        ID: '',
+        name: '',
+        image: [],
+        rif: '',
+        nac: '',
+        phone: '',
+        city: '',
+        address: ''
+      };
+    },
+    clearProfile () {
+      this.profile = [];
     }
   }
 };

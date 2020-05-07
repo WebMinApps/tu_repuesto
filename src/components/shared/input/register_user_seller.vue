@@ -102,6 +102,9 @@ export default {
         city: '',
         address: ''
       })
+    },
+    showicons: {
+      type: Boolean
     }
   },
   data: () => ({

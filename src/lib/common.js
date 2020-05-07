@@ -8,7 +8,10 @@ export default {
   salt: 'Cpvz13A1otc',
   //  Constante para final de las URL y forzar formato json
   format: '?format=json',
+  // Colores de Vistas
   colors: ['', 'success', 'info', 'warning', 'error', 'primary'],
+  // Tipos de usuario
+  user_types: ['Usuario', 'Vendedor', 'Mayorista', 'Supervisor', 'Agente', 'Administrador'],
   // Crear url con formato json
   url (url) { return url + this.format; },
   // Establecer el Token
@@ -76,6 +79,10 @@ export default {
     if (!date) return null;
     const [year, month, day] = date.split('-');
     return `${day}/${month}/${year}`;
+  },
+  // Format Phone Number
+  formatPhone (phone) {
+    return phone;
   },
   // Animacion de elementos CSS con [animatecss]
   animateCSS (element, animationName, callback) {
