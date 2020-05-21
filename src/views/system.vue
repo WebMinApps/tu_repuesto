@@ -21,10 +21,27 @@ export default {
   components: {
     'app-sysmenu': sysmenu
   },
+  computed: {
+    lang () {
+      return this.$i18n.locale;
+    },
+    user () {
+      return this.$store.getters.user_g_user;
+    }
+  },
+  watch: {
+    user (value) {
+      if (!value.ID) {
+        this.$router.push('/' + this.lang + '/home');
+      }
+    }
+  },
   created () {
     this.$store.dispatch('admin_a_users');
-  },
-  methods: {
+    if (!this.user.ID) {
+      this.$router.push('/' + this.lang + '/home');
+    }
+  }, methods: {
     userlevel () {
       return 5;
     }

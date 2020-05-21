@@ -4,10 +4,9 @@
 		<v-container>
 			<v-layout>
 				<v-flex>
-
 					<app-panel noratio>
 						<template slot="title">
-							<v-icon left>mdi-account-check</v-icon>Registro
+							<v-icon left>mdi-account-check</v-icon> {{$t('signup.form.window')}}
 						</template>
 						<template slot="button"></template>
 						<app-user-quest></app-user-quest>

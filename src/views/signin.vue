@@ -14,7 +14,7 @@
 						:loading="loading ? 'orange' : false"
 					>
 						<template slot="title">
-							<v-icon left>mdi-key</v-icon>Iniciar Sesion
+							<v-icon left>mdi-key</v-icon>{{$t('signin.form.window')}}
 						</template>
 						<app-login-form
 							v-model="loginform"
@@ -29,7 +29,7 @@
 											x-small=""
 											style="text-transform:capitalize"
 											text
-										>No recuerdas tu contraseña?</v-btn>
+										>{{$t('signin.form.passforgot')}}</v-btn>
 									</center>
 								</v-flex>
 							</v-layout>
@@ -43,7 +43,8 @@
 											:disabled="loading"
 											@click="loginfacebook"
 										>
-											<v-icon left>mdi-facebook</v-icon>Entrar
+											<v-icon left>mdi-facebook</v-icon>
+											{{$t('signin.form.socialbtn')}}
 										</v-btn>
 										&nbsp;
 										<v-btn
@@ -51,7 +52,7 @@
 											:disabled="loading"
 											@click="logingmail"
 										>
-											<v-icon left>mdi-google</v-icon>Entrar
+											<v-icon left>mdi-google</v-icon> {{$t('signin.form.socialbtn')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -72,7 +73,7 @@
 											color="primary"
 											@click="submit"
 										>
-											<v-icon left>mdi-login</v-icon>Acceder
+											<v-icon left>mdi-login</v-icon>{{$t('signin.form.socialbtn')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -84,7 +85,7 @@
 			<v-flex xs12>
 			</v-flex>
 		</v-layout>
-
+		{{user}}--
 	</v-container>
 </template>
 
@@ -105,11 +106,24 @@ export default {
     noclosesesion: false
   }),
   computed: {
+    lang () {
+      return this.$i18n.locale;
+    },
     loading () {
       return this.$store.getters.ui_g_loading;
     },
     valid () {
       return !this.loginform.user || !this.loginform.pass;
+    },
+    user () {
+      return this.$store.getters.user_g_user;
+    }
+  },
+  watch: {
+    user (value) {
+      if (value != false) {
+        this.$router.push('/' + this.lang + '/system/dashboard');
+      }
     }
   },
   methods: {

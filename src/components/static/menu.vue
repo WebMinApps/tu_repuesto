@@ -13,7 +13,7 @@
 			</template>
 			<template v-if="$vuetify.breakpoint.smAndUp">
 				<v-btn
-					to="/"
+					:to="`/${$i18n.locale}/home`"
 					text
 					class="text--capital"
 				>
@@ -21,7 +21,7 @@
 				</v-btn>
 				<template v-if="login">
 					<v-btn
-						to="/system"
+						:to="`/${$i18n.locale}/system/dashboard`"
 						text
 						class="text--capital"
 					>
@@ -43,19 +43,19 @@
 						class="text--capital"
 						@click="logout"
 					>
-						<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-logout</v-icon> <span class="d-none d-md-flex">Salir</span>
+						<v-icon :left="$vuetify.breakpoint.mdAndUp">mdi-logout</v-icon> <span class="d-none d-md-flex">{{$t('mainmenu.logout')}}</span>
 					</v-btn>
 				</template>
 				<template v-else>
 					<v-btn
-						to="/signin"
+						:to="`/${$i18n.locale}/signin`"
 						text
 						class="text--capital"
 					>
 						<v-icon :left="!$vuetify.breakpoint.mdAndUp">mdi-login</v-icon> <span class="d-none d-md-flex">{{$t('mainmenu.signin')}}</span>
 					</v-btn>
 					<v-btn
-						to="/signup"
+						:to="`/${$i18n.locale}/signup`"
 						text
 						class="text--capital"
 					>
@@ -79,7 +79,7 @@
 						</v-btn>
 					</template>
 					<v-list :dark="dark">
-						<v-list-item to="/">
+						<v-list-item :to="`/${$i18n.locale}/home`">
 							<v-list-item-avatar>
 								<v-icon>mdi-home</v-icon>
 							</v-list-item-avatar>
@@ -106,17 +106,17 @@
 								<v-list-item-avatar>
 									<v-icon>mdi-logout</v-icon>
 								</v-list-item-avatar>
-								<v-list-item-title>Salir</v-list-item-title>
+								<v-list-item-title>logout</v-list-item-title>
 							</v-list-item>
 						</template>
 						<template v-else>
-							<v-list-item to="/signin">
+							<v-list-item :to="`/${$i18n.locale}/signin`">
 								<v-list-item-avatar>
 									<v-icon>mdi-login</v-icon>
 								</v-list-item-avatar>
 								<v-list-item-title>{{$t('mainmenu.signin')}}</v-list-item-title>
 							</v-list-item>
-							<v-list-item to="/signup">
+							<v-list-item :to="`/${$i18n.locale}/signup`">
 								<v-list-item-avatar>
 									<v-icon right>mdi-account-check</v-icon>
 								</v-list-item-avatar>

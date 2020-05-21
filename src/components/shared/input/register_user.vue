@@ -16,8 +16,8 @@
 						:color="(pasos > 1) ? 'success ' : 'primary'"
 					>
 						<center>
-							Compras o Vendes?<br>
-							<small v-if="pasos > 1">({{userdata.level ? 'Vender' : 'Comprar'}})</small>
+							{{$t('signup.form.list.buyorsell.item')}}<br>
+							<small v-if="pasos > 1">{{userdata.level ? 'Vender' : 'Comprar'}}</small>
 						</center>
 					</v-stepper-step>
 					<v-divider></v-divider>
@@ -27,8 +27,8 @@
 						:color="(pasos > 2) ? 'success ' : 'primary'"
 					>
 						<center>
-							Registro<br>
-							<small v-if="pasos > 2">Completo</small>
+							{{$t('signup.form.list.register.item')}}<br>
+							<small v-if="pasos > 2">{{$t('signup.form.complete')}}</small>
 						</center>
 					</v-stepper-step>
 					<v-divider></v-divider>
@@ -39,7 +39,7 @@
 					>
 						<center>
 							Condiciones<br>
-							<small v-if="pasos > 3">Completo</small>
+							<small v-if="pasos > 3">{{$t('signup.form.complete')}}</small>
 						</center>
 					</v-stepper-step>
 				</v-stepper-header>
@@ -62,7 +62,7 @@
 						step="2"
 						:color="(pasos > 2) ? 'success' : 'primary'"
 					>
-						<center>Registro<small v-if="pasos > 2"><br>(Completo)</small></center>
+						<center> {{$t('signup.form.list.register.item')}}<small v-if="pasos > 2"><br>{{$t('signup.form.complete')}}</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -70,7 +70,7 @@
 						step="3"
 						:color="(pasos > 3) ? 'success' : 'primary'"
 					>
-						<center>Empresa<small v-if="pasos > 3"><br>(Completo)</small></center>
+						<center>Empresa<small v-if="pasos > 3"><br>{{$t('signup.form.complete')}}</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -80,7 +80,7 @@
 					>
 						<center>
 							Perfil
-							<small v-if="pasos > 4"><br>(Completo)</small></center>
+							<small v-if="pasos > 4"><br>{{$t('signup.form.complete')}}</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -88,8 +88,8 @@
 						step="5"
 						:color="(pasos > 5) ? 'success' : 'primary'"
 					>
-						<center>Condiciones
-							<small v-if="pasos > 5"><br>(Completo)</small></center>
+						<center> {{$('signup.form.')}}
+							<small v-if="pasos > 5"><br>.</small></center>
 					</v-stepper-step>
 				</v-stepper-header>
 				<!-- Secciones de la pagina -->
@@ -174,7 +174,8 @@
 											<v-icon
 												left
 												small
-											>mdi-arrow-left-bold</v-icon>Anterior
+											>mdi-arrow-left-bold</v-icon>
+											{{$t('signup.form.prev')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -185,7 +186,7 @@
 											:disabled="proxpaso"
 											@click="nextStep"
 										>
-											Siguiente
+											{{$t('signup.form.next')}}
 											<v-icon
 												right
 												small
@@ -228,7 +229,8 @@
 											<v-icon
 												left
 												small
-											>mdi-arrow-left-bold</v-icon>Anterior
+											>mdi-arrow-left-bold</v-icon>
+											{{$t('signup.form.next')}}
 										</v-btn>
 									</center>
 								</v-flex>

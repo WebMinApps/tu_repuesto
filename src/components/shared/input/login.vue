@@ -6,7 +6,7 @@
 					v-model="login.user"
 					:disabled="disabled ? true : false"
 					prepend-icon="mdi-account"
-					label="E-Mail"
+					:label="$t('signin.form.user')"
 					:append-icon="'mdi-account-box-multiple'"
 					:rules="userRules"
 					@click:append="togglecontacts"
@@ -19,7 +19,7 @@
 					:disabled="disabled ? true : false"
 					prepend-icon="mdi-lock"
 					:type="ptype"
-					label="Contraseña"
+					:label="$t('signin.form.pass')"
 					:rules="passwordRules"
 					:append-icon="picon"
 					@click:append="togglepass"
@@ -45,7 +45,7 @@
 						<v-checkbox
 							v-model="login.remember"
 							style="margin:0;padding:0;"
-							label="Recordarme"
+							:label="$t('signin.form.remember')"
 						></v-checkbox>
 					</v-flex>
 				</v-layout>
@@ -59,7 +59,7 @@
 		>
 			<app-panel>
 				<template slot="title">
-					<v-icon left>mdi-account</v-icon>Cuentas
+					<v-icon left>mdi-account</v-icon>{{$t('signin.accounts.window')}}
 				</template>
 				<template slot="buttons">
 					<v-btn
@@ -86,7 +86,7 @@
 							</v-list-item-avatar>
 							<v-list-item-content>
 								<v-list-item-title v-html="item.user"></v-list-item-title>
-								<v-list-item-subtitle v-html="'Ultimo acceso: ' + item.access"></v-list-item-subtitle>
+								<v-list-item-subtitle v-html=" $t('signin.accounts.last') + item.access"></v-list-item-subtitle>
 							</v-list-item-content>
 							<v-list-item-action>
 								<v-btn
@@ -108,7 +108,7 @@
 					</template>
 				</v-list>
 				<v-flex v-else>
-					<center>No hay Contactos recordados</center>
+					<center>{{$t('signin.accounts.empty')}}</center>
 				</v-flex>
 			</app-panel>
 		</v-dialog>

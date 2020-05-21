@@ -19,34 +19,40 @@
 			</v-toolbar-title>
 		</v-toolbar>
 		<v-list>
+
+			<!-- Menu Mini -->
 			<template v-for="m in menu">
 				<app-tooltip
 					v-if="mini"
 					:key="'tooltip' + m.name"
 					:value="mini"
 					right
-					:tooltip="m.name"
+					:tooltip="`${$t(m.name)}`"
 				>
 					<v-list-item
 						:key="m.name"
-						:to="m.url"
+						:to="`/${$i18n.locale}${m.url}`"
 					>
 						<v-list-item-avatar>
 							<v-icon v-text="m.icon" />
 						</v-list-item-avatar>
-						<v-list-item-title v-text="m.name" />
+						<v-list-item-title v-text="`${$t(m.name)}`" />
 					</v-list-item>
 				</app-tooltip>
+				<!-- Fin Menu Mini -->
+
+				<!-- Menu Normal -->
 				<v-list-item
 					v-else
 					:key="m.name"
-					:to="m.url"
+					:to="`/${$i18n.locale}${m.url}`"
 				>
 					<v-list-item-avatar>
 						<v-icon v-text="m.icon" />
 					</v-list-item-avatar>
-					<v-list-item-title v-text="m.name" />
+					<v-list-item-title v-text="`${$t(m.name)}`" />
 				</v-list-item>
+				<!-- Fin Menu Normal -->
 			</template>
 			<v-list-item @click="mini = !mini">
 				<v-list-item-title>
@@ -69,12 +75,12 @@ export default {
     fixed: false,
     menu: [
       {
-        name: 'Resumen',
+        name: 'sysmenu.dashboard',
         icon: 'mdi-view-dashboard',
         url: '/system/dashboard'
       },
       {
-        name: 'Usuarios',
+        name: 'sysmenu.users',
         icon: 'mdi-account-group',
         url: '/system/users'
       }

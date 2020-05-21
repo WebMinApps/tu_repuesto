@@ -1,7 +1,7 @@
 <template>
 	<span>
 		<slot
-			v-if="onoff"
+			v-if="bool"
 			name="on"
 		></slot>
 		<slot
@@ -19,7 +19,8 @@ export default {
     value: { default: 0 }, // Valor asignado en declaracion
     interval: { type: String, defaul: 1000 }, // Velocidad en milesimas de segundo del contador
     max: { type: String, required: false, default: '0' }, // Valor maximo antes de reiniciar el contador [0 = sin limite]
-    min: { type: String, required: false, default: '0' } // valor minimo de reinicio del contador
+    min: { type: String, required: false, default: '0' }, // valor minimo de reinicio del contador
+    bool: { type: Boolean, required: false } // Alternar entre switch y contador
   },
   data: () => ({
     num: 0, // Contador

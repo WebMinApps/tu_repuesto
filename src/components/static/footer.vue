@@ -7,7 +7,10 @@
 			<v-flex
 				xs12
 				sm4
-			/>
+			>
+				<lang-switch></lang-switch>
+			</v-flex>
+
 			<v-flex
 				xs12
 				sm4
@@ -58,7 +61,12 @@
 </template>
 
 <script>
+import langSwitch from '@/components/static/langSwitch.vue';
+
 export default {
+  components: {
+    langSwitch
+  },
   data: () => ({
     social: [
       {

@@ -189,6 +189,9 @@ export default {
     parallax: true
   }),
   computed: {
+    lang () {
+      return this.$i18n.locale;
+    },
     message () {
       return this.$store.getters.ui_g_message;
     },
@@ -242,14 +245,14 @@ export default {
   watch: {},
   methods: {
     tosignup () {
-      this.$router.push('/signup');
+      this.$router.push('/' + this.lang + '/signup');
     },
     tosignin () {
-      this.$router.push('/signin');
+      this.$router.push('/' + this.lang + '/signin');
     },
     gotoasked () {
       this.asksended = false;
-      this.$router.push('/system/asked');
+      this.$router.push('/' + this.lang + '/system/asked');
     },
     submit () {
       if (this.user.ID) {

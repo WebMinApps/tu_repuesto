@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 export default {
   // Nombre del Token
   token: 'token',
+  // Token lang
+  langtoken: 'lang',
   // Salt de encriptacion
   salt: 'Cpvz13A1otc',
   //  Constante para final de las URL y forzar formato json
@@ -20,6 +22,21 @@ export default {
   getToken () { return sessionStorage.getItem(this.token); },
   // Eliminar el Token
   delToken () { return sessionStorage.removeItem(this.token); },
+  // set load lang token
+  langToken (value) {
+    let langtoken = '';
+    if (value) {
+      sessionStorage.setItem(this.langtoken, value);
+      langtoken = value;
+    } else {
+      langtoken = sessionStorage.getItem(this.langtoken);
+      if (!langtoken) {
+        sessionStorage.setItem(this.langtoken, 'es');
+        langtoken = 'es';
+      }
+    }
+    return langtoken;
+  },
   // Verificar el Token
   verify (Token) { return jwt.verify(Token, this.salt); },
   // Creamos el objeto options para las consultas al api con autorizacion

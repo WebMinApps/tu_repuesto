@@ -1,8 +1,80 @@
 {
+    "lang": "Language:",
     "mainmenu": {
-        "home": "Inicio",
-        "sigin": "Ingresa",
-        "signup": "Registrate"
+        "home": "Home",
+        "signin": "Sign In",
+        "signup": "Sign Up",
+        "logout": "Log Out"
     },
-    "message": "hello i18n !!"
+    "sysmenu": {
+        "dashboard": "Dashboard",
+        "users": "Users",
+        "brands": "Brands",
+        "models": "Models",
+        "parts": "Parts",
+        "subparts": "Subparts",
+        "profile": "Profile"
+    },
+    "items": {
+        "user": "Usuario",
+        "brands": "Marcas",
+        "models": "Modelos",
+        "parts": "Partes",
+        "subparts": "Subpartes",
+        "photo": "Foto",
+        "detailsandconditions": "Detalles y Condiciones"
+    },
+    "home": {
+        "title": "Home",
+        "searchform": {
+            "slogan": "Encuentra el Repuesto que buscas.",
+            "submit": "Consultar"
+        }
+    },
+    "signin": {
+        "title": "Sign In",
+        "form": {
+            "window": "Sign In",
+            "user": "E-Mail",
+            "pass": "Password",
+            "remember": "Remember Me",
+            "socialbtn": "Login",
+            "passforgot": "Password Forgot?",
+            "submit": "Signin"
+        },
+        "accounts": {
+            "window": "Accounts",
+            "empty": "No User Accounts Stored",
+            "last": "Last Access:"
+        }
+    },
+    "signup": {
+        "title": "Registrate",
+        "form": {
+            "window": "Registro",
+            "list": {
+                "buyorsell": {
+                    "item": "Buy or Sell?",
+                    "form": {}
+                },
+                "register": {
+                    "item": "Register",
+                    "form": {}
+                },
+                "userterms": {
+                    "item": "Terms and Conditions",
+                    "form": {}
+                }
+            },
+            "complete": "(Complete)",
+            "prev": "Anterior",
+            "next": "Siguiente"
+        }
+    },
+    "dashboard": {
+        "title": "System"
+    },
+    "users": {
+        "title": "Usuarios"
+    }
 }

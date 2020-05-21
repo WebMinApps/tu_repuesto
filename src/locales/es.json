@@ -1,8 +1,84 @@
 {
+    "lang": "Idioma:",
     "mainmenu": {
-        "home": "Home",
-        "signin": "Sign In",
-        "signup": "Sign Up"
+        "home": "Inicio",
+        "signin": "Ingresa",
+        "signup": "Registrate",
+        "logout": "Salir"
     },
-    "message": "hello i18n !!"
+    "sysmenu": {
+        "dashboard": "Principal",
+        "users": "Usuarios",
+        "brands": "Marcas",
+        "models": "Modelos",
+        "parts": "Partes",
+        "subparts": "Subpartes",
+        "profile": "Perfil"
+    },
+    "items": {
+        "user": "Usuario",
+        "brands": "Marcas",
+        "models": "Modelos",
+        "parts": "Partes",
+        "subparts": "Subpartes",
+        "photo": "Foto",
+        "detailsandconditions": "Detalles y Condiciones"
+    },
+    "home": {
+        "title": "Inicio",
+        "searchform": {
+            "slogan": "Encuentra el Repuesto que buscas.",
+            "submit": "Consultar"
+        }
+    },
+    "signin": {
+        "title": "Ingresa",
+        "form": {
+            "window": "Iniciar Sesion",
+            "user": "Correo Electrónico",
+            "pass": "Contraseña",
+            "remember": "Recordarme",
+            "socialbtn": "Entrar",
+            "passforgot": "Olvidaste tu contraseña?",
+            "submit": "Acceder"
+        },
+        "accounts": {
+            "window": "Cuentas",
+            "empty": "No hay Contactos recordados",
+            "last": "Ultimo Acceso:"
+        }
+    },
+    "signup": {
+        "title": "Registrate",
+        "form": {
+            "window": "Registro",
+            "list": {
+                "buyorsell": {
+                    "item": "Comprar o Vender?",
+                    "form": {
+                        "buy": "Comprar",
+                        "sell": "Vender"
+                    }
+                },
+                "register": {
+                    "item": "Registro",
+                    "form": {}
+                },
+                "userterms": {
+                    "item": "Terminos y Condiciones",
+                    "form": {}
+                }
+            },
+            "complete": "(Completo)",
+            "prev": "Anterior",
+            "next": "Siguiente",
+            "thanks": "Gracias por Registrarte!"
+        }
+    },
+    "dashboard": {
+        "title": "Sistema"
+    },
+    "users": {
+        "title": "Usuarios"
+    }
 }
