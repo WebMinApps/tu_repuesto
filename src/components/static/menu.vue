@@ -148,6 +148,9 @@ export default {
       default: () => ([])
     }
   },
+  data: () => ({
+    pic: 0
+  }),
   computed: {
     baseURL () {
       return axios.defaults.baseURL;

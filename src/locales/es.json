@@ -6,6 +6,26 @@
         "signup": "Registrate",
         "logout": "Salir"
     },
+    "notifications": {
+        "recent": {
+            "item": "Recientes",
+            "icon": "mdi-av-timer"
+        },
+        "messages": {
+            "item": "Mensajes",
+            "icon": "mdi-android-messages"
+        },
+        "responses": {
+            "item": "Respuestas",
+            "icon": "mdi-comment-check"
+        },
+        "activity": {
+            "item": "Actividad",
+            "icon": "mdi-account"
+        },
+        "allread": "Marcar todo como leido",
+        "showall": "Mostrar Todo"
+    },
     "sysmenu": {
         "dashboard": "Principal",
         "users": "Usuarios",
@@ -29,7 +49,8 @@
         "searchform": {
             "slogan": "Encuentra el Repuesto que buscas.",
             "submit": "Consultar"
-        }
+        },
+        "brief": {}
     },
     "signin": {
         "title": "Ingresa",

@@ -32,43 +32,20 @@
 						dark
 					>
 						<v-tabs-slider color="orange"></v-tabs-slider>
-
 						<v-tab
-							v-for="(item,i) in items"
+							v-for="(item,i) in notificationoptions"
 							:key="i"
-							:href="`#${item.text}`"
+							:href="`#${item}`"
 						>
-							<v-icon left>{{item.icon}}</v-icon>
-							<span class="d-none d-lg-flex">{{item.text }}</span>
+							<v-icon left>{{$t('notifications.' + item + '.icon')}}</v-icon>
+							<span class="d-none d-lg-flex">{{$t('notifications.' + item + '.item')}}</span>
 						</v-tab>
-						<v-tab-item :value="'Recientes'">
-							<v-card
-								:dark="dark"
-								flat
-								tile
-							>
-								<app-notification-list></app-notification-list>
-							</v-card>
-						</v-tab-item>
-						<v-tab-item :value="'Mensajes'">
-							<v-card
-								:dark="dark"
-								flat
-								tile
-							>
-								<app-notification-list></app-notification-list>
-							</v-card>
-						</v-tab-item>
-						<v-tab-item :value="'Respuestas'">
-							<v-card
-								:dark="dark"
-								flat
-								tile
-							>
-								<app-notification-list></app-notification-list>
-							</v-card>
-						</v-tab-item>
-						<v-tab-item :value="'Actividad'">
+
+						<v-tab-item
+							v-for="(item,i) in notificationoptions"
+							:key="i"
+							:value="`${item}`"
+						>
 							<v-card
 								:dark="dark"
 								flat
@@ -87,18 +64,24 @@
 						class="lowercaseclass"
 						text
 						x-small
-					>Marcar todo como leido</v-btn>
+					>{{$t('notifications.allread')}}</v-btn>
 					<v-spacer></v-spacer>
 					<v-btn
 						class="lowercaseclass"
 						text
 						x-small
-					>Mostrar Todo</v-btn>
+					>{{$t('notifications.showall')}}</v-btn>
 					<v-spacer></v-spacer>
 
 				</v-card-actions>
 			</v-card>
 		</v-menu>
+		<app-alt
+			v-model="nmsg"
+			min="0"
+			max="1"
+			:interval="interval"
+		></app-alt>
 	</span>
 </template>
 
@@ -119,32 +102,36 @@ export default {
     }
   },
   data: () => ({
-    items: [
-      { text: 'Recientes', icon: 'mdi-av-timer', color: 'blue' },
-      { text: 'Mensajes', icon: 'mdi-android-messages', color: '' },
-      { text: 'Respuestas', icon: 'mdi-comment-check', color: '' },
-      { text: 'Actividad', icon: 'mdi-account', color: '' }
-    ],
+    nmsg: 0,
     menu: false,
-    tab: 'Recientes',
-    text: 'hola',
-    unread: true
+    tab: 'recent',
+    unread: true,
+    interval: '6000'
   }),
   computed: {
+    notificationoptions () {
+      return ['recent', 'messages', 'responses', 'activity'];
+    },
     recents () {
       return [];
     },
     messages () {
       return [];
     },
-
-
   },
-  watch: {},
+  watch: {
+    nmsg () {
+      this.loadmessages();
+    },
+  },
   created () {
-
   },
-  methods: {}
+  methods: {
+    loadmessages () {
+      // eslint-disable-next-line no-console
+      console.log('load messages');
+    }
+  }
 };
 </script>
 

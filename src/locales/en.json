@@ -6,6 +6,26 @@
         "signup": "Sign Up",
         "logout": "Log Out"
     },
+    "notifications": {
+        "recent": {
+            "item": "Recents",
+            "icon": "mdi-av-timer"
+        },
+        "messages": {
+            "item": "Messages",
+            "icon": "mdi-android-messages"
+        },
+        "responses": {
+            "item": "Responses",
+            "icon": "mdi-comment-check"
+        },
+        "activity": {
+            "item": "Activity",
+            "icon": "mdi-account"
+        },
+        "allread": "Mark all as Read",
+        "showall": "Show All"
+    },
     "sysmenu": {
         "dashboard": "Dashboard",
         "users": "Users",
@@ -16,20 +36,21 @@
         "profile": "Profile"
     },
     "items": {
-        "user": "Usuario",
-        "brands": "Marcas",
-        "models": "Modelos",
-        "parts": "Partes",
-        "subparts": "Subpartes",
-        "photo": "Foto",
-        "detailsandconditions": "Detalles y Condiciones"
+        "user": "Users",
+        "brands": "Brands",
+        "models": "Models",
+        "parts": "Parts",
+        "subparts": "Subparts",
+        "photo": "Photo",
+        "detailsandconditions": "Details and Conditions"
     },
     "home": {
         "title": "Home",
         "searchform": {
             "slogan": "Encuentra el Repuesto que buscas.",
             "submit": "Consultar"
-        }
+        },
+        "brief": {}
     },
     "signin": {
         "title": "Sign In",
@@ -55,7 +76,10 @@
             "list": {
                 "buyorsell": {
                     "item": "Buy or Sell?",
-                    "form": {}
+                    "form": {
+                        "buy": "Comprar",
+                        "sell": "Vender"
+                    }
                 },
                 "register": {
                     "item": "Register",
@@ -67,14 +91,15 @@
                 }
             },
             "complete": "(Complete)",
-            "prev": "Anterior",
-            "next": "Siguiente"
+            "prev": "Previous",
+            "next": "Next",
+            "thanks": "Thank You for Registering!"
         }
     },
     "dashboard": {
         "title": "System"
     },
     "users": {
-        "title": "Usuarios"
+        "title": "Users"
     }
 }

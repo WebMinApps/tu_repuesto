@@ -26,9 +26,5 @@ export default {
     'app-notification-content': content,
     'app-notification-action-bottom': bottom
   }
-
 };
 </script>
-
-<style>
-</style>

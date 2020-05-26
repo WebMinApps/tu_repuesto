@@ -1,8 +1,5 @@
 <template>
-	<v-container
-		grid-list-md
-		app
-	>
+	<v-container>
 		<v-layout
 			row
 			nowrap

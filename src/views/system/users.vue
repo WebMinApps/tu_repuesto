@@ -23,7 +23,7 @@
 			v-model="dialog"
 			width="800"
 		>
-			<app-panel height="500">
+			<app-panel height="600">
 				<template slot="title">
 					<v-icon left>mdi-account</v-icon>{{actionname}} Usuario
 				</template>
@@ -36,61 +36,69 @@
 					</v-btn>
 				</template>
 				<template>
-					<!-- Solo ver Datos de usuario -->
-					<span v-if="action === 1">
-						<app-show-user v-model="user"></app-show-user>
-					</span>
-					<!-- Ver Formuario de creacion o edicion de usuarios -->
-					<v-tabs
-						v-if="action === 0 || action === 2"
-						v-model="tabs"
-						dark
-						grow
+					<v-card
+						flat
+						:dark="darkness"
+						tile
 					>
-						<v-tabs-slider color="orange"></v-tabs-slider>
-						<!-- Tabs names -->
-						<v-tab href="#user">Usuario</v-tab>
-						<v-tab
-							v-if="profileuser"
-							href="#seller"
-						>Tienda</v-tab>
-						<v-tab
-							v-if="profileuser"
-							href="#profile"
-						>Perfil</v-tab>
-						<!-- Tabs Content -->
-						<v-tab-item
-							value="user"
+						<!-- Solo ver Datos de usuario -->
+						<span v-if="action === 1">
+							<app-show-user v-model="user"></app-show-user>
+						</span>
+						<!-- Ver Formuario de creacion o edicion de usuarios -->
+						<v-tabs
+							v-if="action === 0 || action === 2"
+							v-model="tabs"
 							dark
+							grow
 						>
-							<v-card
-								:dark="darkness"
-								tile
+							<v-tabs-slider color="orange"></v-tabs-slider>
+							<!-- Tabs names -->
+							<v-tab href="#user">Usuario</v-tab>
+							<v-tab
+								v-if="profileuser"
+								href="#seller"
+							>Tienda</v-tab>
+							<v-tab
+								v-if="profileuser"
+								href="#profile"
+							>Perfil</v-tab>
+							<!-- Tabs Content -->
+
+							<v-tab-item
+								value="user"
+								dark
 							>
-								<app-user-form
-									v-model="user"
-									showlevel
-								></app-user-form>
-							</v-card>
-						</v-tab-item>
-						<v-tab-item
-							value="seller"
-							dark
-						>
-							<v-card
-								:dark="darkness"
-								tile
+
+								<v-card-text>
+									<v-container style="padding:10px 25px">
+										<v-layout>
+											<v-flex>
+												<app-user-form
+													v-model="user"
+													showlevel
+												/>
+											</v-flex>
+										</v-layout>
+									</v-container>
+
+							</v-tab-item>
+							<v-tab-item
+								value="seller"
+								dark
 							>
-								<app-user-seller v-model="seller"></app-user-seller>
-							</v-card>
-						</v-tab-item>
-						<v-tab-item
-							value="profile"
-							dark
-						>
-							<v-card
-								:dark="darkness"
-								tile
+
+								<v-container style="padding:0 15px">
+									<v-layout>
+										<v-flex>
+											<app-user-seller v-model="seller" />
+										</v-flex>
+									</v-layout>
+								</v-container>
+							</v-tab-item>
+							<v-tab-item
+								value="profile"
+								dark
 							>
 								<v-tabs
 									v-model="ptabs"
@@ -127,20 +135,29 @@
 											tile
 											:dark="darkness"
 										>
-											<app-user-profile-parts v-model="profile"></app-user-profile-parts>
+
+											<app-user-profile-parts v-model="profile" />
+
 										</v-card>
 									</v-tab-item>
 								</v-tabs>
-							</v-card>
-						</v-tab-item>
-					</v-tabs>
-					<!-- Eliminar usuario -->
-					<span v-if="action === 3">
-						<h2>Confirma que desea eliminar el siguiente Usuario?</h2>
-						<br><br>
-						{{user.name}} {{user.last}}<br>
-						{{user.email}}
-					</span>
+
+							</v-tab-item>
+
+						</v-tabs>
+						<!-- Eliminar usuario -->
+						<span v-if="action === 3">
+							<h2>Confirma que desea eliminar el siguiente Usuario?</h2>
+							<br><br>
+							{{user.name}} {{user.last}}<br>
+							{{user.email}}
+						</span>
+
+						<v-card-actions>
+							<v-btn>No</v-btn>
+							<v-btn>SI</v-btn>
+						</v-card-actions>
+					</v-card>
 				</template>
 			</app-panel>
 		</v-dialog>
@@ -151,7 +168,7 @@
 		>
 			<template v-slot:item.image="{item}">
 				<v-avatar
-					:color="'white'"
+					color="white"
 					style="border:1px solid #000 !important; margin:3px;"
 				>
 					<v-img
