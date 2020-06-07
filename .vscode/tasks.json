@@ -12,22 +12,6 @@
         },
         {
             "type": "npm",
-            "script": "build",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$go"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "i18n:report",
-            "problemMatcher": []
-        },
-        {
-            "type": "npm",
             "script": "lint",
             "problemMatcher": [
                 "$go"
