@@ -6,6 +6,32 @@
         "signup": "Registrate",
         "logout": "Salir"
     },
+    "forms": {
+        "submit": {
+            "ok": "Aceptar",
+            "cancel": "Cancelar",
+            "search": "Consultar"
+        },
+        "terms": {
+            "brands": "Marcas",
+            "parts": "Partes",
+            "subparts": "Subpartes",
+            "models": "Modelos",
+            "details": "Detalles y condiciones",
+            "all": "Todos",
+            "create": "Crear",
+            "add": "Añadir",
+            "edit": "Editar",
+            "del": "Eliiminar",
+            "name": "Nombre",
+            "last": "Apellido",
+            "year": "Año",
+            "search": "Buscar",
+            "photo": "Foto",
+            "optional": "Opcional",
+            "set": "Colocar"
+        }
+    },
     "notifications": {
         "recent": {
             "item": "Recientes",
@@ -78,22 +104,43 @@
                     "item": "Comprar o Vender?",
                     "form": {
                         "buy": "Comprar",
-                        "sell": "Vender"
+                        "sell": "Vender",
+                        "do": "¿Que desea Hacer?"
                     }
                 },
                 "register": {
                     "item": "Registro",
-                    "form": {}
+                    "form": {
+                        "data": "Datos personales"
+                    }
+                },
+                "company": {
+                    "item": "Company",
+                    "form": {
+                        "data": "Datos de Empresa"
+                    }
+                },
+                "userprofile": {
+                    "item": "Perfil",
+                    "form": {
+                        "data1": "Perfil de Vendedor",
+                        "data2": "Selecciona las marcas en las que vendes repuestos",
+                        "data3": "Sera notificado por todos los tipos de partes que elijas.",
+                        "data4": "Debes seleccionar las partes que vendes"
+                    }
                 },
                 "userterms": {
-                    "item": "Terminos y Condiciones",
-                    "form": {}
+                    "item": "Condiciones",
+                    "form": {
+                        "data": "Terms & Conditions"
+                    }
                 }
             },
             "complete": "(Completo)",
             "prev": "Anterior",
             "next": "Siguiente",
-            "thanks": "Gracias por Registrarte!"
+            "all": "[Todos]",
+            "thanks": "¡Gracias por Registrarte!"
         }
     },
     "dashboard": {

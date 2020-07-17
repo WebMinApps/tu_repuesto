@@ -15,7 +15,7 @@
 				<v-checkbox
 					v-model="profile"
 					:dark="dark"
-					:label="'[Todos]'"
+					:label="$t('forms.all')"
 					:value="'000000000000000000000000000000'"
 				></v-checkbox>
 			</v-flex>

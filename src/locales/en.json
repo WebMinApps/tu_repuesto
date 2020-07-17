@@ -6,6 +6,33 @@
         "signup": "Sign Up",
         "logout": "Log Out"
     },
+    "forms": {
+        "submit": {
+            "ok": "Ok",
+            "cancel": "Cancel",
+            "search": "Search"
+        },
+        "terms": {
+            "brands": "Brands",
+            "parts": "Parts",
+            "subparts": "Subparts",
+            "models": "Models",
+            "details": "Details and conditions",
+            "all": "All",
+            "create": "Create",
+            "add": "Add",
+            "edit": "Edit",
+            "del": "Delete",
+            "name": "Name",
+            "last": "Last",
+            "year": "Year",
+            "search": "Search",
+            "photo": "Photo",
+            "optional": "Optional",
+            "set": "Set"
+        }
+    },
+    "error": {},
     "notifications": {
         "recent": {
             "item": "Recents",
@@ -77,23 +104,44 @@
                 "buyorsell": {
                     "item": "Buy or Sell?",
                     "form": {
-                        "buy": "Comprar",
-                        "sell": "Vender"
+                        "buy": "Buy",
+                        "sell": "Sell",
+                        "do": "¿What do you want?"
                     }
                 },
                 "register": {
                     "item": "Register",
-                    "form": {}
+                    "form": {
+                        "data": "Personal Data"
+                    }
+                },
+                "company": {
+                    "item": "Company",
+                    "form": {
+                        "data": "Company Data"
+                    }
+                },
+                "userprofile": {
+                    "item": "Profile",
+                    "form": {
+                        "data1": "Seller Profile",
+                        "data2": "Select the brands in which you sell spare parts",
+                        "data3": "You will be notified by all types of parts you choose to sell",
+                        "data4": "You must select the type of parts you sell"
+                    }
                 },
                 "userterms": {
-                    "item": "Terms and Conditions",
-                    "form": {}
+                    "item": "Conditions",
+                    "form": {
+                        "data": "Terms & Conditions"
+                    }
                 }
             },
             "complete": "(Complete)",
             "prev": "Previous",
             "next": "Next",
-            "thanks": "Thank You for Registering!"
+            "all": "[Select All]",
+            "thanks": "¡Thank You for Registering!"
         }
     },
     "dashboard": {

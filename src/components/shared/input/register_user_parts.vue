@@ -33,7 +33,7 @@
 								>
 									<v-checkbox
 										v-model="selparts"
-										label="[Todos]"
+										:label="$t('forms.all')"
 										:value="item.value"
 									></v-checkbox>
 								</app-tooltip>

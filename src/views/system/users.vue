@@ -70,7 +70,6 @@
 								value="user"
 								dark
 							>
-
 								<v-card-text>
 									<v-container style="padding:10px 25px">
 										<v-layout>
@@ -82,8 +81,7 @@
 											</v-flex>
 										</v-layout>
 									</v-container>
-</v-card-text>
-
+								</v-card-text>
 							</v-tab-item>
 							<v-tab-item
 								value="seller"
@@ -309,7 +307,7 @@ export default {
       }
     }
   },
-  created () {},
+  created () { },
   methods: {
     submit () {
       switch (this.action) {

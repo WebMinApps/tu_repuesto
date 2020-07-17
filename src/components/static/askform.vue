@@ -39,7 +39,8 @@
 										class="primary"
 										type="submit"
 									>
-										<v-icon left>mdi-comment-search</v-icon>Consultar
+										<v-icon left>mdi-comment-search</v-icon>
+										{{$t('forms.submit.search')}}
 									</v-btn>
 								</center>
 							</form>

@@ -17,7 +17,7 @@
 					>
 						<center>
 							{{$t('signup.form.list.buyorsell.item')}}<br>
-							<small v-if="pasos > 1">{{userdata.level ? 'Vender' : 'Comprar'}}</small>
+							<small v-if="pasos > 1">{{userdata.level ? $t('signup.form.list.buyorsell.form.sell') : $t('signup.form.list.buyorsell.form.buy')}}</small>
 						</center>
 					</v-stepper-step>
 					<v-divider></v-divider>
@@ -38,7 +38,7 @@
 						:color="(pasos > 3) ? 'success ' : 'primary'"
 					>
 						<center>
-							Condiciones<br>
+							{{$t('signup.form.list.userterms.item')}}<br>
 							<small v-if="pasos > 3">{{$t('signup.form.complete')}}</small>
 						</center>
 					</v-stepper-step>
@@ -53,7 +53,7 @@
 						:color="(pasos > 1) ? 'success' : 'primary'"
 					>
 						<center>
-							Compras o Vendes?
+							{{$t('signup.form.list.buyorsell.item')}}
 							<small v-if="pasos > 1"><br>({{userdata.level ? 'Vender' : 'Comprar'}})</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
@@ -70,7 +70,7 @@
 						step="3"
 						:color="(pasos > 3) ? 'success' : 'primary'"
 					>
-						<center>Empresa<small v-if="pasos > 3"><br>{{$t('signup.form.complete')}}</small></center>
+						<center>{{$t('signup.form.list.company.item')}}<small v-if="pasos > 3"><br>{{$t('signup.form.complete')}}</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
 					<v-stepper-step
@@ -79,7 +79,7 @@
 						:color="(pasos > 4) ? 'success' : 'primary'"
 					>
 						<center>
-							Perfil
+							{{$t('signup.form.list.userprofile.item')}}
 							<small v-if="pasos > 4"><br>{{$t('signup.form.complete')}}</small></center>
 					</v-stepper-step>
 					<v-divider></v-divider>
@@ -88,7 +88,7 @@
 						step="5"
 						:color="(pasos > 5) ? 'success' : 'primary'"
 					>
-						<center> {{$('signup.form.')}}
+						<center> {{$t('signup.form.list.userterms.item')}}
 							<small v-if="pasos > 5"><br>.</small></center>
 					</v-stepper-step>
 				</v-stepper-header>
@@ -99,7 +99,7 @@
 							<v-layout row>
 								<v-flex xs12>
 									<center>
-										<h1>¿Que deseas hacer?</h1><br><br>
+										<h1>{{$t('signup.form.list.buyorsell.form.do')}}</h1><br><br>
 									</center>
 								</v-flex>
 								<v-flex
@@ -120,7 +120,7 @@
 														<v-icon size="110">mdi-cart</v-icon>
 													</v-flex>
 													<v-flex xs12>
-														<h1>Comprar</h1>
+														<h1>{{$t('signup.form.list.buyorsell.form.buy')}}</h1>
 													</v-flex>
 												</v-layout>
 											</v-container>
@@ -145,7 +145,7 @@
 														<v-icon size="110">mdi-currency-usd</v-icon>
 													</v-flex>
 													<v-flex xs12>
-														<h1>Vender</h1>
+														<h1>{{$t('signup.form.list.buyorsell.form.sell')}}</h1>
 													</v-flex>
 												</v-layout>
 											</v-container>
@@ -164,7 +164,7 @@
 							<v-layout row>
 								<v-flex xs12>
 									<center>
-										<h3>Datos personales</h3>
+										<h3>{{$t('signup.form.list.register.form.data')}}</h3>
 									</center>
 									<app-register-user-data v-model="userdata"></app-register-user-data>
 								</v-flex>
@@ -276,7 +276,7 @@
 							<v-layout row>
 								<v-flex xs12>
 									<center>
-										<h1>¿Que deseas hacer?</h1><br><br>
+										<h1>{{$t('signup.form.list.buyorsell.form.do')}}</h1><br><br>
 									</center>
 								</v-flex>
 								<v-flex
@@ -299,7 +299,7 @@
 														<v-icon size="110">mdi-cart</v-icon>
 													</v-flex>
 													<v-flex xs12>
-														<h1>Comprar</h1>
+														<h1>{{$t('signup.form.list.buyorsell.form.buy')}}</h1>
 													</v-flex>
 
 												</v-layout>
@@ -326,7 +326,7 @@
 														<v-icon size="110">mdi-currency-usd</v-icon>
 													</v-flex>
 													<v-flex xs12>
-														<h1>Vender</h1>
+														<h1>{{$t('signup.form.list.buyorsell.form.sell')}}</h1>
 													</v-flex>
 												</v-layout>
 											</v-container>
@@ -348,7 +348,7 @@
 							<v-layout row>
 								<v-flex xs12>
 									<center>
-										<h3>Datos personales</h3>
+										<h3>{{$t('signup.form.list.register.form.data')}}</h3>
 									</center>
 									<app-register-user-data v-model="userdata"></app-register-user-data>
 								</v-flex>
@@ -358,7 +358,7 @@
 											<v-icon
 												left
 												small
-											>mdi-arrow-left-bold</v-icon>Anterior
+											>mdi-arrow-left-bold</v-icon>{{$t('signup.form.prev')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -369,7 +369,7 @@
 											:disabled="proxpaso"
 											@click="nextStep"
 										>
-											Siguiente
+											{{$t('signup.form.next')}}
 											<v-icon
 												right
 												small
@@ -395,12 +395,11 @@
 							>
 								<v-flex xs12>
 									<center>
-										<h3>Datos su empresa</h3>
+										<h3>{{$t('signup.form.list.company.form.data')}}</h3>
 									</center>
 								</v-flex>
 								<v-flex xs12>
 									<app-register-user-seller v-model="userdata.seller"></app-register-user-seller>
-									?
 								</v-flex>
 								<v-flex xs6>
 									<center>
@@ -408,7 +407,7 @@
 											<v-icon
 												left
 												small
-											>mdi-arrow-left-bold</v-icon>Anterior
+											>mdi-arrow-left-bold</v-icon> {{$t('signup.form.prev')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -419,7 +418,7 @@
 											:disabled="proxpaso"
 											@click="nextStep"
 										>
-											Siguiente
+											{{$t('signup.form.next')}}
 											<v-icon
 												right
 												small
@@ -439,7 +438,7 @@
 							<v-layout>
 								<v-flex xs12>
 									<center>
-										<h3>Perfil de venta</h3>
+										<h3>{{$t('signup.form.list.userprofile.form.data1')}}</h3>
 									</center>
 								</v-flex>
 							</v-layout><br>
@@ -449,9 +448,9 @@
 									xs12
 								>
 									<center>
-										<h3>Selecciona las marcas en las que vendes repuestos</h3>
+										<h3>{{$t('signup.form.list.userprofile.form.data2')}}</h3>
 										[1/2]
-										<h5>{{infoallparts}}</h5>
+										<h5>{{$t('signup.form.list.userprofile.form.data3')}}</h5>
 									</center>
 								</v-flex>
 								<v-flex
@@ -459,7 +458,7 @@
 									xs12
 								>
 									<center>
-										<h3>{{infospecialparts}}</h3>
+										<h3>{{$t('signup.form.list.userprofile.form.data4')}}</h3>
 										[1/2]
 									</center>
 								</v-flex>
@@ -479,14 +478,14 @@
 								:dark="dark"
 								ripple
 								:style="stylecss"
-							>Marcas</v-tab>
+							>{{$t('forms.brands')}}</v-tab>
 							<v-spacer v-show="showtabs"></v-spacer>
 							<v-tab
 								v-show="showtabs"
 								:style="stylecss"
 								:dark="dark"
 								ripple
-							>Partes</v-tab>
+							>{{$t('forms.terms.parts')}}</v-tab>
 							<v-spacer v-show="showtabs"></v-spacer>
 							<v-tab-item
 								:dark="dark"
@@ -524,7 +523,7 @@
 										<v-icon
 											left
 											small
-										>mdi-arrow-left</v-icon>Anterior
+										>mdi-arrow-left</v-icon> {{$t('signup.form.prev')}}
 									</v-btn>
 								</center>
 							</v-flex>
@@ -537,7 +536,7 @@
 										<v-icon
 											left
 											small
-										>mdi-arrow-left-bold</v-icon>Anterior
+										>mdi-arrow-left-bold</v-icon> {{$t('signup.form.prev')}}
 									</v-btn>
 								</center>
 							</v-flex>
@@ -551,7 +550,7 @@
 										:disabled="!selbrands.length"
 										@click="nextTab"
 									>
-										Siguiente
+										{{$t('signup.form.next')}}
 										<v-icon
 											right
 											small
@@ -569,7 +568,7 @@
 										:disabled="!selbrands.length || !selparts.length"
 										@click="nextStep"
 									>
-										Siguiente
+										{{$t('signup.form.next')}}
 										<v-icon
 											right
 											small
@@ -617,7 +616,7 @@
 											<v-icon
 												left
 												small
-											>fa-arrow-left</v-icon>Anterior
+											>fa-arrow-left</v-icon> {{$t('signup.form.prev')}}
 										</v-btn>
 									</center>
 								</v-flex>
@@ -660,8 +659,6 @@
 <script>
 export default {
   data: () => ({
-    infoallparts: 'Sera notificado por todos los tipos de partes que elijas.',
-    infospecialparts: 'Debes seleccionar las partes que vendes.',
     showtabs: true,
     tabs: 0,
     pasos: 1,

@@ -23,10 +23,9 @@
 					:solo="solo"
 					:outlined="outlined"
 					:loading="loadingf.brands"
-					label="Marca"
-					hint="Marca de vehiculo"
+					:label="$t('forms.terms.brands')"
 					required
-					:rules="[v => !!v || 'Coloca la Marca']"
+					:rules="[v => !!v || $t('forms.tems.brands')]"
 					@click="loadbrands"
 					@input="updateValue(form)"
 				></v-autocomplete>
@@ -48,10 +47,9 @@
 					:dark="dark"
 					:solo="solo"
 					:outlined="outlined"
-					hint="Modelo de vehiculo"
 					:loading="loadingf.models"
-					label="Modelo"
-					:rules="[v => !!v || 'Coloca el Modelo']"
+					:label="$t('forms.terms.models')"
+					:rules="[v => !!v || $t('forms.tems.models')]"
 					required
 					@input="updateValue(form)"
 				></v-autocomplete>
@@ -71,9 +69,8 @@
 					:dark="dark"
 					:solo="solo"
 					:outlined="outlined"
-					label="Año"
-					:rules="[v => !!v || 'Coloca el Año']"
-					hint="Año del vehiculo"
+					:label="$t('forms.terms.year')"
+					:rules="[v => !!v ||  $t('forms.tems.year')]"
 					@input="updateValue(form)"
 				></v-autocomplete>
 			</v-flex>
@@ -94,9 +91,8 @@
 						:solo="solo"
 						:outlined="outlined"
 						:loading="loadingf.parts"
-						label="Partes"
-						hint="Selecciona en el listado la parte"
-						:rules="[v => !!v || 'Coloca la Parte']"
+						:label="$t('forms.terms.parts')"
+						:rules="[v => !!v || $t('forms.tems.parts')]"
 						@input="updateValue(form)"
 					></v-autocomplete>
 				</v-flex>
@@ -117,7 +113,7 @@
 						:solo="solo"
 						:outlined="outlined"
 						:loading="loadingf.sparts"
-						label="Sub-parte"
+						:label="$t('forms.terms.subparts')"
 						hint="Selecciona la Sub-parte del vehiculo"
 						:rules="[v => !!v || 'Coloca la Sub-Parte']"
 						:clearable="clearable"
@@ -140,7 +136,7 @@
 						:outlined="outlined"
 						:clearable="clearable"
 						:loading="loadingf.parts"
-						label="Parte"
+						:label="$t('forms.terms.parts')"
 						hint="Selecciona la parte del vehiculo"
 						:rules="[v => !!v || 'Coloca la Parte']"
 						@input="updateValue(form)"
@@ -175,7 +171,7 @@
 					:readonly="loading"
 					:clearable="clearable"
 					accept="image/*"
-					placeholder="Foto (opcional)"
+					:placeholder="$t('forms.terms.photo') + ' (' + $t('forms.terms.optional') + ')' "
 					:prepend-icon="showicons ? 'mdi-file-image' : ''"
 					:outlined="outlined"
 					:dark="dark"
@@ -197,7 +193,7 @@
 					:dark="dark"
 					:solo="solo"
 					:rules="[v => !!v || 'Rellena este campo']"
-					label="Detalles y condiciones"
+					:label="$t('forms.terms.details')"
 					counter="300"
 				></v-textarea>
 			</v-flex>
